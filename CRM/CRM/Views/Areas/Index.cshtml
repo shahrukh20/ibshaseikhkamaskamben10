@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CustomerManagementSystem.BLL.Models.Area>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Areas Listing</h1>
+<div id="content">
+
+    <div class="box box-danger">
+        <div class="box-header with-border">
+
+
+
+            <div id="content">
+                <div class="addbutton right">
+                    <a href="@Url.Action("Create", "Areas")"> <input type="button" class="btn btn-danger" value="Add Area" /></a>
+
+
+                </div>
+                <div class="form-horizontal">
+                    <table class="table table table-striped">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.AreaName)
+                            </th>
+                            <th>
+                                City Name
+                            </th>
+                            <th>Action</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AreaName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.City.CityName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.AreaId }) |
+
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.AreaId })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

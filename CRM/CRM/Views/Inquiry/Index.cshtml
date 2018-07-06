@@ -1,0 +1,293 @@
+﻿@*@{
+        ViewBag.Title = "LeadAddition";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+<script src="~/js/libs/jquery-2.1.1.min.js"></script>
+<script src="~/js/libs/jquery-ui-1.10.3.min.js"></script>
+
+<link href="~/Content/jsgrid/jsgrid.min.css" rel="stylesheet" />
+<link href="~/Content/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+<link href="~/css/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Content/jsgrid/jsgrid.min.js"></script>
+
+
+<form id="leadForm" action="/Inquiry/Index" method="post" enctype="multipart/form-data" novalidate="novalidate">
+    <div id="content">
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <div class="col-lg-10">
+                    <h2>Inquiry</h2>
+                </div>
+                <div class="col-lg-2">
+                    <h2>
+                        <h2arabic>
+                            مرفقات
+                        </h2arabic>
+                    </h2>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="">
+                    <div class="col-md-10">
+                        <h5>Lead Information</h5>
+                    </div>
+                    <div class="col-md-2">
+                        <h5>
+                            <h5arabic>
+                                سجل جديد الرصاص
+                            </h5arabic>
+                        </h5>
+                    </div>
+
+                </div>
+            </div>
+            @*<div class="form-group">
+                    <div class="col-md-1">
+                        <label class="control-label">Log#:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" id="txtLogNo" name="txtLogNo" class="form-control" />
+                    </div>
+                    <label class="col-md-2">
+                        سجل لا:
+                    </label>
+
+                    <label class="col-md-1">
+                        Date:
+                    </label>
+
+                    <div class="col-md-3">
+                        <input type="text" id="txtDate" name="txtDate" class="form-control datepicker" data-mask="99:99" MaxLength="10" />
+                    </div>
+                    <label class="col-md-2">
+                        تاريخ
+                    </label>
+                </div>*@
+        
+            <div class="form-group">
+
+                <label class="col-md-1">
+                    Budget:
+                </label>
+                <div class="col-md-3">
+                    <input type="number" id="txtbudget" name="txtbudget" class="form-control" data-val="true" data-val-required="The Budget field is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="txtbudget" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-1">
+                    ميزانية
+                </label>
+
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-1">
+                    Name:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtLeadName" name="txtLeadName" class="form-control" data-val="true" data-val-required="The Lead Name field is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="txtLeadName" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2">
+                    اسم الرصاص
+                </label>
+                <label class="col-md-1">
+                    Contact:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtContactPerson" name="txtContactPerson" class="form-control" data-val="true" data-val-required="The Lead Name field is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="txtContactPerson" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2" style="">
+                    الشخص الذي يمكن الاتصال به
+                </label>
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-1">
+                    Property Type:
+                </label>
+                <div class="col-md-3">
+
+                    @Html.DropDownList("PropertyTypeID", (IEnumerable<SelectListItem>)ViewBag.UserType, new { @class = "No-Validate form-control select" })
+                    <span class="field-validation-error text-danger" data-valmsg-for="PropertyType" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2">
+                    ميزانية
+                </label>
+                <label class="col-md-1">
+                    Details:
+                </label>
+                <div class="col-md-3">
+                    <input type="number" id="Details" name="Detail" class="form-control" data-val="true" data-val-required="The Detail is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="Details" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-1">
+                    ميزانية
+                </label>
+
+            </div>
+            <div class="form-group">
+
+                <label class="col-md-1">
+                    Budget:
+                </label>
+                <div class="col-md-3">
+                    <input type="number" id="Budget" name="Budget" class="form-control" data-val="true" data-val-required="The Budget is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="Budget" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2">
+                     ميزانية
+                </label>
+                <label class="col-md-1">
+                    Contact Information:
+                </label>
+                <div class="col-md-3">
+                    <input type="number" id="ContactInformation" name="ContactInformation" class="form-control" data-val="true" data-val-required="The Contact Information is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="ContactInformation" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-1">
+                    ميزانية
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-1">
+                    Designation:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtDesignation" name="txtDesignation" class="form-control" data-val="true" data-val-required="The Designation field is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="txtDesignation" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2">
+                    تعيين
+                </label>
+                <label class="col-md-1 control-label">
+                    Telephone:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtTel" name="txtTel" class="form-control" data-val="true" data-val-required="The Telephone field is required." required />
+                    <span class="field-validation-error text-danger" data-valmsg-for="txtTel" data-valmsg-replace="true"></span>
+                </div>
+                <label class="col-md-2">
+                    هاتف
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-1">
+                    Fax:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtFax" name="txtFax" class="form-control" required />
+                </div>
+                <label class="col-md-2">
+                    فاكس
+                </label>
+                <label class="col-md-1">
+                    Email:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtEmail" name="txtEmail" class="form-control" required />
+                </div>
+                <label class="col-md-2 ">
+                    البريد الإلكتروني
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-1">
+                    Source Of Lead:
+                </label>
+                <div class="col-md-3">
+                    @Html.DropDownList("ddlSourceOfLead", (IEnumerable<SelectListItem>)ViewBag.SourceOfLead, new { @class = "form-control select" })
+                    @*<DropDownList id="" class="form-control"></DropDownList>*@
+                </div>
+                <label class="col-md-2">
+                    مصدر الرصاص
+                </label>
+                <label class="col-md-1">
+                    Source:
+                </label>
+                <div class="col-md-3">
+                    <input type="text" id="txtSource" name="txtSource" class="form-control" required />
+                </div>
+                <label class="col-md-2">
+                    مصدر
+                </label>
+
+            </div>
+            <div class="form-group">
+                <label class="col-md-1">
+                    Remarks:
+                </label>
+                <div class="">
+                    @*<input type="text" ID="txtRemarks" TextMode="MultiLine" Rows="3" class="form-control" />*@
+                    <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9" required></textarea>
+                </div>
+                <label class="col-md-2">
+                    ملاحظات
+                </label>
+
+
+
+            </div>
+
+        </div>
+      
+
+        @*<div class="form-horizontal">
+                <div class="form-group">
+                    @Html.Partial("../LeadPools/_UploadFiles", null)
+                </div>
+            </div>*@
+     
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-offset-10 col-md-3">
+                    <button type="submit" class="btn btn-info btn-lg">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function PostForm() {
+        var str = $("#leadForm").serialize();
+        $.ajax({
+            type: 'POST',
+            url: "/LeadPools/PostForm",
+            data: JSON.stringify({ LeadVMJson: str }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                postFiles();
+                window.location = "/LeadPools/index";
+            },
+            Error: function (data) {
+                //error msg
+            }
+        });
+    }
+    function postFiles() {
+        var str = $("#UploadForm").serialize();
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify({ LeadVMJson: str }),
+            url: "/LeadPools/_UploadFiles",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            async: false,
+            success: function (data) {
+                window.location = "/LeadPools/_UploadFiles";
+            },
+            Error: function (data) {
+            }
+        });
+    }
+    $(function () {
+        $(".datepicker").datepicker();
+    });
+</script>

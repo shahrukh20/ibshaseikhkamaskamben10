@@ -1,0 +1,138 @@
+﻿@model CustomerManagementSystem.BLL.ViewModels.ReportsViewModel.UnAssignedReportsViewModel
+
+@{
+}
+<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
+<script>
+    $.ajax({
+        url: "http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js",
+        dataType: "script",
+        cache: true,
+        success: function () {
+            $.ajax({
+                url: "https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.10/jquery.validate.unobtrusive.js",
+                dataType: "script",
+                cache: true,
+            });
+        }
+    });
+</script>
+
+<form action="/Reports/UnAssignedReports" method="post">
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ManagerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control select No-Validate" id="ManagerId" name="ManagerId" required>
+                    @{
+                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Manager)
+                        {
+                            if (item.Selected)
+                            {
+                                <option value="@item.Value" selected>@item.Text</option>}
+                            else
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    }
+                </select>
+                @*@Html.EditorFor(model => model.ManagerId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.ManagerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SalemanId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control select No-Validate" id="SalemanId" name="SalemanId">
+                    @{
+                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Salesman)
+                        {
+                            if (item.Selected)
+                            {
+                                <option value="@item.Value" selected>@item.Text</option>}
+                            else
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    }
+                </select>
+                @*@Html.EditorFor(model => model.SalemanId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.SalemanId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SalemanCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control select No-Validate" id="SalemanCategoryId" name="SalemanCategoryId">
+                    @{
+                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.SalesmanCategory)
+                        {
+                            if (item.Selected)
+                            {
+                                <option value="@item.Value" selected>@item.Text</option>}
+                            else
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    }
+                </select>
+                @*@Html.EditorFor(model => model.SalemanCategoryId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.SalemanCategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LeadId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control select No-Validate" id="LeadId" name="LeadId">
+                    @{
+                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Leads)
+                        {
+                            if (item.Selected)
+                            {
+                                <option value="@item.Value" selected>@item.Text</option>}
+                            else
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        }
+                    }
+                </select>
+                @*@Html.EditorFor(model => model.LeadId, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.LeadId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Generate" onclick="GenerateReport();" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+  </form>
+
+    <script>
+        function GenerateReport() {
+            if ($("#logoutForm").valid()) {
+                var str = $("#logoutForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "../Reports/UnAssignedLeadLoad",
+                    dataType: "JSON",
+                    data: { str: str },
+                    async: false,
+                    success: function (data) {
+                        var base_url = window.location.origin;
+                        window.open(base_url + '/WebForms/ReportViwer.aspx', '_blank');
+                    },
+                    error: function (dar) { }
+                })
+            }
+        }
+    </script>

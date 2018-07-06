@@ -1,0 +1,177 @@
+﻿@*<script src="~/js/libs/jquery-2.1.1.min.js"></script>
+<script src="~/js/libs/jquery-ui-1.10.3.min.js"></script>
+
+<link href="~/Content/jsgrid/jsgrid.min.css" rel="stylesheet" />
+<link href="~/Content/jsgrid/jsgrid-theme.min.css" rel="stylesheet" />
+<link href="~/css/font-awesome.min.css" rel="stylesheet" />
+<script src="~/Content/jsgrid/jsgrid.min.js"></script>*@
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<form id="indexForm" action="/SourceTypes/Index" method="post">
+    <div id="content">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div id="jsGrid"></div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+
+        var MyDateField = function (config) {
+            jsGrid.Field.call(this, config);
+        };
+
+        MyDateField.prototype = new jsGrid.Field({
+
+            css: "date-field",            // redefine general property 'css'
+            align: "center",              // redefine general property 'align'
+
+            myCustomProperty: "foo",      // custom property
+
+            sorter: function (date1, date2) {
+                return new Date(date1) - new Date(date2);
+            },
+
+            itemTemplate: function (value) {
+
+                return new Date(value).toDateString();
+            },
+
+            filterTemplate: function (value) {
+                return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            insertTemplate: function (value) {
+                if (this.inserting)
+                    return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            editTemplate: function (value) {
+                if (this.inserting)
+                    return this._editPicker = $("<input>").datepicker().datepicker("setDate", new Date(value));
+            },
+
+            insertValue: function () {
+                if (this.inserting)
+                    return this._insertPicker.datepicker("getDate").toISOString();
+            },
+
+            editValue: function () {
+                if (this.inserting)
+                    return this._editPicker.datepicker("getDate").toISOString();
+
+            }
+        });
+
+        jsGrid.fields.date = MyDateField;
+
+
+        var originalFilterTemplate = jsGrid.fields.text.prototype.filterTemplate;
+        jsGrid.fields.text.prototype.filterTemplate = function () {
+            var grid = this._grid;
+            var $result = originalFilterTemplate.call(this);
+            $result.on("keyup", function (e) {
+                // TODO: add proper condition and optionally throttling to avoid too much requests
+                grid.search();
+            });
+            return $result;
+        }
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+            filtering: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            async: false,
+
+            pageSize: 5,
+            pageButtonCount: 5,
+
+            controller: {
+
+                loadData: function (filter) {
+                    var d = $.Deferred();
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "../Campaigns/CampaignAjax",
+                        dataType: "JSON"
+                    }).done(function (result) {
+                        for (var prop in filter) {
+
+                            //if (prop == "Score" && filter['Score'] != null) {
+                            //    result = $.grep(result, function (item) {
+                            //        if (item[prop] == filter[prop]) {
+                            //            return item;
+                            //        }
+                            //    });
+                            //    break;
+                            //}
+                            //if (prop != "Score"){
+                            if (filter[prop].length > 0) {
+                                result = $.grep(result, function (item) {
+                                    var regexp = new RegExp(filter[prop], 'gi');
+                                    if (item[prop].match(regexp)) {
+                                        return item;
+                                    }
+                                });
+                                break;
+                            }
+                            //}
+
+
+
+                        }
+                        d.resolve(result);
+                    });
+                    return d.promise();
+                }
+            },
+            fields: [
+                { name: "Id", title: "Id", type: "number", visible: false, align: 'center' },
+                { name: "Name", title: "Action Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                { name: "Description", title: "Description", type: "text", width: 100, validate: "required", align: 'center', editing: false },
+                { name: "DateFrom", title: "Date From", type: "date", width: 50, validate: "required", align: 'center', editing: false },
+                { name: "DateTo", title: "Date To", type: "date", width: 50, validate: "required", align: 'center', editing: false },
+                {
+                    type: 'control',
+                    align: 'center',
+                    itemTemplate: function (_, item) {
+                        return "<a onclick =\"ReditectToViewSection(" + item.Id + ");\" name='View'>View</a>&nbsp;&nbsp;&nbsp;<a onclick =\"ReditectToEditSection(" + item.Id + ");\" name='Edit'>Edit</a>";
+                    }, width: 20
+                }
+            ]
+
+        });
+
+    });
+
+</script>
+<script>
+
+    function ReditectToViewSection(Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/Campaigns/Details/" + Id;
+    }
+
+    function ReditectToEditSection(Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/Campaigns/Edit/" + Id;
+    }
+    function ReditectToDisableSection(Source_Type_Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/SourceTypes/View/id=" + Source_Type_Id;
+    }
+</script>
