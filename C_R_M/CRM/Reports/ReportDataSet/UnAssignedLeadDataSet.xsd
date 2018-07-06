@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="UnAssignedLeadDataSet" targetNamespace="http://tempuri.org/UnAssignedLeadDataSet.xsd" xmlns:mstns="http://tempuri.org/UnAssignedLeadDataSet.xsd" xmlns="http://tempuri.org/UnAssignedLeadDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="UnAssignedLeadDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="UnAssignedLeadDataSet" msprop:Generator_UserDSName="UnAssignedLeadDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="UnAssignedReportsBindingViewModel" msprop:Generator_TableClassName="UnAssignedReportsBindingViewModelDataTable" msprop:Generator_TableVarName="tableUnAssignedReportsBindingViewModel" msprop:Generator_RowChangedName="UnAssignedReportsBindingViewModelRowChanged" msprop:Generator_TablePropName="UnAssignedReportsBindingViewModel" msprop:Generator_RowDeletingName="UnAssignedReportsBindingViewModelRowDeleting" msprop:Generator_RowChangingName="UnAssignedReportsBindingViewModelRowChanging" msprop:Generator_RowEvHandlerName="UnAssignedReportsBindingViewModelRowChangeEventHandler" msprop:Generator_RowDeletedName="UnAssignedReportsBindingViewModelRowDeleted" msprop:Generator_RowClassName="UnAssignedReportsBindingViewModelRow" msprop:Generator_UserTableName="UnAssignedReportsBindingViewModel" msprop:Generator_RowEvArgName="UnAssignedReportsBindingViewModelRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LeadNo" msprop:Generator_ColumnVarNameInTable="columnLeadNo" msprop:Generator_ColumnPropNameInRow="LeadNo" msprop:Generator_ColumnPropNameInTable="LeadNoColumn" msprop:Generator_UserColumnName="LeadNo" type="xs:string" minOccurs="0" />
+              <xs:element name="LeadName" msprop:Generator_ColumnVarNameInTable="columnLeadName" msprop:Generator_ColumnPropNameInRow="LeadName" msprop:Generator_ColumnPropNameInTable="LeadNameColumn" msprop:Generator_UserColumnName="LeadName" type="xs:string" minOccurs="0" />
+              <xs:element name="SourceType" msprop:Generator_ColumnVarNameInTable="columnSourceType" msprop:Generator_ColumnPropNameInRow="SourceType" msprop:Generator_ColumnPropNameInTable="SourceTypeColumn" msprop:Generator_UserColumnName="SourceType" type="xs:string" minOccurs="0" />
+              <xs:element name="Source" msprop:Generator_ColumnVarNameInTable="columnSource" msprop:Generator_ColumnPropNameInRow="Source" msprop:Generator_ColumnPropNameInTable="SourceColumn" msprop:Generator_UserColumnName="Source" type="xs:string" minOccurs="0" />
+              <xs:element name="Operator" msprop:Generator_ColumnVarNameInTable="columnOperator" msprop:Generator_ColumnPropNameInRow="Operator" msprop:Generator_ColumnPropNameInTable="OperatorColumn" msprop:Generator_UserColumnName="Operator" type="xs:string" minOccurs="0" />
+              <xs:element name="Manager" msprop:Generator_ColumnVarNameInTable="columnManager" msprop:Generator_ColumnPropNameInRow="Manager" msprop:Generator_ColumnPropNameInTable="ManagerColumn" msprop:Generator_UserColumnName="Manager" type="xs:string" minOccurs="0" />
+              <xs:element name="CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCreatedBy" msprop:Generator_ColumnPropNameInRow="CreatedBy" msprop:Generator_ColumnPropNameInTable="CreatedByColumn" msprop:Generator_UserColumnName="CreatedBy" type="xs:string" minOccurs="0" />
+              <xs:element name="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" msprop:Generator_UserColumnName="Channel" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ReportModel" msprop:Generator_TableClassName="ReportModelDataTable" msprop:Generator_TableVarName="tableReportModel" msprop:Generator_TablePropName="ReportModel" msprop:Generator_RowDeletingName="ReportModelRowDeleting" msprop:Generator_RowChangingName="ReportModelRowChanging" msprop:Generator_RowEvHandlerName="ReportModelRowChangeEventHandler" msprop:Generator_RowDeletedName="ReportModelRowDeleted" msprop:Generator_UserTableName="ReportModel" msprop:Generator_RowChangedName="ReportModelRowChanged" msprop:Generator_RowEvArgName="ReportModelRowChangeEvent" msprop:Generator_RowClassName="ReportModelRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="DateField" msprop:Generator_ColumnVarNameInTable="columnDateField" msprop:Generator_ColumnPropNameInRow="DateField" msprop:Generator_ColumnPropNameInTable="DateFieldColumn" msprop:Generator_UserColumnName="DateField" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

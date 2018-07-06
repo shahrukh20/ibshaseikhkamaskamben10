@@ -1,0 +1,115 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<script src="https://d3js.org/d3.v5.min.js"></script>*@
+@*<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>*@
+
+
+@*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
+
+<h1>Dashboard</h1>
+<div id="content">
+    <div class="row">
+        <div class="col-lg-6 col-xs-6">
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>50</h3>
+
+                    <p>Un-Assign Leads</p>
+                </div>
+                <div class="icon">
+                    <i class="fa-tasks"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>20</h3>
+
+                    <p>Assign Leads</p>
+                </div>
+                <div class="icon">
+                    <i class="fa-user-o"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+       
+    </div>
+    <div class="row">
+        <section class="col-md-6">
+            <div class="box box-success">
+                <div class="card card-primary">
+                    <h3 class="box-title dashboardtitle">Top 10 Highest Score Leads</h3>
+                    <div class="card-body p-0">
+                        <table id="todayAppt" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr role="row">
+                                    <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 217.8px;">Lead#</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266.6px;">Lead Desc</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 237px;">Status(s)</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 187.4px;">Score</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="col-md-6">
+            <div class="box box-success">
+                <div class="card card-primary">
+                    <h3 class="box-title dashboardtitle">Sales Funnel</h3>
+                    <div id="funnel"></div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+  
+
+    @*<script src="~/js/d3-funnel.min.js" type="text/javascript"></script>*@
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+
+    <script src="~/Content/js/d3-funnel.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            showfunnel();
+        });
+        function showfunnel() {
+            $.ajax({
+
+                url: "../Dashboard/ShowFunnel",
+                dataType: "JSON",
+                async: false,
+                success: function (data) {
+                    var options = { block: { dynamicHeight: true } };
+                    var chart = new D3Funnel('#funnel');
+                    chart.draw(data, options);
+                },
+                error: function (data) { }
+            });
+            var data = [
+                ['PROSPECT', 2500000],
+                ['PROPOSAL', 1700000],
+                ['NEGOTIATION', 1000000],
+                ['DEAL', 500000]
+            ];
+
+        }
+        $(window).on("resize", function () {
+            showfunnel();
+        });
+    </script>
+
+

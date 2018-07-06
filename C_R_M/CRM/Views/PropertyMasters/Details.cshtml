@@ -1,0 +1,163 @@
+﻿@model CustomerManagementSystem.BLL.Models.PropertyMaster
+
+@{
+    ViewBag.Title = "Detail";
+    Layout =  "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>$(document).ready(function () {
+    $('.form-horizontal input,select').prop('disabled',true);
+
+});</script>
+<h2>Detail</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @*  <h4>PropertyMaster</h4>*@
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="">
+            @Html.LabelFor(model => model.PropertyName, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PropertyName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Property Name" } })
+                @Html.ValidationMessageFor(model => model.PropertyName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country" } })
+                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+        <div class="">
+            @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @{
+                    var b = new List<SelectListItem> { new SelectListItem() { Text = "Karachi", Value = "Karachi" }, new SelectListItem() { Text = "Lahore", Value = "Lahore" } };
+                }
+                @Html.DropDownList("City", b, "Select City", new { @class = "form-control", @placeholder = "City" })
+                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Area, new { htmlAttributes = new { @class = "form-control", @placeholder = "Area" } })
+                @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div class="clearfix"></div>
+        <div class="">
+            @Html.LabelFor(model => model.PropertyType, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @{
+                    var a = new List<SelectListItem> { new SelectListItem() { Text = "Commercial", Value = "Commercial" }, new SelectListItem() { Text = "Residential", Value = "Residential" } };
+                }
+                @Html.DropDownList("PropertyType", a, "Select Property Type", new { @class = "form-control", @placeholder = "Property Type" })
+                @* @Html.EditorFor(model => model.PropertyType, new { htmlAttributes = new { @class = "form-control", @placeholder = "Property Type" } })*@
+                @Html.ValidationMessageFor(model => model.PropertyType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.PropertyDetail, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PropertyDetail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Property Detail" } })
+                @Html.ValidationMessageFor(model => model.PropertyDetail, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+        <div class="">
+            @Html.LabelFor(model => model.PlotNo, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PlotNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Plot No" } })
+                @Html.ValidationMessageFor(model => model.PlotNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.PlotArea, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PlotArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Plot Area" } })
+                @Html.ValidationMessageFor(model => model.PlotArea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+        <div class="">
+            @Html.LabelFor(model => model.BuiltUpArea, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.BuiltUpArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "BuiltUp Area" } })
+                @Html.ValidationMessageFor(model => model.BuiltUpArea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.CommercialArea, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.CommercialArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Commercial Area" } })
+                @Html.ValidationMessageFor(model => model.CommercialArea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+        <div class="">
+            @Html.LabelFor(model => model.ResidentialArea, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ResidentialArea, new { htmlAttributes = new { @class = "form-control", @placeholder = "Residential Area" } })
+                @Html.ValidationMessageFor(model => model.ResidentialArea, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.NoOfFloors, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.NoOfFloors, new { htmlAttributes = new { @class = "form-control", @placeholder = "No of Floors" } })
+                @Html.ValidationMessageFor(model => model.NoOfFloors, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+        <div class="">
+            @Html.LabelFor(model => model.PropertyOwnerName, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.PropertyOwnerName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Property Owner Name" } })
+                @Html.ValidationMessageFor(model => model.PropertyOwnerName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="">
+            @Html.LabelFor(model => model.ContactNumber, htmlAttributes: new { @class = "control-label col-md-1" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.ContactNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Contact Number" } })
+                @Html.ValidationMessageFor(model => model.ContactNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="clearfix"></div><br />
+      
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+
+                    }
+
+<div>
+    @* @Html.ActionLink("Edit", "Edit", new { id = Model.PropertyMasterId })*@
+    <input type="button" onclick="window.location='/propertymasters/Edit?id=@Model.PropertyMasterId'" value="Edit" class="btn btn-primary" />
+    <input type="button" onclick="window.location='/propertymasters/'" value="Back to list" class="btn btn-primary" />
+</div>

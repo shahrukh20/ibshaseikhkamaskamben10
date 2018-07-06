@@ -1,0 +1,228 @@
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.csprojAssemblyReference.cache
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations.IdentityMigration.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations._2ndMigrations.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations.frhjkl.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations.adfghfd.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.Migrations.vccccccvvvb.resources
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.csproj.GenerateResource.cache
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.csproj.CoreCompileInputs.cache
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CRM.dll.config
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CRM.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CRM.pdb
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\csc.exe
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\csc.exe.config
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\csc.rsp
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\csi.exe
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\csi.rsp
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.AppContext.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.IO.FileSystem.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\vbc.exe
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\vbc.exe.config
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\vbc.rsp
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\VBCSCompiler.exe
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Antlr3.Runtime.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportSource.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.Shared.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.Web.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\EntityFramework.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\EntityFramework.SqlServer.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Funnel.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.Google.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Web.Infrastructure.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Newtonsoft.Json.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\RouteJs.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\RouteJs.Mvc5.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Helpers.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Mvc.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Optimization.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Razor.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.Deployment.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.Razor.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\WebActivatorEx.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\WebGrease.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\WebHelpers.Mvc5.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\stdole.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\EntityFramework.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\EntityFramework.SqlServer.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Funnel.pdb
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Funnel.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Newtonsoft.Json.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Helpers.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Mvc.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Razor.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.Deployment.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.WebPages.Razor.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\WebHelpers.Mvc5.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\Antlr3.Runtime.pdb
+E:\Projects\CRM\Ibrahim New Design\CRM\bin\System.Web.Optimization.xml
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.csproj.CopyComplete
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.dll
+E:\Projects\CRM\Ibrahim New Design\CRM\obj\Debug\CRM.pdb
+E:\GIT\C_R_M\CRM\bin\CRM.dll.config
+E:\GIT\C_R_M\CRM\bin\CRM.dll
+E:\GIT\C_R_M\CRM\bin\CRM.pdb
+E:\GIT\C_R_M\CRM\bin\roslyn\csc.exe
+E:\GIT\C_R_M\CRM\bin\roslyn\csc.exe.config
+E:\GIT\C_R_M\CRM\bin\roslyn\csc.rsp
+E:\GIT\C_R_M\CRM\bin\roslyn\csi.exe
+E:\GIT\C_R_M\CRM\bin\roslyn\csi.rsp
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\GIT\C_R_M\CRM\bin\roslyn\System.AppContext.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\System.Collections.Immutable.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\System.IO.FileSystem.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\System.Reflection.Metadata.dll
+E:\GIT\C_R_M\CRM\bin\roslyn\vbc.exe
+E:\GIT\C_R_M\CRM\bin\roslyn\vbc.exe.config
+E:\GIT\C_R_M\CRM\bin\roslyn\vbc.rsp
+E:\GIT\C_R_M\CRM\bin\roslyn\VBCSCompiler.exe
+E:\GIT\C_R_M\CRM\bin\roslyn\VBCSCompiler.exe.config
+E:\GIT\C_R_M\CRM\bin\Antlr3.Runtime.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportSource.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.Shared.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.Web.dll
+E:\GIT\C_R_M\CRM\bin\CustomerManagementSystem.BLL.dll
+E:\GIT\C_R_M\CRM\bin\EntityFramework.dll
+E:\GIT\C_R_M\CRM\bin\EntityFramework.SqlServer.dll
+E:\GIT\C_R_M\CRM\bin\Funnel.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.Core.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.Cookies.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.Google.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.OAuth.dll
+E:\GIT\C_R_M\CRM\bin\Microsoft.Web.Infrastructure.dll
+E:\GIT\C_R_M\CRM\bin\Newtonsoft.Json.dll
+E:\GIT\C_R_M\CRM\bin\Owin.dll
+E:\GIT\C_R_M\CRM\bin\RouteJs.dll
+E:\GIT\C_R_M\CRM\bin\RouteJs.Mvc5.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.Helpers.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.Mvc.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.Optimization.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.Razor.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.Deployment.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.dll
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.Razor.dll
+E:\GIT\C_R_M\CRM\bin\WebActivatorEx.dll
+E:\GIT\C_R_M\CRM\bin\WebGrease.dll
+E:\GIT\C_R_M\CRM\bin\WebHelpers.Mvc5.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\GIT\C_R_M\CRM\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\GIT\C_R_M\CRM\bin\stdole.dll
+E:\GIT\C_R_M\CRM\bin\CustomerManagementSystem.BLL.pdb
+E:\GIT\C_R_M\CRM\bin\CustomerManagementSystem.BLL.dll.config
+E:\GIT\C_R_M\CRM\bin\EntityFramework.xml
+E:\GIT\C_R_M\CRM\bin\EntityFramework.SqlServer.xml
+E:\GIT\C_R_M\CRM\bin\Funnel.pdb
+E:\GIT\C_R_M\CRM\bin\Funnel.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.Core.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.Cookies.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.Google.xml
+E:\GIT\C_R_M\CRM\bin\Microsoft.Owin.Security.OAuth.xml
+E:\GIT\C_R_M\CRM\bin\Newtonsoft.Json.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.Helpers.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.Mvc.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.Razor.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.Deployment.xml
+E:\GIT\C_R_M\CRM\bin\System.Web.WebPages.Razor.xml
+E:\GIT\C_R_M\CRM\bin\WebHelpers.Mvc5.xml
+E:\GIT\C_R_M\CRM\bin\Antlr3.Runtime.pdb
+E:\GIT\C_R_M\CRM\bin\System.Web.Optimization.xml
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.csprojAssemblyReference.cache
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations.IdentityMigration.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations._2ndMigrations.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations.UserTypeAdded.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations.frhjkl.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations.adfghfd.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.Migrations.vccccccvvvb.resources
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.csproj.GenerateResource.cache
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.csproj.CoreCompileInputs.cache
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.csproj.CopyComplete
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.dll
+E:\GIT\C_R_M\CRM\obj\Debug\CRM.pdb

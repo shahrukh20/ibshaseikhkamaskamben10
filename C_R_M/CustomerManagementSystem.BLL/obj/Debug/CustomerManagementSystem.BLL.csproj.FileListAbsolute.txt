@@ -1,0 +1,468 @@
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\EntityFramework.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\System.Web.Mvc.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\EntityFramework.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\bin\Debug\System.Web.Mvc.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.Cache
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojResolveAssemblyReference.cache
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\ManagementSystemConsoler.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojResolveAssemblyReference.cache
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.Cache
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Project\ManagementSystemConsoler\ManagementSystemConsoler\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.Cache
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.addingmanagertoUser.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojAssemblyReference.cache
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CoreCompileInputs.cache
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CopyComplete
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.jhfs.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.gfd.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SaadMigrtion.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asdfghjhgfd.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdf.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingss.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatefake.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatereal.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealas.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealass.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealassxc.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssd.resources
+E:\Projects\CRM\project2\CustomerManagementSystem\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssdsadas.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojResolveAssemblyReference.cache
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.addingmanagertoUser.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.jhfs.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.gfd.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SaadMigrtion.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asdfghjhgfd.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdf.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingss.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatefake.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatereal.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealas.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealass.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealassxc.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssd.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssdsadas.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.City_Country.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CtyCoun.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cC.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a1.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cityandcountry.resources
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.Cache
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+C:\Users\Saad\Documents\Visual Studio 2017\Projects\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Areas.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.addingmanagertoUser.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.jhfs.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.gfd.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SaadMigrtion.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asdfghjhgfd.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdf.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingss.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatefake.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatereal.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealas.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealass.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealassxc.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssd.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssdsadas.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.City_Country.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CtyCoun.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cC.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a1.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cityandcountry.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Areas.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdadasdascvc.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.campaignid.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asjjj.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sfhvcddfff.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfds.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfdsfcffff.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.vvvvvvvvvvvddx.resources
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.cache
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CoreCompileInputs.cache
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CopyComplete
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\NewUI\CRM\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.addingmanagertoUser.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.jhfs.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.gfd.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SaadMigrtion.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asdfghjhgfd.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdf.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingss.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatefake.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatereal.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealas.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealass.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealassxc.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssd.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssdsadas.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.City_Country.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CtyCoun.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cC.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a1.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cityandcountry.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Areas.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdadasdascvc.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.campaignid.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asjjj.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sfhvcddfff.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfds.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfdsfcffff.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.vvvvvvvvvvvddx.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.cache
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CoreCompileInputs.cache
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CopyComplete
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojAssemblyReference.cache
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcx.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcxccccc.resources
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\CRM\Ibrahim New Design\CustomerManagementSystem\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcxccccccc.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll.config
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\CustomerManagementSystem.BLL.pdb
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Owin.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\System.Data.SqlServerCe.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\EntityFramework.SqlServer.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\Newtonsoft.Json.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\bin\Debug\System.Web.Mvc.xml
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csprojAssemblyReference.cache
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CRMFirstMigrations.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.AddingUsers.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SourceOfLeadTable.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.statusidchanged.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdded1.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.UserTypeAdde3deed.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lognoaddedtoleadpool.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modifincationinLeadPools.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.lengthincewsd3.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationinattachments.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrctures.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.modificationsinallstrcturestest.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremoved.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.stringlengthremovedhhhh.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.addingmanagertoUser.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.jhfs.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.gfd.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.SaadMigrtion.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asdfghjhgfd.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdf.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingss.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatefake.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdatereal.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealas.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealass.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Campaingssupdaterealassxc.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssd.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.updatwssdsadas.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.City_Country.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.CtyCoun.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cC.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.a1.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.cityandcountry.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.Areas.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdadasdascvc.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.campaignid.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.asjjj.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sfhvcddfff.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfds.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sdfghjhgfdsfcffff.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.vvvvvvvvvvvddx.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcx.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcxccccc.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.Migrations.sddfghbvcxccccccc.resources
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.GenerateResource.cache
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CoreCompileInputs.cache
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.csproj.CopyComplete
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.dll
+E:\GIT\C_R_M\CustomerManagementSystem.BLL\obj\Debug\CustomerManagementSystem.BLL.pdb

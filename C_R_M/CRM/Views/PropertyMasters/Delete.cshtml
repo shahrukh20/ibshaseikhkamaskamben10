@@ -1,0 +1,145 @@
+﻿@model CustomerManagementSystem.BLL.Models.PropertyMaster
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="color:red">Delete</h2>
+
+<h3>Are you sure you want to delete property record?</h3>
+<div>
+    
+    <hr />
+    <div class="dl-horizontal">
+        <h2>
+            @Html.DisplayNameFor(model => model.PropertyName)
+        </h2>
+
+   
+            <label><strong>@Html.DisplayFor(model => model.PropertyName)</strong>  owned by <strong>@Html.DisplayFor(model => model.PropertyOwnerName)</strong> </label>
+
+
+        @*<dt>
+        @Html.DisplayNameFor(model => model.Country)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Country)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.City)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.City)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Area)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Area)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PropertyType)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PropertyType)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PropertyDetail)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PropertyDetail)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PlotNo)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PlotNo)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PlotArea)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PlotArea)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.BuiltUpArea)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.BuiltUpArea)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.CommercialArea)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.CommercialArea)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.ResidentialArea)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ResidentialArea)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.NoOfFloors)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.NoOfFloors)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.PropertyOwnerName)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.PropertyOwnerName)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.ContactNumber)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ContactNumber)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.SellingPrice)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.SellingPrice)
+    </dd>*@
+
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+           <input type="button" onclick="window.location='/propertymasters/'" value="Back to list" class="btn btn-primary" />
+        </div>
+    }
+</div>

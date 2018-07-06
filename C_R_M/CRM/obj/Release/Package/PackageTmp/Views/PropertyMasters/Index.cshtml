@@ -1,0 +1,551 @@
+﻿@model IEnumerable<CustomerManagementSystem.BLL.Models.PropertyMaster>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
+<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
+@*<scri pt src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+<script >
+   
+  
+    function UpdatePropertyMasterData(PropertyMasterId, ischecked) {
+        debugger;
+        $.ajax({
+            url: '/PropertyMasters/UpdatePropertyMasterData',
+            type: 'post',
+            dataType: "json",
+            async: false,
+            data: { PropertyMasterId: PropertyMasterId, IsChecked: ischecked },
+            success: function (data) {
+
+           
+                }
+
+            
+
+        });
+    }
+    function PublishAllToWeb()
+    {
+        $.ajax({
+            url: '/PropertyMasters/PublishAllToWeb',
+            type: 'post',
+         
+           
+            data: {  },
+            success: function (data) {
+                $('input[type=checkbox]').each(function () { $(this).prop('checked', true) })
+                $('#successalert').text("All published to web.");
+                $('.alert-success').fadeIn().delay(5000).fadeOut();
+
+            }
+
+
+
+        });
+
+    }
+
+
+    $(document).ready(function () {
+        var MyDateField = function (config) {
+            jsGrid.Field.call(this, config);
+        };
+
+        MyDateField.prototype = new jsGrid.Field({
+
+            css: "date-field",            // redefine general property 'css'
+            align: "center",              // redefine general property 'align'
+
+            myCustomProperty: "foo",      // custom property
+
+            sorter: function (date1, date2) {
+                return new Date(date1) - new Date(date2);
+            },
+
+            itemTemplate: function (value) {
+
+                return new Date(value).toDateString();
+            },
+
+            filterTemplate: function (value) {
+                //return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            insertTemplate: function (value) {
+                //if (this.inserting)
+                //return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            editTemplate: function (value) {
+                //if (this.inserting)
+                //    return this._editPicker = $("<input>").datepicker().datepicker("setDate", new Date(value));
+            },
+
+            insertValue: function () {
+                if (this.inserting)
+                    return this._insertPicker.datepicker("getDate").toISOString();
+            },
+
+            editValue: function () {
+                if (this.inserting)
+                    return this._editPicker.datepicker("getDate").toISOString();
+
+            }
+        });
+
+        jsGrid.fields.date = MyDateField;
+
+        //Float Value
+        function DecimalField(config) {
+            jsGrid.fields.number.call(this, config);
+        }
+
+        DecimalField.prototype = new jsGrid.fields.number({
+
+            filterValue: function () {
+                return this.filterControl.val()
+                    ? parseFloat(this.filterControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            insertValue: function () {
+                return this.insertControl.val()
+                    ? parseFloat(this.insertControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            editValue: function () {
+                return this.editControl.val()
+                    ? parseFloat(this.editControl.val() || 0, 10)
+                    : undefined;
+            }
+        });
+
+        jsGrid.fields.decimal = jsGrid.DecimalField = DecimalField;
+        //End Float Value
+
+        var originalFilterTemplate = jsGrid.fields.text.prototype.filterTemplate;
+        jsGrid.fields.text.prototype.filterTemplate = function () {
+            var grid = this._grid;
+            var $result = originalFilterTemplate.call(this);
+            $result.on("keyup", function (e) {
+                // TODO: add proper condition and optionally throttling to avoid too much requests
+                grid.search();
+            });
+            return $result;
+        }
+        var usertype = 1;
+        if (usertype == 1) {  //jsGridManager
+            $("#jsGrid").jsGrid({
+                width: "100%",
+
+                filtering: true,
+                editing: true,
+                sorting: true,
+                paging: true,
+                autoload: true,
+                async: false,
+
+                pageSize: 5,
+                pageButtonCount: 5,
+                onInit: function () {
+
+                    $.ajax({
+
+                        url: "../PropertyMasters/LoadPropertyMasterData",
+                        dataType: "JSON",
+                        async: false,
+                        success: function (data) {
+                            
+                            $("#jsGrid").jsGrid("option", "fields", [
+                                { name: "PropertyName", title: "Property Name", width: 70, type: "text", align: 'center', editing: false },
+                                { name: "Area", title: "Area", type: "select", items: data.AreaList, width: 70, validate: "required", valueField: "Value", textField: "Text",align: 'center', editing: false },
+                                { name: "City", title: "City", type: "select", items: data.CityLists, width: 70, validate: "required", valueField: "Value", textField: "Text", align: 'center', editing: false },
+                                { name: "PropertyType", title: "Property Type", items: data.PropertyTypes, type: "select", valueField: "Id", textField: "Name", width: 60, align: 'center', editing: false },
+                                { name: "PropertyDetail", title: "Property Detail", type: "text", width: 150, validate: "required", align: 'center', editing: false },
+                                { name: "PropertyOwnerName", title: "Property Owner Name", type: "text", width: 150, validate: "required", align: 'center', editing: false },
+                                { name: "SellingPrice", title: "Selling Price", type: "text", width: 100, editing: false, align: 'center', editing: false },
+                                { name: "Status", title: "Status", type: "text", width: 100, editing: false, align: 'center', editing: false },
+                                //{ name: "PublishAll", title: "PublishAll", type: "button", width: 100, align: 'center' },
+
+                                {
+                                    name: "PublishToWeb", title: "Publish To Web" ,align: "center", 
+                                    itemTemplate: function (value, item) {
+                                        debugger;
+                                        if (value == 'Yes') {
+                                            value = true
+                                        }
+                                        else {
+                                           
+                                                value = false
+                                           
+                                        }
+                                        return $("<input>").attr("type", "checkbox")
+                                            .attr("checked", value)
+                                            .on("change", function () {
+                                                //debugger
+                                              var ischecked = $(this).is(":checked");
+
+                                           UpdatePropertyMasterData(item.PropertyMasterId, ischecked);
+                                            });
+                                    }
+                                },
+                                {
+                                    name: 'Action',
+                                    align: 'center',
+                                    itemTemplate: function (_, item) {
+                                        return '<a href="/propertymasters/Edit/' + item.PropertyMasterId + '">Edit</a>';// |<a href= "/propertymasters/Details/' + item.PropertyMasterId + '" > View</a > | <a href="/propertymasters/Delete/' + item.PropertyMasterId + '">Delete</a>
+                                    }, width: 100
+                                },
+
+
+                            ]);
+
+                        }
+                    })
+
+                },
+           
+                controller: {
+
+                    loadData: function (filter) {
+                        var d = $.Deferred();
+                        $.ajax({
+                            type: "GET",
+                            async: false,
+                            url: "../PropertyMasters/LoadPropertyMasterList",
+                            dataType: "JSON"
+                        }).done(function (result) {
+                            for (var prop in filter) {
+                                if (prop !='PublishToWeb')
+                                if (filter[prop].length > 0) {
+                                    result = $.grep(result, function (item) {
+                                        var regexp = new RegExp(filter[prop], 'gi');
+                                        if (item[prop].match(regexp)) {
+                                            return item;
+                                        }
+
+                                    });
+
+                                }
+                                //
+                                //if (prop == "PropertyType" && filter['PropertyType'] != -1) {
+                                //    result = $.grep(result, function (item) {
+                                //        if (item[prop] == filter[prop]) {
+                                //            return item;
+                                //        }
+                                //    });
+                                //    break;
+                                //}
+                                //if (prop == "City" && filter['City'] != -1) {
+                                //    result = $.grep(result, function (item) {
+                                //        if (item[prop] == filter[prop]) {
+                                //            return item;
+                                //        }
+                                //    });
+                                //    break;
+                                //}
+
+                            }
+                            d.resolve(result);
+                        });
+                        return d.promise();
+                    },
+                    updateItem: function (item) {
+                        $.ajax({
+                            type: "GET",
+                            async: false,
+                            url: "../LeadPools/updateLeadPool",
+                            data: item,
+                            dataType: "JSON"
+                        });
+                    }
+                }
+
+            });
+        }
+        if (usertype == 2) {  //jsGridSalesman
+            $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
+                filtering: true,
+                sorting: true,
+                paging: true,
+                autoload: true,
+                pageSize: 5,
+                pageButtonCount: 5,
+                controller: {
+
+                    loadData: function (filter) {
+                        //$("#jsGrid").jsGrid("option", "filtering", false);
+                        var d = $.Deferred();
+                        $.ajax({
+                            type: "GET",
+                            async: false,
+                            url: "/LeadPools/LeadListingLoad",
+                            dataType: "JSON"
+                        }).done(function (result) {
+                            for (var prop in filter) {
+
+                                if (filter[prop].length > 0) {
+                                    result = $.grep(result, function (item) {
+                                        var regexp = new RegExp(filter[prop], 'gi');
+                                        if (item[prop].match(regexp)) {
+                                            return item;
+                                        }
+                                    });
+                                    break;
+                                }
+
+                            }
+                            d.resolve(result);
+                        });
+                        return d.promise();
+                    }
+                },
+                fields: [
+                    { name: "Id", title: "Id", type: "text", visible: false, align: 'center' },
+                    { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                    { name: "Date", title: "Date", type: "date", width: 50, align: 'center', editing: false },
+                    { name: "LeadRemarks", title: "Remarks", type: "text", width: 120, validate: "required", align: 'center', editing: false },
+                    { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                    { name: "AssignedBy", title: "Assigned By", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                    {
+                        name: 'Update',
+                        align: 'center',
+                        itemTemplate: function (_, item) {
+                            return "<a onclick ='ReditectToUpdateSection(" + item.Id + ")' name='Update'>Update</a>";
+                        }, width: 20
+                    },
+                    {
+                        type: 'control',
+                        headerTemplate: function () {
+                            return this._createOnOffSwitchButton("filtering", this.searchModeButtonClass, false);
+                        },
+                        name: 'View',
+                        align: 'center',
+                        itemTemplate: function (_, item) {
+                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
+                        }, width: 20
+                    }
+
+                ]
+
+            });
+        }
+        if (usertype == 3) { //JsOperator
+
+            $("#jsGrid").jsGrid({
+                width: "100%",
+                height: "400px",
+                sorting: true,
+                paging: true,
+                autoload: true,
+                filtering: true,
+                pageSize: 5,
+                pageButtonCount: 5,
+
+                controller: {
+
+                    loadData: function (filter) {
+                        var d = $.Deferred();
+                        $.ajax({
+                            type: "GET",
+                            async: false,
+                            url: "../LeadPools/LeadListingLoad",
+                            dataType: "JSON"
+                        }).done(function (result) {
+                            for (var prop in filter) {
+
+                                if (filter[prop].length > 0) {
+                                    result = $.grep(result, function (item) {
+                                        var regexp = new RegExp(filter[prop], 'gi');
+                                        if (item[prop].match(regexp)) {
+                                            return item;
+                                        }
+                                    });
+                                    break;
+                                }
+
+                            }
+                            d.resolve(result);
+                        });
+                        return d.promise();
+                    }
+                },
+                fields: [
+                    { name: "Id", title: "Id", type: "text", visible: false, align: 'center' },
+                    { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", align: 'center' },
+                    { name: "Date", title: "Lead Date", type: "date", width: 50, align: 'center' },
+                    { name: "LeadRemarks", title: "Remarks", type: "text", width: 150, validate: "required", align: 'center' },
+                    {
+                        name: 'Edit',
+                        align: 'center',
+                        itemTemplate: function (_, item) {
+                            return "<a onclick ='ReditectToEditSection(" + item.Id + ")' name='Edit'>Edit</a>";
+                        }
+                    },
+                    {
+                        type: 'control',
+                        name: 'View',
+                        align: 'center',
+                        itemTemplate: function (_, item) {
+                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
+                        }
+                    }
+                ]
+
+            });
+        }
+    });
+
+
+
+
+
+
+
+</script>
+
+<h2>Properties</h2>
+
+<p>
+    <input type="button" onclick="window.location='/propertymasters/create'" value="Create" class="btn btn-primary" />
+    <input type="button" onclick="PublishAllToWeb()" value="Publish All To Web" class="btn btn-primary pull-right" />
+    @* @Html.ActionLink("Create New", "Create")*@
+</p>
+<form id="LeadListingForm" action="/LeadPools/LeadListing" method="post">
+    @* @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })*@
+
+    <div id="content">
+        <div class="form-horizontal">
+            <div id="jsGrid"></div>
+        </div>
+    </div>
+
+</form>
+@*<div hidden>
+        <table class="table table-bordered">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 15%;">
+            </colgroup>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyName)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.Country)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.City)
+                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Area)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyDetail)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.PlotNo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PlotArea)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BuiltUpArea)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CommercialArea)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResidentialArea)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NoOfFloors)
+                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PropertyOwnerName)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.ContactNumber)
+                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SellingPrice)
+                </th>
+                <th>Action</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyName)
+                    </td>
+                    @*<td >
+                            @Html.DisplayFor(modelItem => item.Country)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.City)
+                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyDetail)
+                    </td>
+                    @*<td >
+                            @Html.DisplayFor(modelItem => item.PlotNo)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.PlotArea)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.BuiltUpArea)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.CommercialArea)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.ResidentialArea)
+                        </td>
+                        <td >
+                            @Html.DisplayFor(modelItem => item.NoOfFloors)
+                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PropertyOwnerName)
+                    </td>
+                    @*<td >
+                            @Html.DisplayFor(modelItem => item.ContactNumber)
+                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SellingPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PropertyMasterId }) |
+                        @Html.ActionLink("View", "Details", new { id = item.PropertyMasterId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PropertyMasterId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>*@

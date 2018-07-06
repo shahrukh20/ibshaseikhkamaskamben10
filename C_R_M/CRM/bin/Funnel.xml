@@ -1,0 +1,430 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Funnel</name>
+    </assembly>
+    <members>
+        <member name="T:Funnel.DynamicEntity">
+            <summary>
+            Defines a Dynamic Object containing dictionary functionality.
+            </summary>
+        </member>
+        <member name="M:Funnel.DynamicEntity.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funnel.DynamicEntity"/> class.
+            </summary>
+        </member>
+        <member name="M:Funnel.DynamicEntity.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funnel.DynamicEntity"/> class.
+            </summary>
+            <param name="values">The values to initialize the DynamicEntity with.</param>
+        </member>
+        <member name="M:Funnel.DynamicEntity.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Provides the implementation for operations that get member values.
+            Classes derived from the <see cref="T:System.Dynamic.DynamicObject" /> class can override this method to specify dynamic behavior for operations such as getting a value for a property.
+            </summary>
+            <param name="binder">Provides information about the object that called the dynamic operation.
+            The binder.Name property provides the name of the member on which the dynamic operation is performed.
+            For example, for the Console.WriteLine(sampleObject.SampleProperty) statement,
+            where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" /> class, binder.Name returns "SampleProperty".
+            The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param>
+            <param name="result">The result of the get operation. For example, if the method is called for a property, you can assign the property value to <paramref name="result" />.</param>
+            <returns>
+            true if the operation is successful; otherwise, false.
+            If this method returns false, the run-time binder of the language determines the behavior. (In most cases, a run-time exception is thrown.)
+            </returns>
+        </member>
+        <member name="M:Funnel.DynamicEntity.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Provides the implementation for operations that set member values.
+            Classes derived from the <see cref="T:System.Dynamic.DynamicObject" /> class can override this method to specify dynamic behavior for operations such as setting a value for a property.
+            </summary>
+            <param name="binder">Provides information about the object that called the dynamic operation.
+            The binder.Name property provides the name of the member to which the value is being assigned.
+            For example, for the statement sampleObject.SampleProperty = "Test", where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" />
+            class, binder.Name returns "SampleProperty". The binder.IgnoreCase property specifies whether the member name is case-sensitive.</param>
+            <param name="value">The value to set to the member. For example, for sampleObject.SampleProperty = "Test",
+            where sampleObject is an instance of the class derived from the <see cref="T:System.Dynamic.DynamicObject" /> class, the <paramref name="value" /> is "Test".</param>
+            <returns>
+            true if the operation is successful; otherwise, false. If this method returns false, the run-time binder of the language determines the behavior.
+            (In most cases, a language-specific run-time exception is thrown.)
+            </returns>
+        </member>
+        <member name="P:Funnel.DynamicEntity.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:System.Object"/> with the specified key.
+            </summary>
+            <value>
+            The <see cref="T:System.Object"/>.
+            </value>
+            <param name="key">The key.</param>
+            <returns>Returns the value of the dynamic object at the specified key.</returns>
+        </member>
+        <member name="T:Funnel.Extensions">
+            <summary>
+                The data mapping extensions.
+            </summary>
+        </member>
+        <member name="M:Funnel.Extensions.AddExplicitMapping(System.Collections.Generic.IEnumerable{Funnel.ReflectionInfo},System.String,System.String,System.Type)">
+            <summary>
+                Add explicit column/property mapping to the IEnumerable of reflected mapping sets
+            </summary>
+            <param name="rInfos">Reflection infos to add the mapping to</param>
+            <param name="columnNameSource">Source Column/Property Name</param>
+            <param name="columnNameTarget">Target Column/Property Name</param>
+            <param name="converter">IMappingConverter type to use when converting</param>
+            <returns>ReflectionInfo Object</returns>
+        </member>
+        <member name="M:Funnel.Extensions.AddExplicitMapping(Funnel.ReflectionInfo,System.String,System.String,System.Type)">
+            <summary>
+                Add explicit column/property mapping to the reflected mapping set.
+            </summary>
+            <param name="rInfo">Reflection info to add the mapping to</param>
+            <param name="columnNameSource">Source Column/Property Name</param>
+            <param name="columnNameTarget">Target Column/Property Name</param>
+            <param name="converter">IMappingConverter type to use when converting</param>
+            <returns>ReflectionInfo Object</returns>
+        </member>
+        <member name="M:Funnel.Extensions.Into``1(System.Collections.Generic.IEnumerable{Funnel.ReflectionInfo},System.Boolean,System.Boolean,System.Boolean,System.Reflection.BindingFlags)">
+            <summary>
+                Uses each ReflectionInfo in the enumerable to generate an instance of the set type populating the data using reflection.
+            </summary>
+            <typeparam name="T">
+                Object Type to create and populate
+            </typeparam>
+            <param name="reflectedArray">
+                IEnumerable of ReflectionInfo Key/Value Set
+            </param>
+            <param name="ignoreCase">Ignore case on name matching if true</param>
+            <param name="throwException">If populating a field match with a value fails throw an exception if true</param>
+            <param name="removeSourceUnderscores">Remove underscores from source property names if true</param>
+            <param name="bindingFlags">
+            </param>
+            <returns>
+                Enumerable of newly created instances of T
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.UpdateSingle``1(Funnel.ReflectionInfo,``0,System.Boolean,System.Boolean,System.Boolean,System.Reflection.BindingFlags)">
+            <summary>
+                Uses ReflectionInfo to generate an instance of the set type populating the data using reflection.
+            </summary>
+            <typeparam name="T">
+                Object Type to create and populate
+            </typeparam>
+            <param name="reflectedArray">
+                ReflectionInfo Key/Value Set
+            </param>
+            <param name="toUpdate">Object whose properties will be updated</param>
+            <param name="ignoreCase">Ignore case on name matching if true</param>
+            <param name="throwException">If populating a field match with a value fails throw an exception if true</param>
+            <param name="removeSourceUnderscores">Remove underscores from property names in source if true</param>
+            <param name="bindingFlags">
+                BindingFlags in GetProperties Command Defaults to Public
+            </param>
+            <returns>
+                New instance of T
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoSingle``1(Funnel.ReflectionInfo,System.Boolean,System.Boolean,System.Boolean,System.Reflection.BindingFlags)">
+            <summary>
+                Uses ReflectionInfo to generate an instance of the set type populating the data using reflection.
+            </summary>
+            <typeparam name="T">
+                Object Type to create and populate
+            </typeparam>
+            <param name="reflectedArray">
+                ReflectionInfo Key/Value Set
+            </param>
+            <param name="ignoreCase">Ignore case on name matching if true</param>
+            <param name="throwException">If populating a field match with a value fails throw an exception if true</param>
+            <param name="removeSourceUnderscores">Remove underscores from source property names if true</param>
+            <param name="bindingFlags">
+                BindingFlags in GetProperties Command Defaults to Public
+            </param>
+            <returns>
+                New instance of T
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoSingleLineString(Funnel.ReflectionInfo)">
+            <summary>
+                Prints out a reflected or mapped set of data into a single string for logging or debugging purposes.
+            </summary>
+            <param name="reflected">
+                ReflectionInfo Key/Value Set
+            </param>
+            <returns>
+                Formatted string
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoTable(System.Collections.Generic.IEnumerable{Funnel.ReflectionInfo})">
+            <summary>
+                Uses each ReflectionInfo in the enumerable to generate a Datatable using the Type name as the table name,
+                the properties as columns and the set of property values as rows.
+            </summary>
+            <param name="reflectedItems">
+                IEnumerable of ReflectionInfo Key/Value Set
+            </param>
+            <returns>
+                DataTable populated with a row for each object
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.Map``3(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{``0}},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+                Maps an enumerable of paired values to a Key / Value to allow setting properties via reflection in another object.
+            </summary>
+            <typeparam name="TReflected">
+                Enumerable of Enumerable of value pairs
+            </typeparam>
+            <typeparam name="TKey">
+                The Property Name selector type
+            </typeparam>
+            <typeparam name="TValue">
+                The Value selector type
+            </typeparam>
+            <param name="toMapArray">
+                Enumerable of value pairs
+            </param>
+            <param name="keySelector">
+                Selector for Property Name
+            </param>
+            <param name="valueSelector">
+                Selector for Value
+            </param>
+            <returns>
+                Enumerable of ReflectionInfo Key / Value Set
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.MapArrayUsingHeader(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}})">
+            <summary>
+               Maps a 2d array using the first row as the property names.
+            </summary>
+            <param name="csvArray">
+                The csv array.
+            </param>
+            <returns>
+                An Enumerable of ReflectionInfos
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.MapArray(System.Collections.Generic.IEnumerable{System.Collections.Generic.IEnumerable{System.String}},System.String[])">
+            <summary>
+            Maps a 2d array using a given header array. Order determines column position.
+            </summary>
+            <param name="csvArray">The csv array</param>
+            <param name="headers">Array of header strings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Funnel.Extensions.MapSingle``3(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Func{``0,``2})">
+            <summary>
+                Maps 2D Enumerable of paired values to a Key / Value to allow setting properties via reflection in another object.
+            </summary>
+            <typeparam name="TReflected">
+                Enumerable of Enumerable of value pairs
+            </typeparam>
+            <typeparam name="TKey">
+                The Property Name selector type
+            </typeparam>
+            <typeparam name="TValue">
+                The Value selector type
+            </typeparam>
+            <param name="toMap">
+                Enumerable of value pairs
+            </param>
+            <param name="keySelector">
+                Selector for Property Name
+            </param>
+            <param name="valueSelector">
+                Selector for Value
+            </param>
+            <returns>
+                The Mapping.Extensions+ReflectionInfo.
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.ParseDelimited(System.Collections.Generic.IEnumerable{System.String},System.Char)">
+            <summary>
+                Parse an enumerable of strings as a Csv using the given delimiter. The delimiter can exist between quotes
+                it will not be seperated.
+            </summary>
+            <param name="csvArray">The IEnumerable of strings</param>
+            <param name="delimiter">The delimeter</param>
+            <returns>A 2D Enumerable of strings</returns>
+        </member>
+        <member name="M:Funnel.Extensions.ParseFixedWidth(System.Collections.Generic.IEnumerable{System.String},System.Int32[])">
+            <summary>
+                Parse an enumerable of strings as a Csv using the given delimiter. The delimiter can exist between quotes
+                it will not be seperated.
+            </summary>
+            <param name="csvArray">The IEnumerable of strings</param>
+            <param name="columnWidths">Array of column width</param>
+            <returns>A 2D Enumerable of strings</returns>
+        </member>
+        <member name="M:Funnel.Extensions.Reflect(System.Collections.Generic.IEnumerable{System.Object},System.Reflection.BindingFlags)">
+            <summary>
+                Iterates through each property of each object in the enumerable and generates an enumerable of enumerables of Key / Value pairs
+                to allow setting properties via reflection in another object.
+            </summary>
+            <param name="toReflectArray">
+                Enumerable of objects to reflect
+            </param>
+            <param name="bindingFlags">
+                BindingFlags in GetProperties Command Defaults to Public
+            </param>
+            <returns>
+                Enumerable of ReflectionInfo Key / Value Set
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.ReflectSingle(System.Object,System.Reflection.BindingFlags)">
+            <summary>
+                Iterates through the properties in an object and creates a Key / Value set to allow setting properties via reflection in another object.
+            </summary>
+            <param name="toReflect">
+                Object to reflect
+            </param>
+            <param name="bindingFlags">
+                BindingFlags in GetProperties Command Defaults to Public
+            </param>
+            <returns>
+                ReflectionInfo Key / Value Set
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.ParseSetValue(System.Collections.Generic.KeyValuePair{System.Object,System.Object},System.Reflection.PropertyInfo,System.Object,System.Boolean)">
+            <summary>
+                Method to parse a value using a TypeConverter via reflection
+            </summary>
+            <param name="reflected">The Pair to use when setting</param>
+            <param name="prop">The property to set</param>
+            <param name="empty">Empty object that will have its property set.</param>
+            <param name="throwException">Throw exception on a failed value set</param>
+        </member>
+        <member name="M:Funnel.Extensions.MapDataTable(System.Data.DataTable)">
+            <summary>
+                Maps the data table to an enumartable of <see cref="T:Funnel.ReflectionInfo"/> objects.
+            </summary>
+            <param name="toReflectTable">The DataTable to map.</param>
+            <returns>
+                Returns an enumerable of <see cref="T:Funnel.ReflectionInfo"/> objects, populated with data from the rows.
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.MapDataRow(System.Data.DataRow)">
+            <summary>
+                Maps the data row to a <see cref="T:Funnel.ReflectionInfo"/> object.
+            </summary>
+            <param name="toReflect">The DataRow to map.</param>
+            <returns>
+                Returns an enumerable of <see cref="T:Funnel.ReflectionInfo"/> objects, populated with data from the row
+            </returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoSingleDictionary(Funnel.ReflectionInfo)">
+            <summary>
+                Creates a dictionary the keys set to the property/column names.
+            </summary>
+            <param name="reflected">The Reflection Info object to convert to a Dynamic object.</param>
+            <returns>Dictionary</returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoDictionary(System.Collections.Generic.IEnumerable{Funnel.ReflectionInfo})">
+            <summary>
+                Creates an IEnumerable of dictionaries with the property/column names as keys.
+            </summary>
+            <param name="reflectionArray">The reflected array to convert.</param>
+            <returns>IEnumerable of Dictionaries</returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoDynamic(System.Collections.Generic.IEnumerable{Funnel.ReflectionInfo})">
+            <summary>
+                Converts some reflection info into an enumeration of a Dynamic object.
+            </summary>
+            <param name="reflectedArray">The reflected array to convert.</param>
+            <returns>An enumerable of dynamic objects.</returns>
+        </member>
+        <member name="M:Funnel.Extensions.IntoDynamicSingle(Funnel.ReflectionInfo)">
+            <summary>
+                Converts some reflection info into a Dynamic object.
+            </summary>
+            <param name="reflected">The Reflection Info object to convert to a Dynamic object.</param>
+            <returns>A dynamic object with properties corresponding to the reflection info.</returns>
+        </member>
+        <member name="T:Funnel.IMappingConverter">
+            <summary>
+            The MappingConverter interface.
+            </summary>
+        </member>
+        <member name="M:Funnel.IMappingConverter.ConversionMethod(System.Object)">
+            <summary>
+            The conversion method.
+            </summary>
+            <param name="item">
+            The item.
+            </param>
+            <returns>
+            The System.Object.
+            </returns>
+        </member>
+        <member name="T:Funnel.MappedColumn">
+            <summary>
+            A mapped column
+            </summary>
+        </member>
+        <member name="P:Funnel.MappedColumn.Converter">
+            <summary>
+            The IMapping Converter to use when setting the source to the target.
+            </summary>
+        </member>
+        <member name="P:Funnel.MappedColumn.Source">
+            <summary>
+            The source property/columns name.
+            </summary>
+        </member>
+        <member name="P:Funnel.MappedColumn.Target">
+            <summary>
+            The target property/columns name.
+            </summary>
+        </member>
+        <member name="T:Funnel.ReflectionInfo">
+            <summary>
+            Set of Key/Value pairs
+            </summary>
+        </member>
+        <member name="F:Funnel.ReflectionInfo.MappedColumns">
+            <summary>
+            List of explicitly mapped columns
+            </summary>
+        </member>
+        <member name="P:Funnel.ReflectionInfo.SourceType">
+            <summary>
+            Gets or sets the source type.
+            </summary>
+        </member>
+        <member name="T:Funnel.TypeConversionMethodAttribute">
+            <summary>
+            The type conversion method attribute.
+            </summary>
+        </member>
+        <member name="F:Funnel.TypeConversionMethodAttribute._converter">
+            <summary>
+            The converter.
+            </summary>
+        </member>
+        <member name="M:Funnel.TypeConversionMethodAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Funnel.TypeConversionMethodAttribute"/> class.
+            </summary>
+            <param name="t">
+            The t.
+            </param>
+            <exception cref="T:System.Exception">
+            Throws exception if the type is not an IMappingConverter
+            </exception>
+        </member>
+        <member name="M:Funnel.TypeConversionMethodAttribute.Parse(System.Object)">
+            <summary>
+            The parse.
+            </summary>
+            <param name="item">
+            The item.
+            </param>
+            <returns>
+            The System.Object.
+            </returns>
+        </member>
+    </members>
+</doc>
