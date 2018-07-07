@@ -26,4 +26,16 @@ namespace CustomerManagementSystem.BLL.ViewModels
         public int CurrencyId { get; set; }
 
     }
+    public class SalesmenJsGridViewModel
+    {
+        public int SalesmenID { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public string TargetPeriod { get; set; }
+        public string TargetType { get; set; }
+        public string BaseTarget { get; set; }
+        public string ValueLead { get; set; }
+        public string Symbol { get; set; }
+      
+    }
 }

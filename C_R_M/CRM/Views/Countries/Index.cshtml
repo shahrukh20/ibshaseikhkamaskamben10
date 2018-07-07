@@ -5,31 +5,34 @@
 }
 
 <div style="background-color: white;height:100%">
-    <h2>Countries</h2>
+    <h1>Countries</h1>
 
     <p>
         <input type="button" onclick="window.location='/countries/create'" value="Create" class="btn btn-success" />
     </p>
-    <table class="table table table-striped">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CountryName)
-            </th>
-            <th>Action</th>
-        </tr>
-
-        @foreach (var item in Model) {
+    <div style="padding:10px" class="box box-danger">
+        <table class="table table table-striped">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CountryName)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.CountryId }) |
-                 
-                    @Html.ActionLink("Delete", "Delete", new { id=item.CountryId })
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.CountryName)
+                </th>
+                <th>Action</th>
             </tr>
-}
 
-    </table>
-</div>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CountryName)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CountryId }) |
+
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CountryId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+    </div>

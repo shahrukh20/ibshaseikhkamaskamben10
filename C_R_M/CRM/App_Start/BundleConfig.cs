@@ -1,11 +1,10 @@
-﻿//shahrukh
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 using WebHelpers.Mvc5;
 
 namespace CRM.App_Start
 {
     public class BundleConfig
-    {//shahrukh Ahmed Khan
+    {
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Bundles/css")

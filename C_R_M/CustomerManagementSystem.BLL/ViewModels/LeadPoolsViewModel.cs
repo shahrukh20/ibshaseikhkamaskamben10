@@ -60,7 +60,13 @@ namespace CustomerManagementSystem.BLL.ViewModels
         public string Name { get; set; }
         public string Size { get; set; }
     }
-
+    public class History
+    {
+        public string Status { get; set; }
+        public string ActionType { set; get; }
+        public string ActionDate { set; get; }
+        public string ActionTime { set; get; }
+    }
     public class LeadContactViewModel
     {
         public int id { get; set; }

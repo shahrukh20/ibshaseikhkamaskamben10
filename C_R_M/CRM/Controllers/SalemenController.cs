@@ -39,7 +39,16 @@ namespace CRM.Controllers
             }).ToList());
 
         }
-
+        public JsonResult LoadSalesmen()
+        {
+            List<SalesmenJsGridViewModel> list = db.Database.SqlQuery<SalesmenJsGridViewModel>(@"select slm.Salesman_Id as SalesmenID,usr.Name,sc.Name as Category	,tp.Name as TargetPeriod,ty.Name as TargetType,slm.Base_Target as BaseTarget,slm.ValueLead	,cu.Symbol from salesman slm
+inner join Users usr on slm.User_Id=usr.Id
+inner join SalesmenCategories sc on sc.Id=slm.salesmenCategory_Id
+inner join	 TargetPeriods tp on tp .Id=slm.targetPeriod_Id
+inner join TargetTypes ty on ty.Id=slm.targetType_Id
+inner join Currencies cu on cu.Id=slm.Currency_Id").ToList();
+            return Json(list,JsonRequestBehavior.AllowGet);
+        }
         private void BindDropDowns(int salemenId, int categoryId, int targetperiodId, int targettypeId, int currencyId)
         {
             ViewBag.Salesmen = salemenCommon.BindSalemen(salemenId);
