@@ -10,6 +10,7 @@ namespace CustomerManagementSystem.BLL.Models
     {
         [Key]
         public virtual int Id { get; set; }
+        public int? LeadId { get; set; }
         public virtual string LeadPool { get; set; }
         public virtual string LeadStatusFields { get; set; }
         public virtual string LeadPoolAttachment { get; set; }

@@ -18,6 +18,8 @@ namespace CustomerManagementSystem.BLL.Models
         public DateTime DateFrom { get; set; }
         [Display(Name = "To Date")]
         public DateTime DateTo { get; set; }
+        [Display(Name = "Running")]
+        public bool IsActive { get; set; }
 
         public virtual PropertyMaster PropertyMaster { get; set; }
 

@@ -234,7 +234,8 @@ namespace CRM.Controllers
                         CreatedBy = user.Id,
                         CreatedOn = DateTime.Now,
                         StatusEnum = Enumeration.StatusEnum.New,
-                        leadPool = _leadPool,TotalLeadScore = 0
+                        leadPool = _leadPool,
+                        TotalLeadScore = 0
 
                     }
                     );
@@ -298,9 +299,10 @@ namespace CRM.Controllers
         //{
 
         //}
-
+     
         public ActionResult LeadUpdate(int id)
         {
+
             var _leadPool = db.Lead_Pool.FirstOrDefault(x => x.Id == id);
             List<string> images = new List<string>();
             string serverpath = Request.Url.Authority;
@@ -393,6 +395,8 @@ namespace CRM.Controllers
             Session["divMessage"] = new SessionModel() { Message = $"Your Lead {LeadVM.id} has been updated Successfully.", Type = "1" };
             return RedirectToAction("LeadListing");
         }
+
+
 
         public ActionResult UpdateLabelForCampaigns(string _id)
         {
@@ -576,17 +580,26 @@ namespace CRM.Controllers
         {
             try
             {
-                var CurrentUser = db.Users.FirstOrDefault(x => x.Name == User.Identity.Name);
-                var leadGeted = db.Lead_Pool.FirstOrDefault(x => x.Id == item.Id);
-                leadGeted.Assign_To_ID = item.Salesmen;
-                leadGeted.Assign_By_ID = CurrentUser != null ? CurrentUser.Id : 1;
-                db.Entry(leadGeted).State = EntityState.Modified;
-                db.SaveChanges();
-                var userss = db.Users.FirstOrDefault(x => x.Id == item.Salesmen);
-                //Session["divSession"] = $"Lead No{ item.Id} has been Assigned to {userss.FirstName} {userss.LastName} .";
-                return Json($"Lead {leadGeted.Id} has been Assigned to {userss.FirstName} {userss.LastName} .", JsonRequestBehavior.AllowGet);
+                if (item.Salesmen != -1)
+                {
+                    var CurrentUser = db.Users.FirstOrDefault(x => x.Name == User.Identity.Name);
+                    var leadGeted = db.Lead_Pool.FirstOrDefault(x => x.Id == item.Id);
+                    leadGeted.Assign_To_ID = item.Salesmen;
+                    leadGeted.Assign_By_ID = CurrentUser != null ? CurrentUser.Id : 1;
+                    leadGeted.Status = Enumeration.StatusEnum.Assign;
+                    db.Entry(leadGeted).State = EntityState.Modified;
+                    db.SaveChanges();
+                    
+                    var userss = db.Users.FirstOrDefault(x => x.Id == item.Salesmen);
+                    //Session["divSession"] = $"Lead No{ item.Id} has been Assigned to {userss.FirstName} {userss.LastName} .";
+                    return Json($"Lead {leadGeted.Id} has been Assigned to {userss.FirstName} {userss.LastName} .", JsonRequestBehavior.AllowGet);
 
+                }
+                else
+                {
+                    return Json("All", JsonRequestBehavior.AllowGet);
 
+                }
             }
             catch (Exception e)
             {
@@ -637,6 +650,30 @@ namespace CRM.Controllers
 
         public ActionResult StatusUpdate(int id)
         {
+            List<History> leadhistories = new List<History>();
+            var LeadHistory = db.LeadHistories.Where(i => i.LeadId == id).ToList();
+            if (LeadHistory.Count > 0)
+            {
+                foreach (var item in LeadHistory)
+                {
+                    try
+                    {
+                        var fields = JsonConvert.DeserializeObject<LeadStatusFields>(item.LeadStatusFields);
+                        History history = new History();
+                        history.Status = fields.StatusType.Status1;
+                        history.ActionDate = fields.NextActionDate;
+                        history.ActionTime = fields.NextActionTime;
+                        history.ActionType = fields.ActionType.Action_Name;
+                        leadhistories.Add(history);
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+            }
+            ViewBag.Histories = leadhistories;
             var _leadPool = db.Lead_Pool.FirstOrDefault(x => x.Id == id);
             LeadPoolsViewModel leadPoolsViewModel = leadPoolsCommon.ConvertoLeadModel(id, _leadPool);
             var _leadStatus = db.LeadStatusFields.FirstOrDefault(x => x.leadPool.Id == id);

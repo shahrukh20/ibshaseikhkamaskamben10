@@ -16,7 +16,8 @@ namespace CRM.WebForms
             DataSet ds = new DataSet();
             ds = (DataSet)Session["ds"];
             ReportDocument rd = new ReportDocument();
-            rd.Load(@"E:\Projects\CRM\NewUI\CRM\CRM\Reports\ReportsTemplate\UnAssignedLead.rpt");
+            string path = Server.MapPath(@"\Reports\ReportsTemplate\UnAssignedLead.rpt");
+            rd.Load(path);
             //rd. = null;
             rd.SetDataSource(ds);
             CrystalReportViewer1.EnableDatabaseLogonPrompt = false;

@@ -153,6 +153,7 @@ namespace CRM.CommonClasses
                     LeadPool = JsonConvert.SerializeObject(leadPool),
                     LeadPoolAttachment = JsonConvert.SerializeObject(leadAttachments),
                     LeadStatusFields = JsonConvert.SerializeObject(leadStatus),
+                    LeadId = id
                 });
                 db.SaveChanges();
             }
@@ -189,7 +190,7 @@ namespace CRM.CommonClasses
 
         }
 
-        
+
 
         public LeadPoolsViewModel ConvertoLeadModel(int id, LeadPool _leadPool)
         {

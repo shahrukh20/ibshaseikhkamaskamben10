@@ -216,7 +216,15 @@
                             data: item,
                             dataType: "JSON",
                             success: function (data) {
-                                AlertPopUp(date);
+                                debugger;
+                                if (data == "") {
+                                    data = "Success";
+                                }
+                                else if (data == "All") {
+
+                                    AlertFailurePopUp("Cannot assign to all.")
+                                }
+                                else { AlertPopUp(data); }
                             }
                         });
                     }

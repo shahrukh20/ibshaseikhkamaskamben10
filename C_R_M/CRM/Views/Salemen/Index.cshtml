@@ -9,61 +9,147 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NameId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TargetPeriodId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TargetTypeId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BaseTarget)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ValueAndLead)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CurrencyId)
-        </th>
-        <th></th>
-    </tr>
+<div class="form-horizontal">
+    <div id="jsGrid"></div>
+</div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NameId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CategoryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TargetPeriodId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TargetTypeId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BaseTarget)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ValueAndLead)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CurrencyId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
 
-</table>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+
+        //Float Value
+        function DecimalField(config) {
+            jsGrid.fields.number.call(this, config);
+        }
+
+        DecimalField.prototype = new jsGrid.fields.number({
+
+            filterValue: function () {
+                return this.filterControl.val()
+                    ? parseFloat(this.filterControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            insertValue: function () {
+                return this.insertControl.val()
+                    ? parseFloat(this.insertControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            editValue: function () {
+                return this.editControl.val()
+                    ? parseFloat(this.editControl.val() || 0, 10)
+                    : undefined;
+            }
+        });
+
+        jsGrid.fields.decimal = jsGrid.DecimalField = DecimalField;
+        //End Float Value
+
+
+        var originalFilterTemplate = jsGrid.fields.text.prototype.filterTemplate;
+        jsGrid.fields.text.prototype.filterTemplate = function () {
+            var grid = this._grid;
+            var $result = originalFilterTemplate.call(this);
+            $result.on("keyup", function (e) {
+                // TODO: add proper condition and optionally throttling to avoid too much requests
+                grid.search();
+            });
+            return $result;
+        }
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+            filtering: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            async: false,
+
+            pageSize: 5,
+            pageButtonCount: 5,
+
+            controller: {
+
+                loadData: function (filter) {
+                    var d = $.Deferred();
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "../Salemen/LoadSalesmen",
+                        dataType: "JSON"
+                    }).done(function (result) {
+                        for (var prop in filter) {
+
+                            //if (prop == "Score" && filter['Score'] != null) {
+                            //    result = $.grep(result, function (item) {
+                            //        if (item[prop] == filter[prop]) {
+                            //            return item;
+                            //        }
+                            //    });
+                            //    break;
+                            //}
+                            //if (prop != "Score"){
+                            if (filter[prop].length > 0) {
+                                result = $.grep(result, function (item) {
+                                    var regexp = new RegExp(filter[prop], 'gi');
+                                    if (item[prop].match(regexp)) {
+                                        return item;
+                                    }
+                                });
+                                break;
+                            }
+                            //}
+
+
+
+                        }
+                        d.resolve(result);
+                    });
+                    return d.promise();
+                }
+            },
+            fields: [
+                { name: "Name", title: "Name", type: "text", width: 150, align: 'center' },
+                { name: "Category", title: "Category", type: "text", width: 150, validate: "required", align: 'center', editing: false },
+                  { name: "TargetPeriod", title: "Target Period", type: "text", align: 'center' },
+                { name: "TargetType", title: "Target Type", type: "text", width: 150, validate: "required", align: 'center', editing: false },
+                { name: "BaseTarget", title: "Base Target", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                  { name: "ValueLead", title: "Value Lead", type: "text", width: 150, align: 'center' },
+                { name: "Symbol", title: "Symbol", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+
+                {
+                    type: 'control',
+                    align: 'center',
+                   
+                    itemTemplate: function (_, item) {
+                        return '<a href="/Salemen/Edit/' + item.SalesmenID + '">Edit</a>';// |<a href= "/propertymasters/Details/' + item.PropertyMasterId + '" > View</a > | <a href="/propertymasters/Delete/' + item.PropertyMasterId + '">Delete</a>
+                    }, width: 120
+                }
+            ]
+
+        });
+
+    });
+
+</script>
+<script>
+
+    function ReditectToViewSection(Action_Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/ActionTypes/Details/" + Action_Id;
+    }
+
+    function ReditectToEditSection(Action_Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/ActionTypes/Edit/" + Action_Id;
+    }
+    function ReditectToDisableSection(Source_Type_Id) {
+        var base_url = window.location.origin;
+        window.location = base_url + "/SourceTypes/View/id=" + Source_Type_Id;
+    }
+</script>

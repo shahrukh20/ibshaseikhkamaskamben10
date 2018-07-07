@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CustomerManagementSystem.BLL.Models;
+using Newtonsoft.Json;
 
 namespace CRM.Controllers
 {
@@ -15,6 +16,26 @@ namespace CRM.Controllers
     {
         private CRMContext db = new CRMContext();
 
+        public string AreasAjax()
+        {
+            try
+            {
+
+                return JsonConvert.SerializeObject(db.Areas.Select(x => new
+                {
+                    AreaId = x.AreaId,
+                    AreaName = x.AreaName,
+                    CityName = x.City.CityName
+                }
+                ).ToList());
+            }
+            catch (Exception e)
+            {
+
+
+            }
+            return "";
+        }
         // GET: Areas
         public ActionResult Index()
         {
@@ -63,7 +84,7 @@ namespace CRM.Controllers
         // GET: Areas/Edit/5
         public ActionResult Edit(int? id)
         {
-            
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

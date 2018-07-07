@@ -20,20 +20,45 @@ namespace CRM.Controllers
 
         private void getAdminDashboardData()
         {
-            ViewBag.RunningCampaign = 20;
-            ViewBag.PublishedProperties = 0;
-            ViewBag.UnassignedLeads = 0;
-            ViewBag.TopScoreLeads = new LeadPool();
-            try
+            int userId = int.Parse(User.Identity.GetUserId());
+            var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
+            if (user.Id == 1)
             {
-                ViewBag.UnassignedLeadsleadsCounts = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign").ToList().Count;
-                ViewBag.PublishedProperties = db.PropertyMaster.Where(x => string.Equals(x.PublishToWeb.ToLower(), "yes")).ToList().Count;
-                ViewBag.TopScoreLeads = db.LeadStatusFields.OrderByDescending(x => x.TotalLeadScore).Take(5).ToList();
+                ViewBag.RunningCampaign = 0;
+                ViewBag.PublishedProperties = 0;
+                ViewBag.UnassignedLeads = 0;
+                ViewBag.TopScoreLeads = new LeadPool();
+                try
+                {
+                    ViewBag.RunningCampaign = db.Campaigns.Where(x => x.IsActive == true).ToList().Count;
+                    ViewBag.UnassignedLeadsleadsCounts = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "new").ToList().Count;
+                    ViewBag.PublishedProperties = db.PropertyMaster.Where(x => string.Equals(x.PublishToWeb.ToLower(), "yes")).ToList().Count;
+                    ViewBag.TopScoreLeads = db.LeadStatusFields.OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
+                }
+                catch (Exception e)
+                {
+
+
+                }
             }
-            catch (Exception e)
+            else
             {
+                var juniors = db.Users.Where(x => x.Manager.Id == user.Id).ToList();
+                var junioirsID = juniors.Select(y => y.Id).ToList();
 
+                ViewBag.AssignedLeadsleadsCounts = 0;
+                ViewBag.UnassignedLeadsleadsCounts = 0;
+                ViewBag.TopScoreLeads = new LeadPool();
+                try
+                {
+                    ViewBag.UnassignedLeadsleadsCounts = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "new" && junioirsID.Contains(x.Created_By)).ToList().Count;
+                    ViewBag.AssignedLeadsleadsCounts = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign" && junioirsID.Contains(x.Created_By)).ToList().Count;
+                    ViewBag.TopScoreLeads = db.LeadStatusFields.Where(x => junioirsID.Contains(x.leadPool.Created_By)).OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
+                }
+                catch (Exception e)
+                {
 
+                }
             }
         }
         public ActionResult DashboardSalesman()
@@ -58,6 +83,7 @@ namespace CRM.Controllers
         }
         public ActionResult DashboardSalesManager()
         {
+            getAdminDashboardData();
             return View();
         }
 
@@ -101,6 +127,7 @@ namespace CRM.Controllers
         }
         public string ShowFunnel()
         {
+
             int Meeting = 1;
             int Quotation = 1;
             int Demo = 1;
@@ -108,7 +135,17 @@ namespace CRM.Controllers
 
             try
             {
-                var values = db.LeadStatusFields.ToList();
+                int userId = int.Parse(User.Identity.GetUserId());
+                var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
+                var values = new List<LeadStatusFields>();
+                if (userId == 1)
+                    values = db.LeadStatusFields.ToList();
+                else
+                {
+                    var juniors = db.Users.Where(x => x.Manager.Id == user.Id).ToList();
+                    var junioirsID = juniors.Select(y => y.Id).ToList();
+                    values = db.LeadStatusFields.Where(x => junioirsID.Contains(x.leadPool.Created_By)).ToList();
+                }
                 foreach (var item in values)
                 {
                     switch (item.ActionType?.Action_Name.ToLower())

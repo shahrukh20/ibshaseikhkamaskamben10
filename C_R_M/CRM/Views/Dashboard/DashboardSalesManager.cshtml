@@ -1,4 +1,5 @@
-﻿@{
+﻿@using CustomerManagementSystem.BLL.Models;
+@{
 
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,8 +10,8 @@
 
 
 @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>*@
 
 <h1>Dashboard</h1>
 <div id="content">
@@ -18,7 +19,7 @@
         <div class="col-lg-6 col-xs-6">
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>50</h3>
+                    <h3>@((int)ViewBag.UnassignedLeadsleadsCounts)</h3>
 
                     <p>Un-Assign Leads</p>
                 </div>
@@ -32,7 +33,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>20</h3>
+                    <h3>@((int)ViewBag.AssignedLeadsleadsCounts)</h3>
 
                     <p>Assign Leads</p>
                 </div>
@@ -42,7 +43,7 @@
                 <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
             </div>
         </div>
-       
+
     </div>
     <div class="row">
         <section class="col-md-6">
@@ -54,11 +55,27 @@
                             <thead>
                                 <tr role="row">
                                     <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 217.8px;">Lead#</th>
-                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266.6px;">Lead Desc</th>
+                                    @*<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266.6px;">Lead Desc</th>*@
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 237px;">Status(s)</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 187.4px;">Score</th>
                                 </tr>
                             </thead>
+                            <tbody>
+
+                                @{
+
+                                    foreach (var item in (ViewBag.TopScoreLeads as List<LeadStatusFields>))
+                                    {
+                                        <tr>
+                                            <td>Lead# @item.leadPool.Id</td>
+                                            @*<td>@item.leadPool.Lead_Remarks</td>*@
+                                            <td>@(item.StatusType == null ? "New" : item.StatusType.Status1)</td>
+                                            <td>@(item.ActionType == null ? 0 : item.TotalLeadScore)</td>
+                                        </tr>
+                                    }
+                                }
+
+                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -72,44 +89,44 @@
                 </div>
             </div>
         </section>
-        </div>
     </div>
-  
+</div>
 
-    @*<script src="~/js/d3-funnel.min.js" type="text/javascript"></script>*@
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+@*<script src="~/js/d3-funnel.min.js" type="text/javascript"></script>*@
 
-    <script src="~/Content/js/d3-funnel.min.js"></script>
-    <script type="text/javascript">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
 
-        $(document).ready(function () {
-            showfunnel();
+<script src="~/Content/js/d3-funnel.min.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        showfunnel();
+    });
+    function showfunnel() {
+        $.ajax({
+
+            url: "../Dashboard/ShowFunnel",
+            dataType: "JSON",
+            async: false,
+            success: function (data) {
+                var options = { block: { dynamicHeight: true } };
+                var chart = new D3Funnel('#funnel');
+                chart.draw(data, options);
+            },
+            error: function (data) { }
         });
-        function showfunnel() {
-            $.ajax({
+        var data = [
+            ['PROSPECT', 2500000],
+            ['PROPOSAL', 1700000],
+            ['NEGOTIATION', 1000000],
+            ['DEAL', 500000]
+        ];
 
-                url: "../Dashboard/ShowFunnel",
-                dataType: "JSON",
-                async: false,
-                success: function (data) {
-                    var options = { block: { dynamicHeight: true } };
-                    var chart = new D3Funnel('#funnel');
-                    chart.draw(data, options);
-                },
-                error: function (data) { }
-            });
-            var data = [
-                ['PROSPECT', 2500000],
-                ['PROPOSAL', 1700000],
-                ['NEGOTIATION', 1000000],
-                ['DEAL', 500000]
-            ];
-
-        }
-        $(window).on("resize", function () {
-            showfunnel();
-        });
-    </script>
+    }
+    $(window).on("resize", function () {
+        showfunnel();
+    });
+</script>
 
 

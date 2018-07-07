@@ -89,7 +89,7 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,DateFrom,DateTo")] Campaign campaign, string propertyids)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,DateFrom,DateTo,IsActive")] Campaign campaign, string propertyids)
         {
             if (ModelState.IsValid)
             {
@@ -143,7 +143,7 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,DateFrom,DateTo")] Campaign campaign, string propertyids)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,DateFrom,DateTo,IsActive")] Campaign campaign, string propertyids)
         {
             if (ModelState.IsValid)
             {

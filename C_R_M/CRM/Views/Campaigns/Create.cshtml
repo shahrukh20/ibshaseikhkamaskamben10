@@ -5,12 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<h1>Create</h1>
+<div style="padding:10px" class="box box-danger">
 
-
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <hr />
@@ -48,6 +48,15 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+                
+                @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div id="jsGrid"></div>
         </div>
         <input type="hidden" name="propertyids" id="propertyids" />
@@ -57,18 +66,18 @@
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
-<script>
+    }
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    <script>
     $(function () {
         $(".datepicker").datepicker();
     });
-</script>
-<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
-<script>
+    </script>
+    <script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
+    <script>
     listofids = [];
     function Add_Sub_IDS(id, ischecked) {
 
@@ -158,4 +167,4 @@
         });
     }
     );
-</script>
+    </script>

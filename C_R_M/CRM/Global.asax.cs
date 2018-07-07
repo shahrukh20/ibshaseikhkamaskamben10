@@ -50,7 +50,7 @@ namespace CRM
                 routeData.Values["action"] = "InternalServerError";
             }
 
-            using (Controller controller = new ErrorController())
+            using (Controller controller = new ErrorController(exception))
             {
                 ((IController)controller).Execute(new RequestContext(new HttpContextWrapper(httpContext), routeData));
             }

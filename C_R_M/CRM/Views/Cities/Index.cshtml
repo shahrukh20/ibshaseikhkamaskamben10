@@ -4,11 +4,11 @@
     ViewBag.Title = "Index";
 }
 <div style="background-color: white;height:100%">
-    <h2>Cities</h2>
+    <h1>Cities</h1>
 
     <p>
         <input type="button" onclick="window.location='/Cities/create'" value="Create" class="btn btn-success" />
-    </p>
+    </p><div style="padding:10px" class="box box-danger">
     <table class="table table table-striped">
         <tr>
             <th>
@@ -33,11 +33,11 @@
 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.CityId }) |
-                  
+
                     @Html.ActionLink("Delete", "Delete", new { id = item.CityId })
                 </td>
             </tr>
         }
 
-    </table>
+    </table></div>
 </div>
