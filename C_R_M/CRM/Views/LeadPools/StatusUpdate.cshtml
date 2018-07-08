@@ -2,7 +2,36 @@
 @{
 
 }
+<style>
+    .img-wrap {
+        position: relative;
+        display: inline-block;
+        /*border: 1px red solid;*/
+        font-size: 0;
+    }
 
+        .img-wrap .close {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 100;
+            background-color: #FFF;
+            padding: 5px 2px 2px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            opacity: 1.2;
+            text-align: center;
+            font-size: 22px;
+            line-height: 10px;
+            border-radius: 50%;
+            margin-top: 15px;
+        }
+
+        .img-wrap:hover .close {
+            opacity: 1;
+        }
+</style>
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#leadForm">Lead Update</a></li>
     <li><a data-toggle="tab" href="#menu1">Lead History</a></li>
@@ -217,47 +246,45 @@
                                     @*<textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-8" disabled></textarea>*@
                                     @Html.TextAreaFor(model => model.txtRemarks, new { @class = "form-control", @rows = 3, @cols = 25, @disabled = "disabled" })
                                     @*@Html.EditorFor(model => model.txtRemarks)
-                                        <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
+                                <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
                                 </div>
 
 
 
                             </div>
 
-                        
+
 
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <div class="form-horizontal">
+       
+            <div class="box box-danger" style="overflow-x:scroll;height: 163px;">
+                <div style="width:100%;height: 120px;border-radius: 12.4px;margin-bottom: 15px;padding: 9px;" class="">
 
-                        <div class="form-group">
-                            <div class="col-lg-10">
-                                <h3 class="box-title">Lead Attachment</h3>
-                            </div>
+                    @{
+                        List<string> images = (List<string>)ViewBag.images;
+                        if (images != null)
+                        {
+                            if (images.Count > 0)
+                            {
+                                foreach (var imageurl in images)
+                                {
+                                    <div class="img-wrap">
+                                        <span class=""></span>
+                                        <img src="@imageurl" class="pop" style="margin-left: 50px;margin-top:15px;margin-bottom:10px;width: 120px;height:100px;border-radius: 6.4px;" data-id="@imageurl" />
+                                    </div>
 
-                        </div>
+                                }
 
-                        <div class="form-horizontal">
-                            <div class="form-group">
-
-                                <div class="col-md-10">
-                                    <a onclick="HideShowRevision()"></a>
-                                    <h5></h5>
-                                </div>
-
-
-                            </div>
-                            <div class="form-horizontal" id="divAttachments" style="display:none">
-                                <div class="form-group">
-                                    <div id="jsGrid"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            }
+                            else
+                            {
+                                <div style="text-align: center;"><h3 style="color:black">No Images Available</h3></div>
+                            }
+                        }
+                    }
                 </div>
             </div>
             <div class="box box-danger">

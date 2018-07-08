@@ -299,7 +299,7 @@ namespace CRM.Controllers
         //{
 
         //}
-     
+
         public ActionResult LeadUpdate(int id)
         {
 
@@ -313,12 +313,12 @@ namespace CRM.Controllers
 
             ImageJson img = new ImageJson();
             var values = db.Lead_Pool_Attachment.Where(x => x.Lead_Pool_Id == id)
-                     .Select(x => new LeadAttachmentsViewModel() { id = x.Lead_Pool_Attachement_Id, Name = x.Attachment_Name, Size = x.Size })
+                     .Select(x => new LeadAttachmentsViewModel() { id = x.Lead_Pool_Attachement_Id, Name = x.Saved_Name, Size = x.Size })
                      .ToList();
             if (values.Count > 0)
                 foreach (var item in values)
                 {
-                    string filename = item.Name.Split('\\')[item.Name.Split('\\').Length - 1];
+                    string filename = item.Name;
                     images.Add("http://" + serverpath + "//uploadedfiles//" + filename);
                 }
             ViewBag.images = images;
@@ -349,10 +349,11 @@ namespace CRM.Controllers
         }
 
         [HttpPost]
-        public ActionResult LeadUpdate(LeadPoolsViewModel LeadVM)
+        public ActionResult LeadUpdate(LeadPoolsViewModel LeadVM, IEnumerable<HttpPostedFileBase> images, string dltimg)
         {
             try
             {
+
                 var property = db.PropertyMaster.FirstOrDefault(x => x.PropertyMasterId == LeadVM.ddlProperty);
                 var currency = db.Currencies.FirstOrDefault(x => x.Id == LeadVM.ddlCurrency);
                 int userId = int.Parse(User.Identity.GetUserId());
@@ -386,6 +387,47 @@ namespace CRM.Controllers
                 //leadStatusFields.Contact2 = LeadStatusVM.txtContact2;
                 db.Entry(leadStatusFields).State = EntityState.Modified;
                 db.SaveChanges();
+                var leadattachments = db.Lead_Pool_Attachment.Where(i => i.Lead_Pool_Id == LeadVM.id).ToList();
+                if (dltimg != "")
+                {
+                    List<string> dltimgs = dltimg.Split(',').ToList();
+                    foreach (var item in dltimgs)
+                    {
+                        var dltit = leadattachments.FirstOrDefault(i => item.Contains(i.Saved_Name));
+                        db.Lead_Pool_Attachment.Remove(dltit);
+                        db.SaveChanges();
+                    }
+                }
+                var path = AppDomain.CurrentDomain.BaseDirectory + "\\uploadedfiles\\";
+                var a = images.FirstOrDefault();
+
+                if (a != null)
+                {
+
+
+                    foreach (var httpPostedFile in images)
+                    {
+                        string id = Guid.NewGuid().ToString();
+                        string extension = httpPostedFile.FileName.ToString().Split('.')[1];
+                        // Get the complete file path
+                        var fileSavePath = (HttpContext.Server.MapPath("~/UploadedFiles") + "\\" + id + "." + extension);
+
+                        // Save the uploaded file to "UploadedFiles" folder
+                        httpPostedFile.SaveAs(fileSavePath);
+                        db.Lead_Pool_Attachment.Add(
+                            new LeadPoolAttachment()
+                            {
+                                Attachment_Path = fileSavePath,
+                                Lead_Pool = leadStatusFields,
+                                Lead_Pool_Id = leadStatusFields.Id,
+                                Attachment_Name = httpPostedFile.FileName.ToString(),
+                                Saved_Name = id + "." + extension,
+                                Size = httpPostedFile.ContentLength.ToString()
+                            });
+
+                    }
+                    db.SaveChanges();
+                }
 
             }
             catch (Exception e)
@@ -589,7 +631,7 @@ namespace CRM.Controllers
                     leadGeted.Status = Enumeration.StatusEnum.Assign;
                     db.Entry(leadGeted).State = EntityState.Modified;
                     db.SaveChanges();
-                    
+
                     var userss = db.Users.FirstOrDefault(x => x.Id == item.Salesmen);
                     //Session["divSession"] = $"Lead No{ item.Id} has been Assigned to {userss.FirstName} {userss.LastName} .";
                     return Json($"Lead {leadGeted.Id} has been Assigned to {userss.FirstName} {userss.LastName} .", JsonRequestBehavior.AllowGet);
@@ -650,8 +692,11 @@ namespace CRM.Controllers
 
         public ActionResult StatusUpdate(int id)
         {
+            List<string> images = new List<string>();
+            string serverpath = Request.Url.Authority;
             List<History> leadhistories = new List<History>();
             var LeadHistory = db.LeadHistories.Where(i => i.LeadId == id).ToList();
+
             if (LeadHistory.Count > 0)
             {
                 foreach (var item in LeadHistory)
@@ -674,6 +719,18 @@ namespace CRM.Controllers
 
             }
             ViewBag.Histories = leadhistories;
+
+
+            var values = db.Lead_Pool_Attachment.Where(x => x.Lead_Pool_Id == id)
+                   .Select(x => new LeadAttachmentsViewModel() { id = x.Lead_Pool_Attachement_Id, Name = x.Saved_Name, Size = x.Size })
+                   .ToList();
+            if (values.Count > 0)
+                foreach (var item in values)
+                {
+                    string filename = item.Name;
+                    images.Add("http://" + serverpath + "//uploadedfiles//" + filename);
+                }
+            ViewBag.images = images;
             var _leadPool = db.Lead_Pool.FirstOrDefault(x => x.Id == id);
             LeadPoolsViewModel leadPoolsViewModel = leadPoolsCommon.ConvertoLeadModel(id, _leadPool);
             var _leadStatus = db.LeadStatusFields.FirstOrDefault(x => x.leadPool.Id == id);

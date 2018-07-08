@@ -283,6 +283,10 @@
     <Compile Include="Migrations\201807070759158_lead dinhitr.Designer.cs">
       <DependentUpon>201807070759158_lead dinhitr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807080707375_as.cs" />
+    <Compile Include="Migrations\201807080707375_as.Designer.cs">
+      <DependentUpon>201807080707375_as.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Campaign.cs" />
@@ -479,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807070759158_lead dinhitr.resx">
       <DependentUpon>201807070759158_lead dinhitr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807080707375_as.resx">
+      <DependentUpon>201807080707375_as.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
