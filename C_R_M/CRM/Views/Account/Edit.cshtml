@@ -154,7 +154,7 @@
                                             @Html.DropDownList("ddUserType", (IEnumerable<SelectListItem>)ViewBag.UserType, new { @class = "No-Validate form-control select form-control" })
                                         </div>
                                     </section>
-                                    <section style="display:@display">
+                                    <section style="display:@display" id="managersdropdown">
                                         <div class="input">
 
                                             @Html.DropDownList("ddManagers", (IEnumerable<SelectListItem>)ViewBag.Managers, new { @class = "No-Validate form-control select form-control" })
@@ -226,10 +226,10 @@
                 var end = this.value;
                 if (end == 1) {
                     //$("#ddManager").css("display", "none");
-                    $("#ddManagers").hide();
+                    $("#managersdropdown").hide();
                 }
                 else {
-                    $("#ddManagers").show();
+                    $("#managersdropdown").show();
                     //$("#ddManager").css("display", "inline");
                 }
 
