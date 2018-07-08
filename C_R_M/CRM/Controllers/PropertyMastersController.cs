@@ -193,6 +193,8 @@ namespace CRM.Controllers
                 }
                 db.PropertyMaster.Add(propertyMaster);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Property Successfully Created.", Type = "1" };
+               // Session["divMessage"] = "Property Successfully Created.";
                 return RedirectToAction("Index");
             }
 
@@ -274,6 +276,9 @@ namespace CRM.Controllers
                 propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
                 db.Entry(propertyMaster).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successfull.", Type = "1" };
+
+       
                 return RedirectToAction("Index");
             }
             return View(propertyMaster);

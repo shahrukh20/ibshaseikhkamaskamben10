@@ -6,10 +6,17 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 
 namespace CRM.Controllers
 {
+    public class CityViewModel
+    {
+        public int CityId { get; set; }
+        public string CountryName { get; set; }
+        public string CityName { get; set; }
+    }
     [Authorize]
     public class CitiesController : Controller
     {
@@ -18,10 +25,14 @@ namespace CRM.Controllers
         // GET: Cities
         public ActionResult Index()
         {
-            var cities = db.Cities.Include(c => c.Country);
-            return View(cities.ToList());
+            return View();
         }
 
+        public JsonResult getList()
+        {
+            var cities = db.Database.SqlQuery<CityViewModel>("Select C.CityId,C.CityName,Cc.CountryName from Cities C inner join Countries Cc on Cc.CountryId = C.CountryId").ToList();
+            return Json(cities, JsonRequestBehavior.AllowGet);
+        }
         // GET: Cities/Details/5
         public ActionResult Details(int? id)
         {
@@ -55,6 +66,8 @@ namespace CRM.Controllers
             {
                 db.Cities.Add(city);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "City Successfully Created.", Type = "1" };
+
                 return RedirectToAction("Index");
             }
 
@@ -89,6 +102,8 @@ namespace CRM.Controllers
             {
                 db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
+
                 return RedirectToAction("Index");
             }
             ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", city.CountryId);

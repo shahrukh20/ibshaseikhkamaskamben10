@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 
 namespace CRM.Controllers
@@ -18,9 +19,12 @@ namespace CRM.Controllers
         // GET: TargetPeriods
         public ActionResult Index()
         {
-            return View(db.TargetPeriods.ToList());
+            return View();
         }
-
+        public JsonResult getList()
+        {
+            return Json(db.TargetPeriods.ToList(), JsonRequestBehavior.AllowGet);
+        }
         // GET: TargetPeriods/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,6 +57,7 @@ namespace CRM.Controllers
             {
                 db.TargetPeriods.Add(targetPeriod);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Target Period Successfully Created.", Type = "1" };
                 return RedirectToAction("Index");
             }
 
@@ -85,6 +90,7 @@ namespace CRM.Controllers
             {
                 db.Entry(targetPeriod).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Sucessful.", Type = "1" };
                 return RedirectToAction("Index");
             }
             return View(targetPeriod);

@@ -99,6 +99,8 @@ namespace CRM.Controllers
             {
                 db.Lead_Pool.Add(leadPool);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Lead Successfully Created.", Type = "1" };
+
                 return RedirectToAction("Index");
             }
 
@@ -131,6 +133,8 @@ namespace CRM.Controllers
             {
                 db.Entry(leadPool).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
+
                 return RedirectToAction("Index");
             }
             return View(leadPool);
