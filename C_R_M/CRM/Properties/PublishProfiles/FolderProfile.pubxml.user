@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\Projects\CRM\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\Projects\CRM\Publish\Version Build 4</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -16,10 +16,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2013 04:29:20</publishTime>
     </File>
     <File Include="bin/CRM.dll">
-      <publishTime>07/06/2018 11:29:00</publishTime>
+      <publishTime>07/08/2018 16:11:24</publishTime>
     </File>
     <File Include="bin/CRM.pdb">
-      <publishTime>07/06/2018 11:29:00</publishTime>
+      <publishTime>07/08/2018 16:11:24</publishTime>
     </File>
     <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
       <publishTime>08/31/2017 05:21:24</publishTime>
@@ -70,13 +70,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/31/2017 05:21:26</publishTime>
     </File>
     <File Include="bin/CustomerManagementSystem.BLL.dll">
-      <publishTime>07/06/2018 11:28:54</publishTime>
+      <publishTime>07/08/2018 15:47:34</publishTime>
     </File>
     <File Include="bin/CustomerManagementSystem.BLL.dll.config">
-      <publishTime>07/06/2018 00:16:57</publishTime>
+      <publishTime>07/07/2018 17:02:49</publishTime>
     </File>
     <File Include="bin/CustomerManagementSystem.BLL.pdb">
-      <publishTime>07/06/2018 11:28:54</publishTime>
+      <publishTime>07/08/2018 15:47:34</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -901,7 +901,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 13:14:05</publishTime>
     </File>
     <File Include="Views/Account/Edit.cshtml">
-      <publishTime>06/30/2018 16:04:49</publishTime>
+      <publishTime>07/08/2018 14:58:05</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>07/03/2018 22:07:41</publishTime>
@@ -934,7 +934,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/03/2018 23:41:41</publishTime>
     </File>
     <File Include="Views/Areas/Create.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Areas/Delete.cshtml">
       <publishTime>07/01/2018 02:15:13</publishTime>
@@ -943,13 +943,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 02:15:13</publishTime>
     </File>
     <File Include="Views/Areas/Edit.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Areas/Index.cshtml">
-      <publishTime>07/04/2018 00:29:33</publishTime>
+      <publishTime>07/07/2018 22:54:12</publishTime>
     </File>
     <File Include="Views/Campaigns/Create.cshtml">
-      <publishTime>07/01/2018 02:08:56</publishTime>
+      <publishTime>07/08/2018 01:59:53</publishTime>
     </File>
     <File Include="Views/Campaigns/Delete.cshtml">
       <publishTime>06/30/2018 20:13:54</publishTime>
@@ -958,13 +958,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/30/2018 20:13:54</publishTime>
     </File>
     <File Include="Views/Campaigns/Edit.cshtml">
-      <publishTime>07/01/2018 02:08:56</publishTime>
+      <publishTime>07/08/2018 02:00:33</publishTime>
     </File>
     <File Include="Views/Campaigns/Index.cshtml">
       <publishTime>06/30/2018 16:25:04</publishTime>
     </File>
     <File Include="Views/Cities/Create.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Cities/Delete.cshtml">
       <publishTime>07/01/2018 02:15:13</publishTime>
@@ -973,13 +973,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 02:15:13</publishTime>
     </File>
     <File Include="Views/Cities/Edit.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Cities/Index.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Countries/Create.cshtml">
-      <publishTime>07/01/2018 02:28:36</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Countries/Delete.cshtml">
       <publishTime>07/01/2018 02:15:13</publishTime>
@@ -991,19 +991,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 02:28:58</publishTime>
     </File>
     <File Include="Views/Countries/Index.cshtml">
-      <publishTime>07/01/2018 02:15:13</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Dashboard/DashboardAdmin.cshtml">
-      <publishTime>07/06/2018 11:19:27</publishTime>
+      <publishTime>07/07/2018 17:59:06</publishTime>
     </File>
     <File Include="Views/Dashboard/DashboardSalesman.cshtml">
       <publishTime>07/04/2018 23:28:41</publishTime>
     </File>
     <File Include="Views/Dashboard/DashboardSalesManager.cshtml">
-      <publishTime>07/05/2018 00:09:01</publishTime>
+      <publishTime>07/07/2018 18:37:44</publishTime>
     </File>
     <File Include="Views/Error/InternalServerError.cshtml">
-      <publishTime>06/25/2018 22:03:41</publishTime>
+      <publishTime>07/08/2018 01:10:52</publishTime>
     </File>
     <File Include="Views/Error/NotFound.cshtml">
       <publishTime>06/25/2018 22:03:41</publishTime>
@@ -1033,22 +1033,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 18:17:41</publishTime>
     </File>
     <File Include="Views/LeadPools/LeadListing.cshtml">
-      <publishTime>07/06/2018 02:29:16</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/LeadPools/LeadListingUpdate.cshtml">
       <publishTime>06/18/2018 09:18:36</publishTime>
     </File>
     <File Include="Views/LeadPools/LeadUpdate.cshtml">
-      <publishTime>07/06/2018 00:55:46</publishTime>
+      <publishTime>07/08/2018 14:38:11</publishTime>
     </File>
     <File Include="Views/LeadPools/StatusUpdate.cshtml">
-      <publishTime>07/02/2018 23:32:16</publishTime>
+      <publishTime>07/08/2018 16:09:18</publishTime>
     </File>
     <File Include="Views/LeadPools/UploadFiles.cshtml">
       <publishTime>06/30/2018 21:12:36</publishTime>
     </File>
     <File Include="Views/LeadPools/ViewLead.cshtml">
-      <publishTime>07/06/2018 00:31:38</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/LeadPools/_UploadFiles.cshtml">
       <publishTime>06/30/2018 21:12:29</publishTime>
@@ -1096,7 +1096,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/04/2018 00:22:07</publishTime>
     </File>
     <File Include="Views/Salemen/Create.cshtml">
-      <publishTime>07/04/2018 00:21:07</publishTime>
+      <publishTime>07/07/2018 17:02:48</publishTime>
     </File>
     <File Include="Views/Salemen/Delete.cshtml">
       <publishTime>07/01/2018 03:09:32</publishTime>
@@ -1105,10 +1105,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/01/2018 03:09:33</publishTime>
     </File>
     <File Include="Views/Salemen/Edit.cshtml">
-      <publishTime>07/01/2018 03:49:32</publishTime>
+      <publishTime>07/07/2018 17:02:49</publishTime>
     </File>
     <File Include="Views/Salemen/Index.cshtml">
-      <publishTime>07/01/2018 03:09:36</publishTime>
+      <publishTime>07/07/2018 17:02:49</publishTime>
     </File>
     <File Include="Views/SalesmenCategories/Create.cshtml">
       <publishTime>07/01/2018 02:58:42</publishTime>
@@ -1189,7 +1189,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2018 22:03:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/06/2018 11:29:01</publishTime>
+      <publishTime>07/08/2018 15:47:41</publishTime>
     </File>
     <File Include="WebForms/ReportViwer.aspx">
       <publishTime>07/01/2018 19:03:07</publishTime>
