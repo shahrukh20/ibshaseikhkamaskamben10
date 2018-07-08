@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 
 namespace CRM.Controllers
@@ -20,7 +21,10 @@ namespace CRM.Controllers
         {
             return View(db.TargetTypes.ToList());
         }
-
+        public JsonResult getList()
+        {
+            return Json(db.TargetTypes.ToList(), JsonRequestBehavior.AllowGet);
+        }
         // GET: TargetTypes/Details/5
         public ActionResult Details(int? id)
         {
@@ -53,6 +57,7 @@ namespace CRM.Controllers
             {
                 db.TargetTypes.Add(targetType);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Target Type Successfully Created.", Type = "1" };
                 return RedirectToAction("Index");
             }
 
@@ -85,6 +90,7 @@ namespace CRM.Controllers
             {
                 db.Entry(targetType).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
                 return RedirectToAction("Index");
             }
             return View(targetType);

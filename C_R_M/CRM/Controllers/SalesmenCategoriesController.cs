@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 
 namespace CRM.Controllers
@@ -53,6 +54,7 @@ namespace CRM.Controllers
             {
                 db.SalesmenCategories.Add(salesmenCategory);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Salesmen Category Successfully Created.", Type = "1" };
                 return RedirectToAction("Index");
             }
 
@@ -85,6 +87,7 @@ namespace CRM.Controllers
             {
                 db.Entry(salesmenCategory).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
                 return RedirectToAction("Index");
             }
             return View(salesmenCategory);

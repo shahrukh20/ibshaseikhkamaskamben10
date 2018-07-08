@@ -113,13 +113,13 @@
         })
     })
 </script>
-<h2>Edit</h2>
+<h1>Edit</h1>
 
 <form action="/PropertyMasters/Edit" method="post" enctype="multipart/form-data">
 
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div  class="box box-danger">
         @* <h4>PropertyMaster</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -271,7 +271,7 @@
         </div>
     </div>
     
-    <div style="overflow-x:scroll;background: #ccc5c5;height: 163px;">
+    <div class="box box-danger" style="overflow-x:scroll;background: #ccc5c5;height: 163px;">
         <div style="width:100%;height: 120px;border-radius: 12.4px;margin-bottom: 15px;padding: 9px;" class="">
 
             @{

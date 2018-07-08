@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CRM.CommonClasses;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 using CustomerManagementSystem.BLL.ViewModels;
 using Microsoft.AspNet.Identity;
@@ -98,6 +99,7 @@ inner join Currencies cu on cu.Id=slm.Currency_Id").ToList();
 
 
                 }
+                Session["divMessage"] = new SessionModel() { Message = "Salesmen Successfully Created.", Type = "1" };
 
                 return RedirectToAction("Index");
             }
@@ -167,7 +169,7 @@ inner join Currencies cu on cu.Id=slm.Currency_Id").ToList();
                 {
 
                 }
-
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
                 return RedirectToAction("Index");
             }
             return View(salemenViewModel);

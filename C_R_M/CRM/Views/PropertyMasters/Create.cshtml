@@ -73,14 +73,14 @@
 
     }
 </script>
-<h2>Create</h2>
+<h1>Create</h1>
 
 @*@using (Html.BeginForm("Create", "PropertyMasters", new { enctype = "multipart/form-data" }))
     {*@
 <form action="/PropertyMasters/Create" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="box box-danger form-horizontal">
         @*  <h4>PropertyMaster</h4>*@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })

@@ -3,36 +3,171 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<div style="background-color: white;height:100%">
-    <h1>Countries</h1>
-
-    <p>
-        <input type="button" onclick="window.location='/countries/create'" value="Create" class="btn btn-success" />
-    </p>
-    <div style="padding:10px" class="box box-danger">
-        <table class="table table table-striped">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.CountryName)
-                </th>
-                <th>Action</th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CountryName)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CountryId }) |
-
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CountryId })
-                    </td>
-                </tr>
-            }
-
-        </table>
-        </div>
+<p>
+    <input type="button" onclick="window.location='/countries/create'" value="Create" class="btn btn-success" />
+</p>
+<div class="box box-danger form-horizontal">
+    <div class="form-horizontal">
+        <div id="jsGrid"></div>
     </div>
+</div>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+        var MyDateField = function (config) {
+            jsGrid.Field.call(this, config);
+        };
+
+        MyDateField.prototype = new jsGrid.Field({
+
+            css: "date-field",            // redefine general property 'css'
+            align: "center",              // redefine general property 'align'
+
+            myCustomProperty: "foo",      // custom property
+
+            sorter: function (date1, date2) {
+                return new Date(date1) - new Date(date2);
+            },
+
+            itemTemplate: function (value) {
+
+                return new Date(value).toDateString();
+            },
+
+            filterTemplate: function (value) {
+                return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            insertTemplate: function (value) {
+                if (this.inserting)
+                    return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            },
+
+            editTemplate: function (value) {
+                if (this.inserting)
+                    return this._editPicker = $("<input>").datepicker().datepicker("setDate", new Date(value));
+            },
+
+            insertValue: function () {
+                if (this.inserting)
+                    return this._insertPicker.datepicker("getDate").toISOString();
+            },
+
+            editValue: function () {
+                if (this.inserting)
+                    return this._editPicker.datepicker("getDate").toISOString();
+
+            }
+        });
+
+        jsGrid.fields.date = MyDateField;
+
+        //Float Value
+        function DecimalField(config) {
+            jsGrid.fields.number.call(this, config);
+        }
+
+        DecimalField.prototype = new jsGrid.fields.number({
+
+            filterValue: function () {
+                return this.filterControl.val()
+                    ? parseFloat(this.filterControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            insertValue: function () {
+                return this.insertControl.val()
+                    ? parseFloat(this.insertControl.val() || 0, 10)
+                    : undefined;
+            },
+
+            editValue: function () {
+                return this.editControl.val()
+                    ? parseFloat(this.editControl.val() || 0, 10)
+                    : undefined;
+            }
+        });
+
+        jsGrid.fields.decimal = jsGrid.DecimalField = DecimalField;
+        //End Float Value
+
+        var originalFilterTemplate = jsGrid.fields.text.prototype.filterTemplate;
+        jsGrid.fields.text.prototype.filterTemplate = function () {
+            var grid = this._grid;
+            var $result = originalFilterTemplate.call(this);
+            $result.on("keyup", function (e) {
+                // TODO: add proper condition and optionally throttling to avoid too much requests
+                grid.search();
+            });
+            return $result;
+        }
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "400px",
+            filtering: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            async: false,
+
+            pageSize: 5,
+            pageButtonCount: 5,
+
+            controller: {
+
+                loadData: function (filter) {
+                    var d = $.Deferred();
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "../Countries/getList",
+                        dataType: "JSON"
+                    }).done(function (result) {
+                        for (var prop in filter) {
+
+                            if (filter[prop].length > 0) {
+                                result = $.grep(result, function (item) {
+                                    var regexp = new RegExp(filter[prop], 'gi');
+                                    if (item[prop].match(regexp)) {
+                                        return item;
+                                    }
+                                });
+                                break;
+                            }
+
+                        }
+                        d.resolve(result);
+                    });
+                    return d.promise();
+                }
+            },
+            fields: [
+
+                { name: "CountryName", title: "Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+
+                {
+                    type:'control',
+                    name: 'Edit',
+                    align: 'center',
+                    itemTemplate: function (_, item) {
+                        return "<a onclick =\"ReditectToEditSection('" + item.CountryId + "');\" name='Edit'>Edit</a>";
+                    },width:20
+                }
+            ]
+
+        });
+
+    });
+
+</script>
+<script>
+
+    function ReditectToEditSection(ID)
+    {
+        var base_url = window.location.origin;
+        window.location = base_url + "/Countries/Edit?Id=" + ID;
+    }
+</script>
