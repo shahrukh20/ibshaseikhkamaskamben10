@@ -19,7 +19,8 @@ namespace CustomerManagementSystem.BLL.Enum
             UnAssigned = 0,
             OpportunityInHand = 1,
             Target = 2,
-            LeadConversion = 3
+            LeadConversion = 3,
+            Campaign = 4
         }
     }
 }

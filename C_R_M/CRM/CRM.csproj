@@ -231,6 +231,17 @@
     <Content Include="Content\js\d3-funnel.min.js" />
     <Content Include="Global.asax" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Reports\ReportDataSet\CampaignDataSet.xsc">
+      <DependentUpon>CampaignDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\ReportDataSet\CampaignDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CampaignDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\ReportDataSet\CampaignDataSet.xss">
+      <DependentUpon>CampaignDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -246,47 +257,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="UploadedFiles\1015_favicon.ico" />
-    <Content Include="UploadedFiles\1017_WIN_20180624_00_11_32_Pro %282%29.jpg" />
-    <Content Include="UploadedFiles\1017_WIN_20180624_00_11_32_Pro.jpg" />
-    <Content Include="UploadedFiles\1018_WIN_20180624_00_11_33_Pro.jpg" />
-    <Content Include="UploadedFiles\1019_WIN_20180624_00_11_33_Pro.jpg" />
-    <Content Include="UploadedFiles\1022_WIN_20180624_00_11_31_Pro.jpg" />
-    <Content Include="UploadedFiles\1022_WIN_20180624_00_11_32_Pro %282%29.jpg" />
-    <Content Include="UploadedFiles\1022_WIN_20180624_00_11_32_Pro.jpg" />
-    <Content Include="UploadedFiles\1022_WIN_20180624_00_11_33_Pro.jpg" />
-    <Content Include="UploadedFiles\1023_WIN_20180624_00_11_31_Pro.jpg" />
-    <Content Include="UploadedFiles\1023_WIN_20180624_00_11_32_Pro %282%29.jpg" />
-    <Content Include="UploadedFiles\1023_WIN_20180624_00_11_32_Pro.jpg" />
-    <Content Include="UploadedFiles\1023_WIN_20180624_00_11_33_Pro.jpg" />
-    <Content Include="UploadedFiles\17_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\17_13_3.txt" />
-    <Content Include="UploadedFiles\17_3.txt" />
-    <Content Include="UploadedFiles\18_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\18_13_3.txt" />
-    <Content Include="UploadedFiles\18_3.txt" />
-    <Content Include="UploadedFiles\19_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\19_18_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\2023_WIN_20180624_00_11_31_Pro.jpg" />
-    <Content Include="UploadedFiles\2023_WIN_20180624_00_11_32_Pro %282%29.jpg" />
-    <Content Include="UploadedFiles\2023_WIN_20180624_00_11_32_Pro.jpg" />
-    <Content Include="UploadedFiles\2023_WIN_20180624_00_11_33_Pro.jpg" />
-    <Content Include="UploadedFiles\20_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\20_18_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\21_1280x720-LP.jpg" />
-    <Content Include="UploadedFiles\WIN_20180624_00_11_31_Pro.jpg" />
-    <Content Include="UploadedFiles\WIN_20180624_00_11_32_Pro %282%29.jpg" />
-    <Content Include="UploadedFiles\WIN_20180624_00_11_32_Pro.jpg" />
-    <Content Include="UploadedFiles\WIN_20180624_00_11_33_Pro.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="UploadedFiles\1015_.bowerrc" />
-    <Content Include="UploadedFiles\1020_" />
-    <Content Include="UploadedFiles\1021_" />
-    <Content Include="UploadedFiles\17_Acquirer_Fraud_Rules %281%29.docx" />
-    <Content Include="UploadedFiles\17_Acquirer_Fraud_Rules.docx" />
-    <Content Include="UploadedFiles\18_13_Acquirer_Fraud_Rules.docx" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -390,6 +363,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Views\Currencies\Create.cshtml" />
+    <Content Include="Views\Currencies\Delete.cshtml" />
+    <Content Include="Views\Currencies\Details.cshtml" />
+    <Content Include="Views\Currencies\Edit.cshtml" />
+    <Content Include="Views\Currencies\Index.cshtml" />
+    <Content Include="Views\Reports\CampaignReports.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -412,6 +391,7 @@
     <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
+    <Compile Include="Controllers\CurrenciesController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\InquiryController.cs" />
     <Compile Include="Controllers\LeadPoolsController.cs" />
@@ -457,13 +437,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportDataSet\CampaignDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CampaignDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportDataSet\UnAssignedLeadDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UnAssignedLeadDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportModels\CampaignReportsBindingViewModel.cs" />
     <Compile Include="Reports\ReportModels\ReportModel.cs" />
     <Compile Include="Reports\ReportModels\UnAssignedReportsBindingViewModel.cs" />
+    <Compile Include="Reports\ReportsTemplate\Campaign.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Campaign.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ReportsTemplate\UnAssignedLead.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -625,6 +617,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281529220_vccccccvvvb.resx">
       <DependentUpon>201806281529220_vccccccvvvb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Campaign.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -96,9 +96,16 @@
                     </li>*@
                 @* END Tasks *@
                 @* BEGIN User Account Menu *@
-                <li class="dropdown user user-menu">
+                <li class="dropdown-toggle" style="color:#ffffff;padding-top:15px;padding-bottom:15px;">
+                    @DateTime.Today.ToShortDateString()
+                </li>
+                <li>
+                    <div> &nbsp;</div>
+                </li>
+                <li class="user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         @*<img src="~/Content/img/user.jpg" class="user-image" alt="User Image">*@
+                        Welcome, 
                         <span class="hidden-xs">
                             @if (Request.IsAuthenticated)
                             {
@@ -106,54 +113,24 @@
                             }
                         </span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <li class="user-header">
-                            @*<img src="~/Content/img/user.jpg" class="img-circle" alt="User Image">*@
+                 
+                </li>
+                <li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
 
-                            <p>
-                                @if (Request.IsAuthenticated)
-                                {
-                                    <label>@User.Identity.Name </label>
-                                }
-                            </p>
-
-                        </li>
-                        @*<li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                            </li>*@
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                @*<a href="#" class="btn btn-default btn-flat">Profile</a>*@
-                            </div>
-                            <div class="pull-right">
-                                @if (Request.IsAuthenticated)
-                                {
-                                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-
-                                        <ul class="nav navbar-nav navbar-right">
-                                            @*<li>
-                                                    @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-                                                </li>*@
-                                            @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
-                                        </ul>
-                                    }
-                                }
-                                <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-success btn-flat">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                @*<li>
+                        @Html.ActionLink("Hello " + User.Identity.Name + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                    </li>*@
+                                @*<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>*@
+                            </ul>
+                        }
+                    }
+                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out"></i>Log out</a>                   
                 </li>
                 @* END User Account Menu *@
                 @* BEGIN Control Sidebar Toggle Button *@
