@@ -94,6 +94,7 @@ namespace CRM.Controllers
         {
             if (ModelState.IsValid)
             {
+                campaign.CreatedBy= User.
                 campaign.CreatedOn = DateTime.Now;
                 campaign.UpdatedOn = null;
                 db.Campaigns.Add(campaign);
