@@ -55,17 +55,18 @@
                                 }
                             </header>
                             <input type="hidden" value="@ViewBag.UserID" name="UserID" />
-                            <div class="">
-                                @Html.ValidationSummary(true, "", new { @class = "text-danager alert", Style = "color:red;" })
-                            </div>
+                         
                             <div class="col-lg-6 login-box-body">
+                                <div class="">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danager alert", Style = "color:red;" })
+                                </div>
                                 <fieldset>
                                     <section>
                                         <div class="form-group has-feedback">
                                             @* <i class="icon-append fa fa-user"></i>*@
                                             UserName
                                             <input class="form-control" disabled style="background-color: lightgrey;" type="text" id="UserName" value="@ViewBag.UserName" required name="UserName" placeholder="User Name" />
-                                           
+
                                             @*<b class="tooltip tooltip-bottom-right">UserName</b>*@
                                             @Html.ValidationMessage("UserName", "", new { Style = "color:red;" })
 

@@ -7,12 +7,12 @@ namespace CustomerManagementSystem.BLL.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.LeadHistories", "LeadId", c => c.Int());
+          
         }
         
         public override void Down()
         {
-            DropColumn("dbo.LeadHistories", "LeadId");
+   
         }
     }
 }

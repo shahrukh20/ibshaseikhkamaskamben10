@@ -499,6 +499,7 @@ namespace CRM.Controllers
                                 ApplicationUser = (int)user.Id,
                                 Name = UserName,
                                 UserType = userType1,
+                                
                                 FirstName = model.FirstName,
                                 LastName = model.LastName,
                                 Address = model.Address

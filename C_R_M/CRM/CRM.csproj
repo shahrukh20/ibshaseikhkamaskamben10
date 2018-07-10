@@ -382,7 +382,6 @@
     <None Include="Reports\ReportDataSet\UnAssignedLeadDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>UnAssignedLeadDataSet.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Reports\ReportDataSet\UnAssignedLeadDataSet.xss">
       <DependentUpon>UnAssignedLeadDataSet.xsd</DependentUpon>

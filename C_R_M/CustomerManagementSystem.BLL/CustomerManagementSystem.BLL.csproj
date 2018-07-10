@@ -299,6 +299,22 @@
     <Compile Include="Migrations\201807080707375_as.Designer.cs">
       <DependentUpon>201807080707375_as.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807091910407_curenct.cs" />
+    <Compile Include="Migrations\201807091910407_curenct.Designer.cs">
+      <DependentUpon>201807091910407_curenct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091917318_cuur.cs" />
+    <Compile Include="Migrations\201807091917318_cuur.Designer.cs">
+      <DependentUpon>201807091917318_cuur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091927513_asdasdad.cs" />
+    <Compile Include="Migrations\201807091927513_asdasdad.Designer.cs">
+      <DependentUpon>201807091927513_asdasdad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807091929027_curens.cs" />
+    <Compile Include="Migrations\201807091929027_curens.Designer.cs">
+      <DependentUpon>201807091929027_curens.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Campaign.cs" />
@@ -507,6 +523,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807080707375_as.resx">
       <DependentUpon>201807080707375_as.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091910407_curenct.resx">
+      <DependentUpon>201807091910407_curenct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091917318_cuur.resx">
+      <DependentUpon>201807091917318_cuur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091927513_asdasdad.resx">
+      <DependentUpon>201807091927513_asdasdad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807091929027_curens.resx">
+      <DependentUpon>201807091929027_curens.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

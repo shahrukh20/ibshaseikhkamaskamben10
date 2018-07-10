@@ -7,12 +7,12 @@ namespace CustomerManagementSystem.BLL.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Campaigns", "IsActive", c => c.Boolean());
+            
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Campaigns", "IsActive");
+          
         }
     }
 }

@@ -57,5 +57,8 @@ namespace CustomerManagementSystem.BLL.Models
         public string PublishToWeb { get; set; }
         public string ImageJson { get; set; }
         public int? CampaignId { get; set; }
+        [Display(Name = "Currency")]
+        public int? CurrencyId { get; set; }
+
     }
 }

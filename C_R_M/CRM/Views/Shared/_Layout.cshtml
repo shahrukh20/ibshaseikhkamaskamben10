@@ -93,6 +93,22 @@
 <script>
     $(document).ready(function () {
         //$.noConflict();
+        $("a").each(function () {
+            if(this.text=="Back to List")
+            {
+                $(this).addClass("btn btn-primary");
+            }
+            else if(this.text=="Create New")
+            {
+                $(this).addClass("btn btn-danger");
+            }
+            else if(this.text=="Create")
+            {
+                $(this).addClass("btn btn-danger");
+            }
+
+        })
+
         $(".pop").on("click", function () {
 
             $('#imagepreview').attr('src', this.src); // here asign the image to the modal when the user click the enlarge link
@@ -114,8 +130,8 @@
            else {
                $('#failurealert').text('@((Session["divMessage"] as SessionModel)?.Message)'); $('.alert-danger').fadeIn().delay(3000).fadeOut();
            }
-            
-          
+
+
             $.ajax({
 
                 url: "../Home/SettingSessionToNull",

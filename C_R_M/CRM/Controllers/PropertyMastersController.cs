@@ -164,7 +164,7 @@ namespace CRM.Controllers
             ViewBag.City = new List<SelectListItem>();
 
             ViewBag.Area = new List<SelectListItem>();
-
+            ViewBag.CurrencyId = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from Currencies").ToList();
             //ViewBag.City = db.Cities.Select(i => new { i.CityId, i.CityName }).ToList();
             return View();
         }
@@ -174,7 +174,7 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PropertyMasterId,PropertyName,Country,City,Area,PropertyType,PropertyDetail,PlotNo,PlotArea,BuiltUpArea,CommercialArea,ResidentialArea,NoOfFloors,PropertyOwnerName,ContactNumber,SellingPrice")] PropertyMaster propertyMaster, IEnumerable<HttpPostedFileBase> images)
+        public ActionResult Create([Bind(Include = "PropertyMasterId,PropertyName,Country,City,Area,PropertyType,PropertyDetail,PlotNo,PlotArea,BuiltUpArea,CommercialArea,ResidentialArea,NoOfFloors,PropertyOwnerName,ContactNumber,SellingPrice,CurrencyId,Status")] PropertyMaster propertyMaster, IEnumerable<HttpPostedFileBase> images)
         {
             bindProperMasterDropDowns();
             if (ModelState.IsValid)
@@ -191,6 +191,7 @@ namespace CRM.Controllers
                     }
                     propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
                 }
+                    
                 db.PropertyMaster.Add(propertyMaster);
                 db.SaveChanges();
                 Session["divMessage"] = new SessionModel() { Message = "Property Successfully Created.", Type = "1" };
@@ -205,6 +206,8 @@ namespace CRM.Controllers
         public ActionResult Edit(int? id)
         {
             //bindProperMasterDropDowns();
+            ViewBag.CurrencyId = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from Currencies").ToList();
+
             List<string> images = new List<string>();
             string serverpath = Request.Url.Authority;
             if (id == null)
@@ -243,7 +246,7 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PropertyMasterId,PropertyName,Country,City,Area,PropertyType,PropertyDetail,PlotNo,PlotArea,BuiltUpArea,CommercialArea,ResidentialArea,NoOfFloors,PropertyOwnerName,ContactNumber,SellingPrice,ImageJson")] PropertyMaster propertyMaster, IEnumerable<HttpPostedFileBase> images, string dltimg)
+        public ActionResult Edit([Bind(Include = "PropertyMasterId,PropertyName,Country,City,Area,PropertyType,PropertyDetail,PlotNo,PlotArea,BuiltUpArea,CommercialArea,ResidentialArea,NoOfFloors,PropertyOwnerName,ContactNumber,SellingPrice,ImageJson,CurrencyId,Status")] PropertyMaster propertyMaster, IEnumerable<HttpPostedFileBase> images, string dltimg)
         {
             bindProperMasterDropDowns();
             if (ModelState.IsValid)

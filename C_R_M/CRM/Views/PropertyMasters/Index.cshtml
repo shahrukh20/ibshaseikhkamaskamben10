@@ -227,7 +227,8 @@
                                 if (filter[prop].length > 0) {
                                     result = $.grep(result, function (item) {
                                         var regexp = new RegExp(filter[prop], 'gi');
-                                        if (item[prop].match(regexp)) {
+                                        if (item[prop]!=null)
+                                            if (item[prop].toString().match(regexp)) {
                                             return item;
                                         }
 
@@ -413,11 +414,11 @@
 
 </script>
 
-<h2>Properties</h2>
-
+<h1>Properties</h1>
+<br />
 <p>
-    <input type="button" onclick="window.location='/propertymasters/create'" value="Create" class="btn btn-primary" />
-    <input type="button" onclick="PublishAllToWeb()" value="Publish All To Web" class="btn btn-primary pull-right" />
+    <input type="button" onclick="window.location='/propertymasters/create'" value="Create" class="btn btn-danger" />
+    <input type="button" onclick="PublishAllToWeb()" value="Publish All To Web" class="btn btn-danger pull-right" />
     @* @Html.ActionLink("Create New", "Create")*@
 </p>
 <form id="LeadListingForm" action="/LeadPools/LeadListing" method="post">
