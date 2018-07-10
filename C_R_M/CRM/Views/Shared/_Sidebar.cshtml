@@ -49,22 +49,11 @@
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="header"></li>
                             <li class="@Url.IsLinkActive("DashboardSalesManager", "Dashboard")">
-                                <a href="@Url.Action("DashboardSalesManager", "Dashboard")"><i class="fa fa-link"></i> <span>Dashboard</span></a>
+                                <a href="@Url.Action("DashboardSalesManager", "Dashboard")"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
                             </li>
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-link"></i> <span>Lead</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("LeadListing", "LeadPools")">Lead Listing</a></li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-link"></i> <span>Configuration</span>
+                                    <i class="fa fa-user"></i> <span>User Management</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
@@ -75,7 +64,19 @@
                             </li>
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-link"></i> <span>Reports</span>
+                                    <i class="fa fa-tasks"></i> <span>Lead</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("LeadListing", "LeadPools")">Lead Listing</a></li>
+                                </ul>
+                            </li>
+                          
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-rocket"></i> <span>Reports</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
@@ -92,25 +93,14 @@
                         <ul class="sidebar-menu" data-widget="tree">
                             <li class="header"></li>
                             <li class="@Url.IsLinkActive("DashboardSalesman", "Dashboard")">
-                                <a href="@Url.Action("DashboardSalesman", "Dashboard")"><i class="fa fa-link"></i> <span>Dashboard</span></a>
+                                <a href="@Url.Action("DashboardSalesman", "Dashboard")"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
                             </li>
                             @*<li class="@Url.IsLinkActive("AnotherLink", "Home")">
                                     <a href="@Url.Action("AnotherLink", "Home")"><i class="fa fa-link"></i> <span>Another Link</span></a>
                                 </li>*@
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-link"></i> <span>Lead</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("LeadListing", "LeadPools")">Lead Listing</a></li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-link"></i> <span>Configuration</span>
+                                    <i class="fa fa-user"></i> <span>User Management</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
@@ -121,7 +111,19 @@
                             </li>
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-link"></i> <span>Reports</span>
+                                    <i class="fa fa-tasks"></i> <span>Lead</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("LeadListing", "LeadPools")">Lead Listing</a></li>
+                                </ul>
+                            </li>
+                          
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-rocket"></i> <span>Reports</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
@@ -139,10 +141,20 @@
                             @*<li class="@Url.IsLinkActive("DashboardSalesman", "Dashboard")">
                                 <a href="@Url.Action("DashboardSalesman", "Dashboard")"><i class="fa fa-link"></i> <span>Dasadsadshboard</span></a>
                             </li>*@
-               
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-link"></i> <span>Lead</span>
+                                    <i class="fa fa-user"></i> <span>User Management</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("ChangePassword", "Account")">Change Password</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-tasks"></i> <span>Lead</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
@@ -152,17 +164,7 @@
                                     @*<li><a href="@Url.Action("LeadAddition", "LeadPools")">Lead Addition</a></li>*@
                                 </ul>
                             </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-link"></i> <span>Configuration</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("ChangePassword", "Account")">Change Password</a></li>
-                                </ul>
-                            </li>
+                         
                             
                         </ul>
                         break;
@@ -174,43 +176,32 @@
                             </li>
                             <li class="treeview">
                                 <a href="#">
+                                    <i class="fa fa-user"></i> <span>User Management</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("UserListing", "Account")">User Listing</a></li>                                   
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
                                     <i class="fa fa-wrench"></i> <span>Configuration</span>
                                     <span class="pull-right-container">
                                         <i class="fa fa-angle-left pull-right"></i>
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa fa-user"></i> <span>User Management</span>
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-left pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li><a href="@Url.Action("UserListing", "Account")">User Listing</a></li>
-                                            <li><a href="@Url.Action("Register", "Account")">Add User</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="treeview">
-                                        <a href="#">
-                                            <i class="fa fa-link"></i> <span>Setups</span>
-                                            <span class="pull-right-container">
-                                                <i class="fa fa-angle-left pull-right"></i>
-                                            </span>
-                                        </a>
-                                        <ul class="treeview-menu">
-                                            <li><a href="@Url.Action("Index", "ActionTypes")">Action Types</a></li>
-                                            <li><a href="@Url.Action("Index", "Areas")">Areas</a></li>
-                                            <li><a href="@Url.Action("Index", "Campaigns")">Campaigns</a></li>
-                                            <li><a href="@Url.Action("Index", "Cities")">Cities</a></li>
-                                            <li><a href="@Url.Action("Index", "Countries")">Countries</a></li>
-                                            <li><a href="@Url.Action("Index", "SourceTypes")">Source Types</a></li>
-                                            <li><a href="@Url.Action("Index", "TargetPeriods")">Target Periods</a></li>
-                                            <li><a href="@Url.Action("Index", "TargetTypes")">Target Types</a></li>
+                                    <li><a href="@Url.Action("Index", "ActionTypes")">Action Types</a></li>
+                                    <li><a href="@Url.Action("Index", "Areas")">Areas</a></li>
+                                    <li><a href="@Url.Action("Index", "Campaigns")">Campaigns</a></li>
+                                    <li><a href="@Url.Action("Index", "Cities")">Cities</a></li>
+                                    <li><a href="@Url.Action("Index", "Countries")">Countries</a></li>
+                                    <li><a href="@Url.Action("Index", "SourceTypes")">Source Types</a></li>
+                                    <li><a href="@Url.Action("Index", "TargetPeriods")">Target Periods</a></li>
+                                    <li><a href="@Url.Action("Index", "TargetTypes")">Target Types</a></li>
 
-                                        </ul>
-                                    </li>
                                 </ul>
 
                             </li>
@@ -247,8 +238,7 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index", "Salemen")">Salesman Listing</a></li>
-                                    <li><a href="@Url.Action("Create", "Salemen")">Add Salesman</a></li>
+                                    <li><a href="@Url.Action("Index", "Salemen")">Salesman Listing</a></li>                                 
                                 </ul>
                             </li>
                             <li class="treeview">
@@ -259,7 +249,12 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">UnAssigned Leads</a></li>
+                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">Leads</a></li>
+                                    <li><a href="@Url.Action("CampaignReports", "Reports")">Campaign</a></li>
+                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">Property</a></li>
+                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">Users</a></li>
+                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">Order Ratio</a></li>
+                                  
                                 </ul>
                             </li>
                         </ul>

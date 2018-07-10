@@ -1,7 +1,9 @@
 ﻿@model CustomerManagementSystem.BLL.ViewModels.LeadPoolsViewModel
 @{
-
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <style>
     .img-wrap {
         position: relative;
@@ -38,7 +40,7 @@
 
 </ul>
 <div class="tab-content">
-    <form id="leadForm"  class="tab-pane fade in active"  action="/LeadPools/StatusUpdate" method="post">
+    <form id="leadForm" class="tab-pane fade in active" action="/LeadPools/StatusUpdate" method="post">
         <h1>Lead Status Update</h1>
         <div id="content">
 
@@ -246,7 +248,7 @@
                                     @*<textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-8" disabled></textarea>*@
                                     @Html.TextAreaFor(model => model.txtRemarks, new { @class = "form-control", @rows = 3, @cols = 25, @disabled = "disabled" })
                                     @*@Html.EditorFor(model => model.txtRemarks)
-                                <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
+                                        <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
                                 </div>
 
 
@@ -259,7 +261,7 @@
                     </div>
                 </div>
             </div>
-       
+
             <div class="box box-danger" style="overflow-x:scroll;height: 163px;">
                 <div style="width:100%;height: 120px;border-radius: 12.4px;margin-bottom: 15px;padding: 9px;" class="">
 
@@ -382,13 +384,14 @@
         var histories = (List<CustomerManagementSystem.BLL.ViewModels.History>)ViewBag.Histories;
         <div id="menu1" class="tab-pane fade">
             <div class="form-group">
-                <div class="col-lg-10">
-                    <h1>Lead History</h1>
+                <div class="col-lg-12">
+                    <h1>Lead Status Update</h1>
                 </div>
 
             </div>
             <table id="datatable" class="table table-bordered box box-danger">
                 <thead>
+
                     <tr>
                         <th>Status</th>
                         <th>Action Date</th>
@@ -415,6 +418,10 @@
 ">
                                 No History Found.
                             </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
                         </tr>
                     }
                 </tbody>
@@ -632,3 +639,4 @@
         background: white url('../../img/clear.png');
     }
 </style>
+<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>

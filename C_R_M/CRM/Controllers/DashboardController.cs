@@ -61,9 +61,38 @@ namespace CRM.Controllers
                 }
             }
         }
+
+        private void getSalemanDashboardData()
+        {
+            try
+            {
+                int userId = int.Parse(User.Identity.GetUserId());
+                var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
+                ViewBag.TopScoreLeads = new List<LeadPool>();
+                ViewBag.AssignedLeads = 0;
+                ViewBag.TodaysAppointmentCount = 0;
+                ViewBag.TodaysAppointment = new List<LeadStatusFields>();
+
+                
+                
+                ViewBag.TopScoreLeads = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id).OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
+                ViewBag.AssignedLeads = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign" && x.Assign_To_ID == user.Id).ToList().Count;
+
+                var test = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id
+                && string.IsNullOrEmpty(x.NextActionDate) ? string.Equals(DateTime.Parse(x.NextActionDate).ToString("ddMMyyyy"), DateTime.Now.ToString("ddMMyyyy")) : x.NextActionDate == DateTime.Now.ToString())
+                .ToList();
+                ViewBag.TodaysAppointmentCount = test.Count;
+                ViewBag.TodaysAppointment = test.Take(10).ToList();
+
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
         public ActionResult DashboardSalesman()
         {
-
+            getSalemanDashboardData();
 
             return View();
         }

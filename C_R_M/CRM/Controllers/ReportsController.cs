@@ -2,6 +2,7 @@
 using CRM.Reports.ReportModels;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using CustomerManagementSystem.BLL.Enum;
 using CustomerManagementSystem.BLL.Models;
 using CustomerManagementSystem.BLL.ViewModels;
 using CustomerManagementSystem.BLL.ViewModels.ReportsViewModel;
@@ -110,12 +111,62 @@ namespace CRM.Controllers
                 ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
                 ds.Tables[1].TableName = "reportModel";
                 Session["ds"] = ds;
+                Session["ReportType"] = Enumeration.ReportType.UnAssigned;
                 return Json("Success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
             {
                 return Json("Failure", JsonRequestBehavior.AllowGet);
             }
+        }
+
+
+        public ActionResult CampaignReports()
+        {
+            return View();
+        }
+
+        public JsonResult CampaignLoad(string str)
+        {
+            try
+            {
+                var model = reportCommon.ConvertInvalidJson(str);
+                CampaignReportViewModel CampaignReportsViewModel = JsonConvert.DeserializeObject<CampaignReportViewModel>(model);
+                var dfghgfdfgfdf=db.Campaigns.ToList();
+                var campaignReportsBindingViewModel = db.Campaigns.ToList().Where(x =>
+                x.IsActive == CampaignReportsViewModel.IsActive
+                && x.Name.Contains(CampaignReportsViewModel.Name)
+                && x.DateFrom.ToString("ddMMyyyy") == CampaignReportsViewModel.DateFrom.ToString("ddMMyyyy")
+                && x.DateTo.ToString("ddMMyyyy") == CampaignReportsViewModel.DateTo.ToString("ddMMyyyy")
+                ).Select(y => new CampaignReportsBindingViewModel()
+                {
+                    IsActive = y.IsActive.ToString(),
+                    CreatedBy = y.CreatedBy == null ? "" : y.CreatedBy.Name,
+                    DateFrom = y.DateFrom.ToString("dd-MM-yyyy"),
+                    DateTo = y.DateTo.ToString("dd-MM-yyyy"),
+                    Name = y.Name,
+                    Property = y.PropertyMaster.PropertyName,
+                }).ToList();
+
+                DataSet ds = new DataSet();
+                List<ReportModel> reportModel = new List<ReportModel>();
+                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "Campaign Report" });
+                ds.Tables.Add(reportCommon.CreateDataTable(campaignReportsBindingViewModel));
+                ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
+                ds.Tables[0].TableName = "CampaignReportsBindingViewModel";
+                ds.Tables[1].TableName = "ReportModel";
+                Session["ds"] = ds;
+                Session["ReportType"] = Enumeration.ReportType.Campaign;
+                return Json("Success", JsonRequestBehavior.AllowGet);
+
+
+
+            }
+            catch (Exception e)
+            {
+
+            }
+            return Json("", JsonRequestBehavior.AllowGet);
         }
     }
 }
