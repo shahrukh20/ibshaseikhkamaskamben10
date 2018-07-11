@@ -62,6 +62,11 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CityId,CityName,CountryId")] City city)
         {
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", city.CountryId);
+            if (db.Cities.Any(i => i.CityName.ToLower() == city.CityName.ToLower() && i.CountryId == city.CountryId))
+            {
+                ModelState.AddModelError("", "City already exist for this country.");
+            }
             if (ModelState.IsValid)
             {
                 db.Cities.Add(city);
@@ -98,6 +103,11 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CityId,CityName,CountryId")] City city)
         {
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", city.CountryId);
+            if (db.Cities.Any(i => i.CityName.ToLower() == city.CityName.ToLower() && i.CountryId == city.CountryId && i.CityId != city.CityId))
+            {
+                ModelState.AddModelError("", "City already exist for this country.");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(city).State = EntityState.Modified;
@@ -117,7 +127,8 @@ namespace CRM.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            City city = db.Cities.Find(id);
+            City city = db.Cities.Include("Country").FirstOrDefault(i => i.CityId == id);
+
             if (city == null)
             {
                 return HttpNotFound();
@@ -130,9 +141,20 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            City city = db.Cities.Find(id);
-            db.Cities.Remove(city);
-            db.SaveChanges();
+
+            try
+            {
+                City city = db.Cities.Find(id);
+                db.Cities.Remove(city);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting city.", Type = "2" };
+
+            }
+
             return RedirectToAction("Index");
         }
 

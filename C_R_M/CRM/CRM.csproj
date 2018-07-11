@@ -449,12 +449,6 @@
     <Compile Include="Reports\ReportModels\CampaignReportsBindingViewModel.cs" />
     <Compile Include="Reports\ReportModels\ReportModel.cs" />
     <Compile Include="Reports\ReportModels\UnAssignedReportsBindingViewModel.cs" />
-    <Compile Include="Reports\ReportsTemplate\Campaign.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reports\ReportsTemplate\UnAssignedLead.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -616,10 +610,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281529220_vccccccvvvb.resx">
       <DependentUpon>201806281529220_vccccccvvvb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Campaign.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

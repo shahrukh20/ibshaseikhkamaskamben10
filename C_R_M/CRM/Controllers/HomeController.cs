@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private CRMContext db = new CRMContext();
@@ -16,7 +17,7 @@ namespace CRM.Controllers
         {
             if (!Request.IsAuthenticated)
             {
-                Response.Redirect(@"\account\login");
+                Response.Redirect(@"\login");
             }
             else
             {

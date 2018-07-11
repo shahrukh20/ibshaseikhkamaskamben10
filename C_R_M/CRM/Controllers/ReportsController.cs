@@ -18,6 +18,7 @@ using System.Xml.Linq;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     public class ReportsController : Controller
     {
         // GET: Reports

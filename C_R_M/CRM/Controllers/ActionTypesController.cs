@@ -140,9 +140,21 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ActionType actionType = db.Actions.Find(id);
-            db.Actions.Remove(actionType);
-            db.SaveChanges();
+
+            try
+            {
+                ActionType actionType = db.Actions.Find(id);
+                db.Actions.Remove(actionType);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting Action Type.", Type = "2" };
+
+            }
+
+       
             return RedirectToAction("Index");
         }
 

@@ -94,7 +94,7 @@ namespace CRM.Controllers
         {
             if (ModelState.IsValid)
             {
-                campaign.CreatedBy= User.
+               
                 campaign.CreatedOn = DateTime.Now;
                 campaign.UpdatedOn = null;
                 db.Campaigns.Add(campaign);
@@ -193,9 +193,18 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Campaign campaign = db.Campaigns.Find(id);
-            db.Campaigns.Remove(campaign);
-            db.SaveChanges();
+            try
+            {
+                Campaign campaign = db.Campaigns.Find(id);
+                db.Campaigns.Remove(campaign);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successfull.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting campaign.", Type = "2" };
+
+            }
             return RedirectToAction("Index");
         }
 

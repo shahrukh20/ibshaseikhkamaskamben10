@@ -132,8 +132,8 @@
                     type: 'control',
                     align: 'center',
                     itemTemplate: function (_, item) {
-                        return "<a onclick =\"ReditectToViewSection(" + item.AreaId + ");\" name='View'>View</a>&nbsp;&nbsp;&nbsp;<a onclick =\"ReditectToEditSection(" + item.AreaId+ ");\" name='Edit'>Edit</a>";
-                    }, width: 20
+                        return "<a onclick =\"ReditectToViewSection(" + item.AreaId + ");\" name='View'>View</a> | <a onclick =\"ReditectToEditSection(" + item.AreaId + ");\" name='Edit'>Edit</a> | <a href=\"/Areas/Delete/" + item.AreaId + "\">Delete</a>";
+                    }, width: 50
                 }
             ]
 

@@ -16,7 +16,8 @@ namespace CustomerManagementSystem.BLL.Models
         [Display(Name = "Action Name")]
         public string Action_Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Numbers are required")]
+
         public decimal Score { get; set; }
 
         public DateTime? CreatedOn { get; set; }

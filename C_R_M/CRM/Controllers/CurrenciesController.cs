@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     public class CurrenciesController : Controller
     {
         private CRMContext db = new CRMContext();

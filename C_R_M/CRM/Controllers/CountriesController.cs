@@ -53,6 +53,12 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CountryId,CountryName")] Country country)
         {
+
+
+            if (db.Countries.Any(i => i.CountryName.ToLower() == country.CountryName.ToLower()))
+            {
+                ModelState.AddModelError("", "Country already exist.");
+            }
             if (ModelState.IsValid)
             {
                 db.Countries.Add(country);
@@ -87,6 +93,10 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CountryId,CountryName")] Country country)
         {
+            if (db.Countries.Any(i => i.CountryName.ToLower() == country.CountryName.ToLower() && i.CountryId != country.CountryId))
+            {
+                ModelState.AddModelError("", "Country already exist.");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(country).State = EntityState.Modified;
@@ -118,9 +128,19 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Country country = db.Countries.Find(id);
-            db.Countries.Remove(country);
-            db.SaveChanges();
+
+            try
+            {
+                Country country = db.Countries.Find(id);
+                db.Countries.Remove(country);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting country.", Type = "2" };
+
+            }
             return RedirectToAction("Index");
         }
 

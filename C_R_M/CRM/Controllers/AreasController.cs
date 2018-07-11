@@ -72,6 +72,11 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AreaId,AreaName,CityId")] Area area)
         {
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName");
+            if (db.Areas.Any(i => i.AreaName.ToLower() == area.AreaName.ToLower() && area.CityId == i.CityId))
+            {
+                ModelState.AddModelError("", "Area already exist for this city");
+            }
             if (ModelState.IsValid)
             {
                 db.Areas.Add(area);
@@ -108,6 +113,11 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "AreaId,AreaName,CityId")] Area area)
         {
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName");
+            if (db.Areas.Any(i => i.AreaName.ToLower() == area.AreaName.ToLower() && area.CityId == i.CityId && i.AreaId != area.AreaId))
+            {
+                ModelState.AddModelError("", "Area already exist for this city");
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(area).State = EntityState.Modified;
@@ -139,9 +149,20 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Area area = db.Areas.Find(id);
-            db.Areas.Remove(area);
-            db.SaveChanges();
+
+            try
+            {
+                Area area = db.Areas.Find(id);
+                db.Areas.Remove(area);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting area.", Type = "2" };
+
+            }
+
             return RedirectToAction("Index");
         }
 

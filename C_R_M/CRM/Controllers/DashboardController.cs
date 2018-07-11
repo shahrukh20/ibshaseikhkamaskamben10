@@ -12,6 +12,7 @@ using CustomerManagementSystem.BLL.Models;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         CRMContext db = new CRMContext();
@@ -73,8 +74,8 @@ namespace CRM.Controllers
                 ViewBag.TodaysAppointmentCount = 0;
                 ViewBag.TodaysAppointment = new List<LeadStatusFields>();
 
-                
-                
+
+
                 ViewBag.TopScoreLeads = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id).OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
                 ViewBag.AssignedLeads = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign" && x.Assign_To_ID == user.Id).ToList().Count;
 

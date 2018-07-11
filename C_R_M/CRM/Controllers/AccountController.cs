@@ -108,10 +108,19 @@ namespace CRM.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
+       
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //ViewBag.ReturnUrl = returnUrl;
+            //return View();
         }
 
         //

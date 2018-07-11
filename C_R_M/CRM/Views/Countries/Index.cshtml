@@ -153,7 +153,7 @@
                     name: 'Edit',
                     align: 'center',
                     itemTemplate: function (_, item) {
-                        return "<a onclick =\"ReditectToEditSection('" + item.CountryId + "');\" name='Edit'>Edit</a>";
+                        return "<a onclick =\"ReditectToEditSection('" + item.CountryId + "');\" name='Edit'>Edit</a> | <a href=\"/Countries/Delete/" + item.CountryId + "\">Delete</a>";
                     },width:20
                 }
             ]

@@ -12,6 +12,7 @@ using System.Web.Mvc;
 
 namespace CRM.Controllers
 {
+    [Authorize]
     public class InquiryController : Controller
     {
         private LeadPoolsCommon leadPoolsCommon = null;

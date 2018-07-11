@@ -191,11 +191,11 @@ namespace CRM.Controllers
                     }
                     propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
                 }
-                    
+
                 db.PropertyMaster.Add(propertyMaster);
                 db.SaveChanges();
                 Session["divMessage"] = new SessionModel() { Message = "Property Successfully Created.", Type = "1" };
-               // Session["divMessage"] = "Property Successfully Created.";
+                // Session["divMessage"] = "Property Successfully Created.";
                 return RedirectToAction("Index");
             }
 
@@ -281,7 +281,7 @@ namespace CRM.Controllers
                 db.SaveChanges();
                 Session["divMessage"] = new SessionModel() { Message = "Operation Successfull.", Type = "1" };
 
-       
+
                 return RedirectToAction("Index");
             }
             return View(propertyMaster);
@@ -307,9 +307,19 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PropertyMaster propertyMaster = db.PropertyMaster.Find(id);
-            db.PropertyMaster.Remove(propertyMaster);
-            db.SaveChanges();
+            try
+            {
+                PropertyMaster propertyMaster = db.PropertyMaster.Find(id);
+                db.PropertyMaster.Remove(propertyMaster);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successfull.", Type = "1" };
+
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Can not delete property as lead is assigned to it.", Type = "2" };
+            }
+
             return RedirectToAction("Index");
         }
 
