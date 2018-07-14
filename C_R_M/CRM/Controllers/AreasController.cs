@@ -61,7 +61,8 @@ namespace CRM.Controllers
         // GET: Areas/Create
         public ActionResult Create()
         {
-            ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName");
+            ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
+            ViewBag.CityId = new List<SelectListItem>();
             return View();
         }
 
@@ -98,7 +99,12 @@ namespace CRM.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Area area = db.Areas.Find(id);
-            ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName", area.CityId);
+            ViewBag.CityId = new SelectList(db.Cities.Where(i => i.CountryId == area.City.CountryId), "CityId", "CityName", area.CityId);
+            ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
+
+            //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
+
+
             if (area == null)
             {
                 return HttpNotFound();

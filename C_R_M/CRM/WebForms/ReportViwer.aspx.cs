@@ -24,6 +24,9 @@ namespace CRM.WebForms
                 case Enumeration.ReportType.UnAssigned:
                     path = Server.MapPath(@"\Reports\ReportsTemplate\UnAssignedLead.rpt");
                     break;
+                case Enumeration.ReportType.OpportunityInHand:
+                    path = Server.MapPath(@"\Reports\ReportsTemplate\UnAssignedLead.rpt");
+                    break;
 
                 case Enumeration.ReportType.Campaign:
                     path = Server.MapPath(@"\Reports\ReportsTemplate\Campaign.rpt");

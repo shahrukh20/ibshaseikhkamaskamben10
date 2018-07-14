@@ -141,7 +141,10 @@ namespace CRM.Controllers
             {
                 var model = reportCommon.ConvertInvalidJson(str);
                 UnAssignedReportsViewModel unAssignedReportsViewModel = JsonConvert.DeserializeObject<UnAssignedReportsViewModel>(model);
-                var UnAssignedReportsBindingViewModel = db.Lead_Pool.Select(x => new UnAssignedReportsBindingViewModel()
+                var leadpool = db.Database.SqlQuery<LeadPool>(@"select lp.* from LeadPools lp 
+inner join LeadStatusFields lsf on lp.Id=lsf.leadPool_Id	 
+where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
+                var UnAssignedReportsBindingViewModel = leadpool.Select(x => new UnAssignedReportsBindingViewModel()
                 {
                     Chanel = "Web",
                     LeadName = x.Lead_Name,
@@ -154,13 +157,13 @@ namespace CRM.Controllers
                 }).ToList();
                 DataSet ds = new DataSet();
                 List<ReportModel> reportModel = new List<ReportModel>();
-                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "UnAssigned Lead Report" });
+                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "Opportunity In Hand Report" });
                 ds.Tables.Add(reportCommon.CreateDataTable(UnAssignedReportsBindingViewModel));
                 ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
                 ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
                 ds.Tables[1].TableName = "reportModel";
                 Session["ds"] = ds;
-                Session["ReportType"] = Enumeration.ReportType.UnAssigned;
+                Session["ReportType"] = Enumeration.ReportType.OpportunityInHand;
                 return Json("Success", JsonRequestBehavior.AllowGet);
             }
             catch (Exception e)
