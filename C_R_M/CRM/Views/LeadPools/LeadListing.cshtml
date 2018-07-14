@@ -43,6 +43,12 @@
 
 
     $(document).ready(function () {
+
+        $('.datepicker-date-selection').datepicker().on('changeDate', function () {
+            $(this).blur();
+        }); 
+
+
         var MyDateField = function (config) {
             jsGrid.Field.call(this, config);
         };
@@ -63,9 +69,30 @@
                 return new Date(value).toDateString();
             },
 
-            filterTemplate: function (value) {
-                return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
+            filterTemplate: function () {
+                var grid = this._grid;
+
+                var now = new Date();
+                this._fromPicker = $("<input>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() - 1) });
+                this._toPicker = $("<input>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() + 1) });
+
+                this._fromPicker.on("keypress", function (e) {
+                    if (e.which === 13) {
+                        grid.search();
+                        e.preventDefault();
+                    }
+                });
+
+                this._toPicker.on("keypress", function (e) {
+                    if (e.which === 13) {
+                        grid.search();
+                        e.preventDefault();
+                    }
+                });
+
+                return $("<div>").append(this._fromPicker).append(this._toPicker);
             },
+
 
             insertTemplate: function (value) {
                 if (this.inserting)
@@ -86,6 +113,12 @@
                 if (this.inserting)
                     return this._editPicker.datepicker("getDate").toISOString();
 
+            },
+            filterValue: function () {
+                return {
+                    from: this._fromPicker.datepicker("getDate"),
+                    to: this._toPicker.datepicker("getDate")
+                };
             }
         });
 
@@ -158,12 +191,12 @@
                                 { name: "Date", title: "Date", type: "date", width: 60, editing: false },
                                 { name: "LeadRemarks", title: "Remarks", type: "text", width: 150, validate: "required", editing: false },
                                 { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
-                                { name: "Salesmen", title: "Salesmen", type: "select", items: data, valueField: "Id", textField: "Name", width: 100, validate: "required" },
+                                { name: "Salesmen", title: "Salesmen", type: "select", items: data, valueField: "Id", textField: "Name", align:'left', width: 100, validate: "required" },
                                 {
                                     name: 'View',
                                     itemTemplate: function (_, item) {
-                                        return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
-                                    }, width: 30
+                                        return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'><span class='elementID'><span class='fa fa-eye'></span></span></a>";
+                                    }, width: 25
                                 },
                                 { type: "control", deleteButton: false }
                             ]);
@@ -187,9 +220,10 @@
                                 if (filter[prop].length > 0) {
                                     result = $.grep(result, function (item) {
                                         var regexp = new RegExp(filter[prop], 'gi');
-                                        if (item[prop].match(regexp)) {
+                                        if (item[prop].match(regexp) && prop != "Date") {
                                             return item;
                                         }
+                                      
 
                                     });
                                     break;
@@ -197,6 +231,15 @@
                                 if (prop == "Salesmen" && filter['Salesmen'] != -1) {
                                     result = $.grep(result, function (item) {
                                         if (item[prop] == filter[prop]) {
+                                            return item;
+                                        }
+                                    });
+                                    break;
+                                }
+                                if (prop == "Date" ) {
+                                 
+                                    result = $.grep(result, function (item) {
+                                        if (!filter.Date.from || new Date(item.Date) >= filter.Date.from) {
                                             return item;
                                         }
                                     });
@@ -278,13 +321,6 @@
                     { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
                     { name: "AssignedBy", title: "Assigned By", type: "text", width: 50, validate: "required", editing: false },
                     {
-                        name: 'Update',
-
-                        itemTemplate: function (_, item) {
-                            return "<a onclick ='ReditectToUpdateSection(" + item.Id + ")' name='Update'>Update</a>";
-                        }, width: 10
-                    },
-                    {
                         type: 'control',
                         headerTemplate: function () {
                             return this._createOnOffSwitchButton("filtering", this.searchModeButtonClass, false);
@@ -292,8 +328,8 @@
                         name: 'View',
 
                         itemTemplate: function (_, item) {
-                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
-                        }, width: 10
+                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'><span class='elementID'><span class='fa fa-eye'></span></span></a>&nbsp&nbsp&nbsp<a onclick ='ReditectToUpdateSection(" + item.Id + ")' name='Update'><span class='elementID'><span class='fa fa-pencil'></span></span></a>";
+                        }, width: 20
                     }
 
                 ]
@@ -346,18 +382,11 @@
                     { name: "Date", title: "Lead Date", type: "date", width: 50 },
                     { name: "LeadRemarks", title: "Remarks", type: "text", width: 150, validate: "required" },
                     {
-                        name: 'Edit',
-
-                        itemTemplate: function (_, item) {
-                            return "<a onclick ='ReditectToEditSection(" + item.Id + ")' name='Edit'>Edit</a>";
-                        }, width: 10
-                    },
-                    {
                         type: 'control',
                         name: 'View',
 
                         itemTemplate: function (_, item) {
-                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
+                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'><span class='elementID'><span class='fa fa-eye'></span></span></a>&nbsp&nbsp&nbsp<a onclick ='ReditectToEditSection(" + item.Id + ")' name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>";
                         }, width: 10
                     }
                 ]
@@ -407,7 +436,7 @@
                     { name: "Id", title: "Id", type: "text", visible: false },
                     { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", editing: false },
                     { name: "Date", title: "Date", type: "date", width: 50, editing: false },
-                    { name: "LeadRemarks", title: "Remarks", type: "text", width: 120, validate: "required", editing: false },
+                    { name: "LeadRemarks", title: "Remarks", type: "text", width: 100, validate: "required", editing: false },
                     { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
                     { name: "AssignedBy", title: "Assigned By", type: "text", width: 50, validate: "required", editing: false },
                     {
@@ -418,8 +447,8 @@
                         name: 'View',
 
                         itemTemplate: function (_, item) {
-                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'>View</a>";
-                        }, width: 10
+                            return "<a onclick ='ReditectToViewSection(" + item.Id + ")' name='View'><span class='elementID'><span class='fa fa-eye'></span></span></a>";
+                        }, width: 20
                     }
 
                 ]

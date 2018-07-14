@@ -541,7 +541,8 @@ namespace CRM.Controllers
           (x => new LeadListingModel
           {
               Id = x.Id,
-              Date = x.Log_Date.ToString("dd MMM yyyy"),
+              //Date = x.Log_Date.ToString("dd MMM yyyy"),
+              Date = x.Log_Date,
               LeadName = x.Lead_Name,
               Salesmen = x.Assign_To_ID == null ? 0 : x.Assign_To_ID.Value,
               LeadRemarks = x.Lead_Remarks,
@@ -565,7 +566,8 @@ namespace CRM.Controllers
                    (x => new LeadListingModel
                    {
                        Id = x.Id,
-                       Date = x.Log_Date.ToString("dd MMM yyyy"),
+                       //Date = x.Log_Date.ToString("dd MMM yyyy"),
+                       Date = x.Log_Date,
                        LeadName = x.Lead_Name,
                        Salesmen = x.Assign_To_ID == null ? 0 : x.Assign_To_ID.Value,
                        LeadRemarks = x.Lead_Remarks,
@@ -582,7 +584,8 @@ namespace CRM.Controllers
                   (x => new LeadListingModel
                   {
                       Id = x.Id,
-                      Date = x.Log_Date.ToString("dd MMM yyyy"),
+                      //Date = x.Log_Date.ToString("dd MMM yyyy"),
+                      Date = x.Log_Date,
                       LeadName = x.Lead_Name,
                       Salesmen = x.Assign_To_ID == null ? 0 : x.Assign_To_ID.Value,
                       LeadRemarks = x.Lead_Remarks,
@@ -600,7 +603,8 @@ namespace CRM.Controllers
                   (x => new LeadListingModel
                   {
                       Id = x.Id,
-                      Date = x.Log_Date.ToString("dd MMM yyyy"),
+                      //Date = x.Log_Date.ToString("dd MMM yyyy"),
+                      Date = x.Log_Date,
                       LeadName = x.Lead_Name,
                       Salesmen = x.Assign_To_ID == null ? 0 : x.Assign_To_ID.Value,
                       LeadRemarks = x.Lead_Remarks,

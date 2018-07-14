@@ -48,6 +48,9 @@ body {
 .layout-boxed {
   background: url('../img/boxed-bg.jpg') repeat fixed;
 }
+.elementID {
+    color: #000000;
+}
 /*
  * Content Wrapper - contains the main content
  */

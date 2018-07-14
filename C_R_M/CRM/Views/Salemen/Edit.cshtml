@@ -1,153 +1,169 @@
 ﻿@model CustomerManagementSystem.BLL.ViewModels.SalemenViewModel
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit";
 }
 
-<h1>Edit</h1>
 
-<div style="padding:10px" class="box box-danger">
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1>Salemen</h1>
+    @Html.HiddenFor(Model => Model.Id)
+    <div id="content">
 
-        <div class="form-horizontal">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <div class="form-horizontal">
 
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.NameId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select class="form-control select No-Validate" id="NameId" name="NameId">
-                        @{
-                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Salesmen)
-                            {
-                                if (item.Selected)
-                                {
-                                    <option value="@item.Value" selected>@item.Text</option>}
-                                else
-                                {
-                                    <option value="@item.Value">@item.Text</option>
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </div>
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.NameId, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <select class="form-control select No-Validate" id="NameId" name="NameId">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Salesmen)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    </select>
-                    @*@Html.EditorFor(model => model.NameId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    @Html.ValidationMessageFor(model => model.NameId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                            </select>
+                            @*@Html.EditorFor(model => model.NameId, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.NameId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select class="form-control select No-Validate" id="CategoryId" name="CategoryId">
-                        @{
-                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Category)
-                            {
-                                if (item.Selected)
-                                {
-                                    <option value="@item.Value" selected>@item.Text</option>}
-                                else
-                                {
-                                    <option value="@item.Value">@item.Text</option>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CategoryId, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <select class="form-control select No-Validate" id="CategoryId" name="CategoryId">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Category)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    </select>
-                    @*@Html.EditorFor(model => model.CategoryId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                            </select>
+                            @*@Html.EditorFor(model => model.CategoryId, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.TargetPeriodId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select class="form-control select No-Validate" id="TargetPeriodId" name="TargetPeriodId">
-                        @{
-                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.TargetPeriod)
-                            {
-                                if (item.Selected)
-                                {
-                                    <option value="@item.Value" selected>@item.Text</option>}
-                                else
-                                {
-                                    <option value="@item.Value">@item.Text</option>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TargetPeriodId, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <select class="form-control select No-Validate" id="TargetPeriodId" name="TargetPeriodId">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.TargetPeriod)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    </select>
-                    @*@Html.EditorFor(model => model.TargetPeriodId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    @Html.ValidationMessageFor(model => model.TargetPeriodId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                            </select>
+                            @*@Html.EditorFor(model => model.TargetPeriodId, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.TargetPeriodId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.TargetTypeId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <select class="form-control select No-Validate" id="TargetTypeId" name="TargetTypeId">
-                        @{
-                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.TargetType)
-                            {
-                                if (item.Selected)
-                                {
-                                    <option value="@item.Value" selected>@item.Text</option>}
-                                else
-                                {
-                                    <option value="@item.Value">@item.Text</option>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.TargetTypeId, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            <select class="form-control select No-Validate" id="TargetTypeId" name="TargetTypeId">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.TargetType)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    </select>
-                    @*@Html.EditorFor(model => model.TargetTypeId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    @Html.ValidationMessageFor(model => model.TargetTypeId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                            </select>
+                            @*@Html.EditorFor(model => model.TargetTypeId, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.TargetTypeId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.BaseTarget, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.BaseTarget, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.BaseTarget, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.BaseTarget, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.BaseTarget, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BaseTarget, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.ValueAndLead, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.ValueAndLead, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ValueAndLead, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ValueAndLead, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.ValueAndLead, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ValueAndLead, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.CurrencyId, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @*@Html.EditorFor(model => model.CurrencyId, new { htmlAttributes = new { @class = "form-control" } })*@
-                    <select class="form-control select No-Validate" id="CurrencyId" name="CurrencyId">
-                        @{
-                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.currency)
-                            {
-                                if (item.Selected)
-                                {
-                                    <option value="@item.Value" selected>@item.Text</option>}
-                                else
-                                {
-                                    <option value="@item.Value">@item.Text</option>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CurrencyId, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @*@Html.EditorFor(model => model.CurrencyId, new { htmlAttributes = new { @class = "form-control" } })*@
+                            <select class="form-control select No-Validate" id="CurrencyId" name="CurrencyId">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.currency)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
                                 }
-                            }
-                        }
-                    </select>
-                    @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
-                </div>
-            </div>
+                            </select>
+                            @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Update" class="btn btn-default" />
+                    <div class="form-group">
+                        <div class="col-md-offset-8 col-md-2">
+                            <input type="submit" value="Update" class="btn btn-primary btn-block btn-flat" />
+
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" onclick="window.location='/Salemen/Index'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    }
-</div>
+    </div>
+}

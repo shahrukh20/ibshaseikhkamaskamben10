@@ -29,8 +29,9 @@
                 <div class="form-horizontal">
 
                     <div class="form-group">
-                        <div class="col-lg-10">
-                            <h3 class="box-title">Lead Information</h3>
+                        <div class="col-md-10">
+                            <h3>Lead Information</h3>
+                            <h5></h5>
                         </div>
 
                     </div>
@@ -170,35 +171,26 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="box box-danger">
-            <div class="box-header with-border">
                 <div class="form-horizontal">
 
                     <div class="form-group">
-                        <div class="col-lg-10">
-                            <h3 class="box-title">Lead Attachment</h3>
+
+                        <div class="col-md-10">
+                            <h3>Lead Attachments</h3>
+                            <h5></h5>
                         </div>
 
-                    </div>
 
+
+                    </div>
                 </div>
-              
+
 
 
                 <div class="form-horizontal">
-                    <hr>
-
-                    @*<div class="form-group">
-                            <label class="control-label col-md-2" for="files">Browse File</label>
-                            <div class="col-md-10">
-                                <input accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,text/plain, application/pdf, image/*"
-                                       data-val-required="Please select file." id="files" multiple="multiple" name="files" type="file" value="">
-                                <span class="field-validation-valid text-danger" data-valmsg-for="files" data-valmsg-replace="true"></span>
-                            </div>
-                        </div>*@
+                  
+             
 
                     <div class="form-group">
                         <input type="file" style="display:none" id="images" name="images" multiple>
@@ -220,14 +212,20 @@
                 </div>
                 <div class="form-horizontal">
                     <div class="form-group">
-                        <div class="col-md-offset-10 col-md-2">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Save</button>
+                        <div class="col-md-offset-8 col-md-2">
+                            <input type="submit" value="Add" class="btn btn-primary btn-block btn-flat" />
+
                         </div>
+                        <div class="col-md-2">
+                            <input type="button" onclick="window.location='/LeadPools/LeadListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                        </div>
+
                     </div>
                 </div>
             </div>
-            
         </div>
+
+        
         </div>
 </form>
 <script>

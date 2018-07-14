@@ -401,30 +401,6 @@
     <Compile Include="Controllers\SourceTypesController.cs" />
     <Compile Include="Controllers\TargetPeriodsController.cs" />
     <Compile Include="Controllers\TargetTypesController.cs" />
-    <Compile Include="Migrations\201806161656005_IdentityMigration.cs" />
-    <Compile Include="Migrations\201806161656005_IdentityMigration.Designer.cs">
-      <DependentUpon>201806161656005_IdentityMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806162129087_2ndMigrations.cs" />
-    <Compile Include="Migrations\201806162129087_2ndMigrations.Designer.cs">
-      <DependentUpon>201806162129087_2ndMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806172051577_UserTypeAdded.cs" />
-    <Compile Include="Migrations\201806172051577_UserTypeAdded.Designer.cs">
-      <DependentUpon>201806172051577_UserTypeAdded.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806182000347_frhjkl.cs" />
-    <Compile Include="Migrations\201806182000347_frhjkl.Designer.cs">
-      <DependentUpon>201806182000347_frhjkl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806231758444_adfghfd.cs" />
-    <Compile Include="Migrations\201806231758444_adfghfd.Designer.cs">
-      <DependentUpon>201806231758444_adfghfd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806281529220_vccccccvvvb.cs" />
-    <Compile Include="Migrations\201806281529220_vccccccvvvb.Designer.cs">
-      <DependentUpon>201806281529220_vccccccvvvb.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CalendarViewModel.cs" />
@@ -593,24 +569,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806161656005_IdentityMigration.resx">
-      <DependentUpon>201806161656005_IdentityMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806162129087_2ndMigrations.resx">
-      <DependentUpon>201806162129087_2ndMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806172051577_UserTypeAdded.resx">
-      <DependentUpon>201806172051577_UserTypeAdded.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806182000347_frhjkl.resx">
-      <DependentUpon>201806182000347_frhjkl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806231758444_adfghfd.resx">
-      <DependentUpon>201806231758444_adfghfd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806281529220_vccccccvvvb.resx">
-      <DependentUpon>201806281529220_vccccccvvvb.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>UnAssignedLead.cs</LastGenOutput>

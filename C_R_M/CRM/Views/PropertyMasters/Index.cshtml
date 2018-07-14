@@ -5,11 +5,29 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<form id="indexForm" action="/propertymasters/Index" method="post">
+    <h1>Property Listing</h1>
+    <div id="content">
 
-@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
-@*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
-<script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
-@*<scri pt src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>*@
+        <div class="box box-danger">
+            <div class="box-header with-border">
+
+                <div id="content">
+                    <div class="addbutton right">
+                        <a href="@Url.Action("Create", "propertymasters")"> <input type="button" class="btn btn-danger" value="Add Property" /></a>
+
+
+                    </div>
+                    <div class="addbutton left"><input type="button" onclick="PublishAllToWeb()" value="Publish All To Web" class="btn btn-danger pull-right" /></div>
+                    <div class="form-horizontal">
+                        <div id="jsGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
 <script >
    
   
@@ -164,18 +182,18 @@
                         success: function (data) {
                             
                             $("#jsGrid").jsGrid("option", "fields", [
-                                { name: "PropertyName", title: "Property Name", width: 70, type: "text", align: 'center', editing: false },
-                                { name: "Area", title: "Area", type: "select", items: data.AreaList, width: 70, validate: "required", valueField: "Value", textField: "Text",align: 'center', editing: false },
-                                { name: "City", title: "City", type: "select", items: data.CityLists, width: 70, validate: "required", valueField: "Value", textField: "Text", align: 'center', editing: false },
-                                { name: "PropertyType", title: "Property Type", items: data.PropertyTypes, type: "select", valueField: "Id", textField: "Name", width: 60, align: 'center', editing: false },
-                                { name: "PropertyDetail", title: "Property Detail", type: "text", width: 150, validate: "required", align: 'center', editing: false },
-                                { name: "PropertyOwnerName", title: "Property Owner Name", type: "text", width: 150, validate: "required", align: 'center', editing: false },
-                                { name: "SellingPrice", title: "Selling Price", type: "text", width: 100, editing: false, align: 'center', editing: false },
-                                { name: "Status", title: "Status", type: "text", width: 100, editing: false, align: 'center', editing: false },
+                                { name: "PropertyName", title: "Property Name", width: 70, type: "text",  editing: false },
+                                { name: "Area", title: "Area", type: "select", items: data.AreaList, width: 70, validate: "required", valueField: "Value", textField: "Text", editing: false },
+                                { name: "City", title: "City", type: "select", items: data.CityLists, width: 70, validate: "required", valueField: "Value", textField: "Text", editing: false },
+                                { name: "PropertyType", title: "Property Type", items: data.PropertyTypes, type: "select", valueField: "Id", textField: "Name", width: 60,  editing: false },
+                                { name: "PropertyDetail", title: "Property Detail", type: "text", width: 150, validate: "required", editing: false },
+                                { name: "PropertyOwnerName", title: "Property Owner Name", type: "text", width: 150, validate: "required", editing: false },
+                                { name: "SellingPrice", title: "Selling Price", type: "text", width: 100, editing: false,  editing: false },
+                                { name: "Status", title: "Status", type: "text", width: 100, editing: false,  editing: false },
                                 //{ name: "PublishAll", title: "PublishAll", type: "button", width: 100, align: 'center' },
 
                                 {
-                                    name: "PublishToWeb", title: "Publish To Web" ,align: "center", 
+                                    name: "PublishToWeb", title: "Publish To Web" ,align: "center",
                                     itemTemplate: function (value, item) {
                                         debugger;
                                         if (value == 'Yes') {
@@ -197,10 +215,10 @@
                                     }
                                 },
                                 {
-                                    name: 'Action',
+                                    type: 'control',
                                     align: 'center',
                                     itemTemplate: function (_, item) {
-                                        return '<a href="/propertymasters/Edit/' + item.PropertyMasterId + '">Edit</a> | <a href="/propertymasters/Delete/' + item.PropertyMasterId + '">Delete</a>';
+                                        return '<a href="/propertymasters/Edit/' + item.PropertyMasterId + '"><span class="elementID"><span class="fa fa-pencil"></span></span></a>&nbsp&nbsp&nbsp<a href="/propertymasters/Delete/' + item.PropertyMasterId + '"><span class="elementID"><span class="fa fa-times"></span></span></a>';
                                     }, width: 100
                                 },
 
@@ -414,139 +432,3 @@
 
 </script>
 
-<h1>Properties</h1>
-<br />
-<p>
-    <input type="button" onclick="window.location='/propertymasters/create'" value="Create" class="btn btn-danger" />
-    <input type="button" onclick="PublishAllToWeb()" value="Publish All To Web" class="btn btn-danger pull-right" />
-    @* @Html.ActionLink("Create New", "Create")*@
-</p>
-<form id="LeadListingForm" action="/LeadPools/LeadListing" method="post">
-    @* @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })*@
-
-    <div id="content">
-        <div class="form-horizontal">
-            <div id="jsGrid"></div>
-        </div>
-    </div>
-
-</form>
-@*<div hidden>
-        <table class="table table-bordered">
-            <colgroup>
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 25%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 10%;">
-                <col span="1" style="width: 15%;">
-            </colgroup>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.PropertyName)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.Country)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.City)
-                    </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Area)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PropertyType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PropertyDetail)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.PlotNo)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PlotArea)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.BuiltUpArea)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CommercialArea)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ResidentialArea)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NoOfFloors)
-                    </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PropertyOwnerName)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.ContactNumber)
-                    </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SellingPrice)
-                </th>
-                <th>Action</th>
-            </tr>
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PropertyName)
-                    </td>
-                    @*<td >
-                            @Html.DisplayFor(modelItem => item.Country)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.City)
-                        </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Area)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PropertyType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PropertyDetail)
-                    </td>
-                    @*<td >
-                            @Html.DisplayFor(modelItem => item.PlotNo)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.PlotArea)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.BuiltUpArea)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.CommercialArea)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.ResidentialArea)
-                        </td>
-                        <td >
-                            @Html.DisplayFor(modelItem => item.NoOfFloors)
-                        </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PropertyOwnerName)
-                    </td>
-                    @*<td >
-                            @Html.DisplayFor(modelItem => item.ContactNumber)
-                        </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SellingPrice)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.PropertyMasterId }) |
-                        @Html.ActionLink("View", "Details", new { id = item.PropertyMasterId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.PropertyMasterId })
-                    </td>
-                </tr>
-            }
-
-        </table>
-
-    </div>*@

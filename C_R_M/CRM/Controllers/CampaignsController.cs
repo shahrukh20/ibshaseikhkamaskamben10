@@ -109,7 +109,7 @@ namespace CRM.Controllers
                         db.SaveChanges();
                     }
                 }
-                Session["divMessage"] = new SessionModel() { Message = "Campaign Successfully Created.", Type = "1" };
+                Session["divMessage"] = new SessionModel() { Message = "Campaign Successfully Added.", Type = "1" };
 
                 return RedirectToAction("Index");
             }

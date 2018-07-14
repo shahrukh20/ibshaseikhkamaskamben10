@@ -10,49 +10,59 @@
 {
     @Html.AntiForgeryToken()
 
-    <h1>Add Action Type</h1>
+    <h1>Action Type</h1>
     <div id="content">
 
         <div class="box box-danger">
             <div class="box-header with-border">
+                <div class="form-horizontal">
 
-               
-                    <div class="form-horizontal">
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </div>
 
-                     
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
-                            <label class="col-md-2">
-                               Action Name:
-                            </label>
-                            <div class="col-md-4">
-                                @Html.EditorFor(model => model.Action_Name, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Action_Name, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                <div class="form-horizontal">
 
-                        <div class="form-group">
-                           <label class="col-md-2">
-                               Score:
-                            </label>
-                            <div class="col-md-4">
-                                @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
-                                @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-offset-10 col-md-2">
-                                <input type="submit" value="Create" class="btn btn-primary btn-block btn-flat" />
-                            </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class="col-md-2">
+                            Action Name:
+                        </label>
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Action_Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Action_Name, "", new { @class = "text-danger" })
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2">
+                            Score:
+                        </label>
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Score, new { htmlAttributes = new { @class = "form-control", @type = "number" } })
+                            @Html.ValidationMessageFor(model => model.Score, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-8 col-md-2">
+                            <input type="submit" value="Add" class="btn btn-primary btn-block btn-flat" />
+
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" onclick="window.location='/ActionTypes/Index'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                        </div>
+
                     </div>
                 </div>
             </div>
-  
+        </div>
+    </div>
 
-                   
-                    }
 
-                   
+
+}
+
+

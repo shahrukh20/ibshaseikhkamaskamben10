@@ -48,7 +48,7 @@ inner join SalesmenCategories sc on sc.Id=slm.salesmenCategory_Id
 inner join	 TargetPeriods tp on tp .Id=slm.targetPeriod_Id
 inner join TargetTypes ty on ty.Id=slm.targetType_Id
 inner join Currencies cu on cu.Id=slm.Currency_Id").ToList();
-            return Json(list,JsonRequestBehavior.AllowGet);
+            return Json(list, JsonRequestBehavior.AllowGet);
         }
         private void BindDropDowns(int salemenId, int categoryId, int targetperiodId, int targettypeId, int currencyId)
         {
@@ -147,20 +147,38 @@ inner join Currencies cu on cu.Id=slm.Currency_Id").ToList();
                 try
                 {
                     Salesman Salesman = db.Salesmen.FirstOrDefault(x => x.Salesman_Id == salemenViewModel.Id);
-                    Salesman = new Salesman()
-                    {
-                        Base_Target = salemenViewModel.BaseTarget,
-                        Is_Active = true,
-                        Created_By = userId,
-                        Created_Datetime = DateTime.Now,
-                        salesmenCategory = db.SalesmenCategories.FirstOrDefault(x => x.Id == salemenViewModel.CategoryId),
-                        user = db.Users.FirstOrDefault(x => x.Id == salemenViewModel.NameId),
-                        ValueLead = salemenViewModel.ValueAndLead,
-                        targetPeriod = db.TargetPeriods.FirstOrDefault(x => x.Id == salemenViewModel.TargetPeriodId),
-                        targetType = db.TargetTypes.FirstOrDefault(x => x.Id == salemenViewModel.TargetTypeId),
-                        Is_Manager = false
+                    var salescategory = db.SalesmenCategories.FirstOrDefault(x => x.Id == salemenViewModel.CategoryId);
+                    var user = db.Users.FirstOrDefault(x => x.Id == salemenViewModel.NameId);
+                    var targetperiod = db.TargetPeriods.FirstOrDefault(x => x.Id == salemenViewModel.TargetPeriodId);
+                    var targettype = db.TargetTypes.FirstOrDefault(x => x.Id == salemenViewModel.TargetTypeId);
+                    //Salesman = new Salesman()
+                    //{
+                    //    Base_Target = salemenViewModel.BaseTarget,
+                    //    Is_Active = true,
+                    //    Created_By = userId,
+                    //    Created_Datetime = DateTime.Now,
+                    //    salesmenCategory = salescategory,
+                    //    user = user,
+                    //    ValueLead = salemenViewModel.ValueAndLead,
+                    //    targetPeriod = targetperiod,
+                    //    targetType = targettype,
+                    //    Is_Manager = false,
+                    //    Salesman_Id = salemenViewModel.Id
 
-                    };
+                    //};
+                    Salesman.Base_Target = salemenViewModel.BaseTarget;
+                    Salesman.Is_Active = true;
+                    Salesman.Created_By = userId;
+                    Salesman.Created_Datetime = DateTime.Now;
+                    Salesman.salesmenCategory = salescategory;
+                    Salesman.user = user;
+                    Salesman.ValueLead = salemenViewModel.ValueAndLead;
+                    Salesman.targetPeriod = targetperiod;
+                    Salesman.targetType = targettype;
+                    Salesman.Is_Manager = false;
+
+
+
                     db.Entry(Salesman).State = EntityState.Modified;
                     db.SaveChanges();
 
