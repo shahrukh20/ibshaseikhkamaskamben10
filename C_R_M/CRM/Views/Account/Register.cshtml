@@ -8,9 +8,9 @@
 {
     @Model
 }
-<h1> Registration User</h1>
-<div id="content">
 
+<div id="content">
+    <h1> Registration User</h1>
     <div class="box box-danger">
         <div class="box-header with-border">
           
@@ -39,7 +39,7 @@
                             First Name:
                         </label>
                         <div class="col-md-4">
-                            @Html.TextBoxFor(model => model.FirstName, new { placeholder = "First Name", @class = "form-control"  })
+                            @Html.TextBoxFor(model => model.FirstName, new { placeholder = "First Name", @class = "form-control" })
                             <b class="tooltip tooltip-bottom-right">First Name</b>
                             @Html.ValidationMessageFor(model => model.FirstName, "", new { Style = "color:red;" })
                         </div>
@@ -154,21 +154,26 @@
 
                     </div>
 
-                    <div class="col-md-offset-6 col-md-2">
-                        <button type="submit" class="btn btn-primary">
-                            Register
-                        </button>
+                    <div class="form-group">
+                        <div class="col-md-offset-8 col-md-2">
+                            <input type="submit" value="Add" class="btn btn-primary btn-block btn-flat" />
+
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" onclick="window.location='/Account/UserListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                        </div>
+
                     </div>
 
 
                     <div class="form-group">
 
                         @*<div class="message">
-                                <i class="fa fa-check"></i>
-                                <p>
-                                    Thank you for your registration!
-                                </p>
-                            </div>*@
+                <i class="fa fa-check"></i>
+                <p>
+                    Thank you for your registration!
+                </p>
+            </div>*@
 
                     </div>
 

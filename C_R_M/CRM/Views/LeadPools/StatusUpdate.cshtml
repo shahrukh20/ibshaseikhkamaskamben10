@@ -34,404 +34,442 @@
             opacity: 1;
         }
 </style>
-<ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#leadForm">Lead Update</a></li>
-    <li><a data-toggle="tab" href="#menu1">Lead History</a></li>
 
-</ul>
 <div class="tab-content">
-    <form id="leadForm" class="tab-pane fade in active" action="/LeadPools/StatusUpdate" method="post">
+    <form id="leadForm"  action="/LeadPools/StatusUpdate" method="post">
         <h1>Lead Status Update</h1>
         <div id="content">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#menu0">Lead Update</a></li>
+                <li><a data-toggle="tab" href="#menu1">Lead History</a></li>
 
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <div class="form-horizontal">
-
-                        <div class="form-group">
-                            <div class="col-lg-10">
-                                <h3 class="box-title">Lead Information</h3>
-                            </div>
-
-                        </div>
+            </ul>
+            <div id="menu0" class="tab-pane fade in active">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
                         <div class="form-horizontal">
 
-
-
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <label class="control-label">Log#:</label>
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                                </div>
-
-
-                                <label class="col-md-2">
-                                    Date:
-                                </label>
-
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-2">
-                                    Name:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtLeadName, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-
-
-                                <label class="col-md-2">
-                                    Property:
-                                </label>
-                                <div class="col-md-4">
-                                    <select class="form-control select No-Validate" id="ddlProperty" name="ddlProperty" disabled>
-                                        @{
-                                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Properties)
-                                            {
-                                                if (item.Selected)
-                                                {
-                                                    <option value="@item.Value" selected>@item.Text</option>}
-                                                else
-                                                {
-                                                    <option value="@item.Value">@item.Text</option>
-                                                }
-                                            }
-
-                                        }
-                                    </select>
-                                </div>
-
-
-
-                            </div>
-
-                            <div class="form-group">
-
-
-                                <label class="col-md-2">
-                                    Contact Person:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtContactPerson, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-                                <label class="col-md-2">
-                                    Designation:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtDesignation, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label class="col-md-2">
-                                    Telephone:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtTel, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-                                <label class="col-md-2">
-                                    Mobile:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtMobile, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-2">
-                                    Fax:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtFax, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-                                <label class="col-md-2">
-                                    Email:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtEmail, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-2">
-                                    Source Of Lead:
-                                </label>
-                                <div class="col-md-4">
-
-                                    <select class="form-control select No-Validate" id="ddlSourceOfLead" name="ddlSourceOfLead" disabled>
-                                        @{
-                                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.SourceOfLead)
-                                            {
-                                                if (item.Selected)
-                                                {
-                                                    <option value="@item.Value" selected>@item.Text</option>}
-                                                else
-                                                {
-                                                    <option value="@item.Value">@item.Text</option>
-                                                }
-                                            }
-                                        }
-                                    </select>
-
-                                </div>
-
-                                <label class="col-md-2">
-                                    Source:
-                                </label>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtSource, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-2">
-                                    Budget:
-                                </label>
-                                <div class="col-md-2">
-                                    @Html.EditorFor(model => model.txtbudget, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
-
-                                </div>
-                                <div class="col-md-2">
-                                    <select class="form-control select No-Validate" id="ddlCurrency" name="ddlCurrency" disabled>
-                                        @{
-                                            foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Currency)
-                                            {
-                                                if (item.Selected)
-                                                {
-                                                    <option value="@item.Value" selected>@item.Text</option>}
-                                                else
-                                                {
-                                                    <option value="@item.Value">@item.Text</option>
-                                                }
-                                            }
-
-                                        }
-                                    </select>
-
-                                </div>
-
-
-
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-2">
-                                    Remarks:
-                                </label>
-                                <div class="col-md-8">
-                                    @*<input type="text" ID="txtRemarks" TextMode="MultiLine" Rows="3" class="form-control" />*@
-                                    @*@Html.EditorFor(model => model.txtRemarks, new { htmlAttributes = new { @class = "form-control",  } })*@
-                                    @*@Html.EditorFor(model => model.txtRemarks, new { htmlAttributes = new { @class = "col-md-8", } })*@
-                                    @*<textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-8" disabled></textarea>*@
-                                    @Html.TextAreaFor(model => model.txtRemarks, new { @class = "form-control", @rows = 3, @cols = 25, @disabled = "disabled" })
-                                    @*@Html.EditorFor(model => model.txtRemarks)
-                                        <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
-                                </div>
-
-
-
-                            </div>
-
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="box box-danger" style="overflow-x:scroll;height: 163px;">
-                <div style="width:100%;height: 120px;border-radius: 12.4px;margin-bottom: 15px;padding: 9px;" class="">
-
-                    @{
-                        List<string> images = (List<string>)ViewBag.images;
-                        if (images != null)
-                        {
-                            if (images.Count > 0)
-                            {
-                                foreach (var imageurl in images)
-                                {
-                                    <div class="img-wrap">
-                                        <span class=""></span>
-                                        <img src="@imageurl" class="pop" style="margin-left: 50px;margin-top:15px;margin-bottom:10px;width: 120px;height:100px;border-radius: 6.4px;" data-id="@imageurl" />
-                                    </div>
-
-                                }
-
-                            }
-                            else
-                            {
-                                <div style="text-align: center;"><h3 style="color:black">No Images Available</h3></div>
-                            }
-                        }
-                    }
-                </div>
-            </div>
-            <div class="box box-danger">
-                <div class="box-header with-border">
-                    <div class="form-horizontal">
-
-                        <div class="form-group">
-                            <div class="col-lg-10">
-                                <h3 class="box-title">Status Update</h3>
-                            </div>
-
-                        </div>
-                        <div class="form-horizontal">
-
-
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <label class="control-label">
-                                        Status:
-                                    </label>
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.DropDownList("ddstatus", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control select", @required = "required" })
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="control-label">
-                                        Next Action:
-                                    </label>
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.DropDownList("ddnextaction", (IEnumerable<SelectListItem>)ViewBag.NextAction, new { @class = "form-control select", @required = "required" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <label class="control-label">
-                                        Next Action Date:
-                                    </label>
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtNextActionDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                                </div>
-                                <div class="col-md-2">
-                                    <label class="control-label">
-                                        Next Action Time:
-                                    </label>
-                                </div>
-                                <div class="col-md-4">
-                                    @Html.EditorFor(model => model.txtNextActionTime, new { htmlAttributes = new { @class = "form-control timepicker", @type = "time" } })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-horizontal">
                             <div class="form-group">
                                 <div class="col-md-10">
-                                    <h2>Contact Information</h2>
-                                </div>
-                            </div>
-                            <div class="form-group">
-
-                                <div id="jsContact" style="padding-left:10px;"></div>
-
-                            </div>
-                        </div>
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <label class="control-label">Remarks:</label>
-                                </div>
-
-                                @*<textarea name="txtStatusRemarks" id="txtStatusRemarks" class="col-md-8"></textarea>*@
-                                <div class="col-md-8">
-                                    @Html.TextAreaFor(model => model.txtStatusRemarks, new { @class = "form-control", @rows = 3, @cols = 25 })
+                                    <h3>Lead Information</h3>
+                                    <h5></h5>
                                 </div>
 
                             </div>
-                        </div>
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="col-md-offset-10 col-md-2">
-                                    <button type="button" onclick="PostForm();" class="btn btn-primary btn-block btn-flat">Save</button>
+                            <div class="form-horizontal">
+
+
+
+                                <div class="form-group">
+                                    <div class="col-md-2">
+                                        <label class="control-label">Log#:</label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    </div>
+
+
+                                    <label class="col-md-2">
+                                        Date:
+                                    </label>
+
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtDate, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    </div>
+
                                 </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2">
+                                        Name:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtLeadName, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+
+                                    <label class="col-md-2">
+                                        Property:
+                                    </label>
+                                    <div class="col-md-4">
+                                        <select class="form-control select No-Validate" id="ddlProperty" name="ddlProperty" disabled>
+                                            @{
+                                                foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Properties)
+                                                {
+                                                    if (item.Selected)
+                                                    {
+                                                        <option value="@item.Value" selected>@item.Text</option>}
+                                                    else
+                                                    {
+                                                        <option value="@item.Value">@item.Text</option>
+                                                    }
+                                                }
+
+                                            }
+                                        </select>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="form-group">
+
+
+                                    <label class="col-md-2">
+                                        Contact Person:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtContactPerson, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+                                    <label class="col-md-2">
+                                        Designation:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtDesignation, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="col-md-2">
+                                        Telephone:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtTel, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+                                    <label class="col-md-2">
+                                        Mobile:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtMobile, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2">
+                                        Fax:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtFax, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+                                    <label class="col-md-2">
+                                        Email:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtEmail, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2">
+                                        Source Of Lead:
+                                    </label>
+                                    <div class="col-md-4">
+
+                                        <select class="form-control select No-Validate" id="ddlSourceOfLead" name="ddlSourceOfLead" disabled>
+                                            @{
+                                                foreach (var item in (IEnumerable<SelectListItem>)ViewBag.SourceOfLead)
+                                                {
+                                                    if (item.Selected)
+                                                    {
+                                                        <option value="@item.Value" selected>@item.Text</option>}
+                                                    else
+                                                    {
+                                                        <option value="@item.Value">@item.Text</option>
+                                                    }
+                                                }
+                                            }
+                                        </select>
+
+                                    </div>
+
+                                    <label class="col-md-2">
+                                        Source:
+                                    </label>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtSource, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2">
+                                        Budget:
+                                    </label>
+                                    <div class="col-md-2">
+                                        @Html.EditorFor(model => model.txtbudget, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <select class="form-control select No-Validate" id="ddlCurrency" name="ddlCurrency" disabled>
+                                            @{
+                                                foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Currency)
+                                                {
+                                                    if (item.Selected)
+                                                    {
+                                                        <option value="@item.Value" selected>@item.Text</option>}
+                                                    else
+                                                    {
+                                                        <option value="@item.Value">@item.Text</option>
+                                                    }
+                                                }
+
+                                            }
+                                        </select>
+
+                                    </div>
+
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-2">
+                                        Remarks:
+                                    </label>
+                                    <div class="col-md-8">
+                                        @*<input type="text" ID="txtRemarks" TextMode="MultiLine" Rows="3" class="form-control" />*@
+                                        @*@Html.EditorFor(model => model.txtRemarks, new { htmlAttributes = new { @class = "form-control",  } })*@
+                                        @*@Html.EditorFor(model => model.txtRemarks, new { htmlAttributes = new { @class = "col-md-8", } })*@
+                                        @*<textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-8" disabled></textarea>*@
+                                        @Html.TextAreaFor(model => model.txtRemarks, new { @class = "form-control", @rows = 3, @cols = 25, @disabled = "disabled" })
+                                        @*@Html.EditorFor(model => model.txtRemarks)
+                                    <textarea name="txtRemarks" id="txtRemarks" cols="25" rows="3" class="col-md-9"></textarea>*@
+                                    </div>
+
+
+
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group">
+
+                        <div class="col-md-10">
+                            <h3>Lead Attachments</h3>
+                            <h5></h5>
+                        </div>
+
+
+
+                    </div>
+                    <div class="box box-danger" style="overflow-x:scroll;height: 163px;">
+                        <div style="width:100%;height: 120px;border-radius: 12.4px;margin-bottom: 15px;padding: 9px;" class="">
+
+                            @{
+                                List<string> images = (List<string>)ViewBag.images;
+                                if (images != null)
+                                {
+                                    if (images.Count > 0)
+                                    {
+                                        foreach (var imageurl in images)
+                                        {
+                                            <div class="img-wrap">
+                                                <span class=""></span>
+                                                <img src="@imageurl" class="pop" style="margin-left: 50px;margin-top:15px;margin-bottom:10px;width: 120px;height:100px;border-radius: 6.4px;" data-id="@imageurl" />
+                                            </div>
+
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <div style="text-align: center;"><h3 style="color:black">No Images Available</h3></div>
+                                    }
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="box box-danger">
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                <h3>Status Update</h3>
+                                <h5></h5>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="box-header with-border">
+
+                            <div class="form-horizontal">
+
+
+                                <div class="form-group">
+                                    <div class="col-md-2">
+                                        <label class="control-label">
+                                            Status:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("ddstatus", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control select", @required = "required" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label">
+                                            Next Action:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("ddnextaction", (IEnumerable<SelectListItem>)ViewBag.NextAction, new { @class = "form-control select", @required = "required" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-2">
+                                        <label class="control-label">
+                                            Next Action Date:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtNextActionDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label">
+                                            Next Action Time:
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.EditorFor(model => model.txtNextActionTime, new { htmlAttributes = new { @class = "form-control timepicker", @type = "time" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <h3>Contact Information</h3>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+
+                                    <div id="jsContact" style="padding-left:10px;"></div>
+
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-2">
+                                        <label class="control-label">Remarks:</label>
+                                    </div>
+
+                                    @*<textarea name="txtStatusRemarks" id="txtStatusRemarks" class="col-md-8"></textarea>*@
+                                    <div class="col-md-8">
+                                        @Html.TextAreaFor(model => model.txtStatusRemarks, new { @class = "form-control", @rows = 3, @cols = 25 })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-offset-10 col-md-2">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-md-offset-8 col-md-2">
+                                        <button type="button" onclick="PostForm();" class="btn btn-primary btn-block btn-flat">Update</button>
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="button" onclick="window.location='/LeadPools/LeadListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
                 </div>
             </div>
-            @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
+            @{
+                var histories = (List<CustomerManagementSystem.BLL.ViewModels.History>)ViewBag.Histories;
+                <div id="menu1" class="tab-pane fade">
+
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <h1>Lead Status Update</h1>
+                        </div>
+
+                    </div>
+                    <table id="datatable" class="table table-bordered box box-danger">
+                        <thead>
+
+                            <tr>
+                                <th>Status</th>
+                                <th>Action Date</th>
+                                <th>Action Time</th>
+                                <th>Action Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in histories)
+                            {
+                                <tr>
+                                    <td>@item.Status</td>
+                                    <td>@item.ActionDate</td>
+                                    <td>@item.ActionTime</td>
+                                    <td>@item.ActionType</td>
+                                </tr>
+                            }
+                            @if (histories.Count == 0)
+                            {
+                                <tr>
+                                    <td colspan="4" style="
+    text-align: center;
+">
+                                        No History Found.
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @*@if (histories.Count > 0)
+                {
+
+                }*@
+                </div>
+            }
         </div>
 
 
     </form>
-    @{
-        var histories = (List<CustomerManagementSystem.BLL.ViewModels.History>)ViewBag.Histories;
-        <div id="menu1" class="tab-pane fade">
-            <div class="form-group">
-                <div class="col-lg-12">
-                    <h1>Lead Status Update</h1>
-                </div>
-
-            </div>
-            <table id="datatable" class="table table-bordered box box-danger">
-                <thead>
-
-                    <tr>
-                        <th>Status</th>
-                        <th>Action Date</th>
-                        <th>Action Time</th>
-                        <th>Action Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    @foreach (var item in histories)
-                    {
-                        <tr>
-                            <td>@item.Status</td>
-                            <td>@item.ActionDate</td>
-                            <td>@item.ActionTime</td>
-                            <td>@item.ActionType</td>
-                        </tr>
-                    }
-                    @if (histories.Count == 0)
-                    {
-                        <tr>
-                            <td colspan="4" style="
-    text-align: center;
-">
-                                No History Found.
-                            </td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                    }
-                </tbody>
-            </table>
-            @*@if (histories.Count > 0)
-                {
-
-                }*@
-        </div>
-    }
+   
 </div>
 <script>
     $(document).ready(function () {

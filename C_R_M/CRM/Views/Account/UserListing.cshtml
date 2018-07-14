@@ -10,7 +10,7 @@
         <div class="box box-danger">
             <div class="box-header with-border">
 
-               
+
 
                 <div id="content">
                     <div class="addbutton right">
@@ -25,7 +25,7 @@
             </div>
         </div>
     </div>
-   
+
 </form>
 
 
@@ -131,9 +131,9 @@
             autoload: true,
             async: false,
 
-            pageSize: 5,
+            pageSize: 10,
             pageButtonCount: 5,
-            
+
             controller: {
 
                 loadData: function (filter) {
@@ -163,17 +163,17 @@
                 }
             },
             fields: [
-                { name: "id", title: "id", type: "number", visible: false, align: 'center' },
-                { name: "UserName", title: "User Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
-                { name: "Email", title: "Address", type: "text", width: 100, validate: "required", align: 'center', editing: false },
-                { name: "UserType", title: "User Type", type: "text", width: 50, validate: "required", align: 'center' },
+                { name: "id", title: "id", type: "number", visible: false,  },
+                { name: "UserName", title: "User Name", type: "text", width: 50, validate: "required",editing: false },
+                { name: "Email", title: "Address", type: "text", width: 100, validate: "required", editing: false },
+                { name: "UserType", title: "User Type", type: "text", width: 50, validate: "required" },
                 {
-                    type:'control',
+                    type: 'control',
                     name: 'Edit',
                     align: 'center',
                     itemTemplate: function (_, item) {
-                        return "<a onclick =\"ReditectToEditSection('" + item.UserName + "');\" name='Edit'>Edit</a>";
-                    },width:20
+                        return "<a onclick =\"ReditectToEditSection('" + item.UserName + "');\" name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>";
+                    }, width: 20
                 }
             ]
 
@@ -183,9 +183,8 @@
 
 </script>
 <script>
-    
-    function ReditectToEditSection(UserName)
-    {
+
+    function ReditectToEditSection(UserName) {
         var base_url = window.location.origin;
         window.location = base_url + "/Account/Edit?username=" + UserName;
     }

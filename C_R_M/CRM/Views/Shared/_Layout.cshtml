@@ -13,7 +13,10 @@
         }
 
         .jsgrid-header-sortable {
-            text-align: center
+            text-align: center;
+            color: black !important;
+            font-size: 14px !important;
+            font-family: sans-serif !important;
         }
     </style>
     <script src="/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
@@ -61,10 +64,10 @@
                     <h4><i class="icon fa fa-ban"></i> Alert!</h4>
                     <div id="failurealert">@((Session["divMessage"] as SessionModel)?.Message ) </div>
                 </div>
-                <div style="display:none" class="alert alert-success">
+                <div style="display:none;background-color:#C4E2FF !important;color:black;" class="alert alert-success">
                     @* <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>*@
-                    <h4><i class="icon fa fa-check"></i> Alert!</h4>
-                    <div id="successalert">@((Session["divMessage"] as SessionModel)?.Message ) </div>
+                    <h4 style="color:darkgreen;"><i class="icon fa fa-check"></i> Alert!</h4>
+                    <div id=""> <h5 id="successalert" style="color:darkgreen">@((Session["divMessage"] as SessionModel)?.Message )</h5> </div>
                 </div>
 
                 @RenderBody()
@@ -94,16 +97,13 @@
     $(document).ready(function () {
         //$.noConflict();
         $("a").each(function () {
-            if(this.text=="Back to List")
-            {
+            if (this.text == "Back to List") {
                 $(this).addClass("btn btn-primary");
             }
-            else if(this.text=="Create New")
-            {
+            else if (this.text == "Create New") {
                 $(this).addClass("btn btn-danger");
             }
-            else if(this.text=="Create")
-            {
+            else if (this.text == "Create") {
                 $(this).addClass("btn btn-danger");
             }
 
@@ -125,7 +125,7 @@
        {
            if ('@((Session["divMessage"] as SessionModel)?.Type)' == '1')
            {
-               $('#successalert').text('@((Session["divMessage"] as SessionModel)?.Message)'); $('.alert-success').fadeIn().delay(3000).fadeOut();
+               $('#successalert').text( '@((Session["divMessage"] as SessionModel)?.Message)'); $('.alert-success').fadeIn().delay(3000).fadeOut();
            }
            else {
                $('#failurealert').text('@((Session["divMessage"] as SessionModel)?.Message)'); $('.alert-danger').fadeIn().delay(3000).fadeOut();

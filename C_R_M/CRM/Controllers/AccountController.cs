@@ -301,6 +301,7 @@ namespace CRM.Controllers
             u.LoginId = model.Email;
             u.UserType = userType1;
             u.Manager = manager;
+            
             u.IsActive = IsActive.HasValue ? true : false;
             db.Entry(u).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
@@ -315,7 +316,7 @@ namespace CRM.Controllers
             {
                 bool IsPasswordChanged = await changePassword(u.ApplicationUser, model.Password);
             }
-            return View(model);
+            return RedirectToAction("Userlisting");
         }
         public async Task<bool> changePassword(int id, string Password)
         {

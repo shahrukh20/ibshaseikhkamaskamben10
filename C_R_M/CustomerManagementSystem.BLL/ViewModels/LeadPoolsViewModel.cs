@@ -43,7 +43,7 @@ namespace CustomerManagementSystem.BLL.ViewModels
     {
         public int Id { get; set; }
         public string LeadName { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string LeadRemarks { get; set; }
         public int Salesmen { get; set; }
 
