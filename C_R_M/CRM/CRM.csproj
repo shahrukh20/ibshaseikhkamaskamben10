@@ -368,6 +368,9 @@
     <Content Include="Views\Currencies\Edit.cshtml" />
     <Content Include="Views\Currencies\Index.cshtml" />
     <Content Include="Views\Reports\CampaignReports.cshtml" />
+    <Content Include="Views\Reports\OpportunityInHand.cshtml" />
+    <Content Include="Views\Reports\Target.cshtml" />
+    <Content Include="Views\Reports\LeadConversion.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

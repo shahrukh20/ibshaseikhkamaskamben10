@@ -33,7 +33,17 @@ namespace CRM.CommonClasses
             // newJson[8] = '"';
             return newJson;
         }
-        public  DataTable CreateDataTable<T>(IEnumerable<T> list)
+
+        public CRM.Models.UserType GetUserType(string UserName)
+        {
+            string query = @"select usr.id as UserID, ut.Name as Type, usr.Name as UserName from usertypes ut 
+inner join Users usr on usr.UserType_Id = ut.Id
+where usr.Name='{0}'";
+            string parameterizedquery = string.Format(query, UserName);
+            CRM.Models.UserType UserType = db.Database.SqlQuery<CRM.Models.UserType>(parameterizedquery).FirstOrDefault();
+            return UserType;
+        }
+        public DataTable CreateDataTable<T>(IEnumerable<T> list)
         {
             Type type = typeof(T);
             var properties = type.GetProperties();
@@ -67,7 +77,7 @@ namespace CRM.CommonClasses
         public ApplicationFunctions(CRMContext db) : base(db)
         {
             this.db = db;
-    }
+        }
         internal dynamic BindCurrencies(int CurrencyId)
         {
 
@@ -237,6 +247,30 @@ namespace CRM.CommonClasses
                     Lead_PoolsItems.Add(new SelectListItem()
                     {
                         Text = item.Lead_Name,
+                        Value = item.Id.ToString()
+                    });
+
+            }
+            return Lead_PoolsItems;
+
+        }
+        public List<SelectListItem> BindTarget(int id)
+        {
+            var Lead_Pools = db.TargetPeriods.ToList();
+            List<SelectListItem> Lead_PoolsItems = new List<SelectListItem>();
+            foreach (var item in Lead_Pools)
+            {
+                if (item.Id == id)
+                    Lead_PoolsItems.Add(new SelectListItem()
+                    {
+                        Text = item.Name,
+                        Value = item.Id.ToString(),
+                        Selected = true
+                    });
+                else
+                    Lead_PoolsItems.Add(new SelectListItem()
+                    {
+                        Text = item.Name,
                         Value = item.Id.ToString()
                     });
 

@@ -81,7 +81,12 @@ namespace CRM.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
-
+    public class UserType
+    {
+        public int UserID { get; set; }
+        public string Type { get; set; }
+        public string UserName { get; set; }
+    }
     public class AddPhoneNumberViewModel
     {
         [Required]

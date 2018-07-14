@@ -33,18 +33,25 @@ namespace CRM.Controllers
             return View();
         }
 
-        private void BindDropDowns(int managerId, int salesmanId, int salesmancategoryId, int leadsId)
+        private void BindDropDowns(int managerId, int salesmanId, int salesmancategoryId, int leadsId, int TargetId)
         {
             ViewBag.Salesman = reportCommon.BindSalemen(salesmanId);
             ViewBag.Manager = reportCommon.BindManager(managerId);
             ViewBag.SalesmanCategory = reportCommon.BindCategory(salesmancategoryId);
             ViewBag.Leads = reportCommon.BindLeads(leadsId);
+            ViewBag.Targets = reportCommon.BindTarget(TargetId);
+
         }
         public ActionResult UnAssignedReports()
         {
-            BindDropDowns(0, 0, 0, 0);
+            BindDropDowns(0, 0, 0, 0, 0);
             return View();
         }
+
+
+
+
+
 
         //        [HttpPost]
         //        public ActionResult UnAssignedReports(UnAssignedReportsViewModel unAssignedReportsViewModel)
@@ -121,6 +128,138 @@ namespace CRM.Controllers
             }
         }
 
+        public ActionResult OpportunityInHand()
+        {
+            BindDropDowns(0, 0, 0, 0, 0);
+            return View();
+        }
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public JsonResult OpportunityInHand(string str)
+        {
+            try
+            {
+                var model = reportCommon.ConvertInvalidJson(str);
+                UnAssignedReportsViewModel unAssignedReportsViewModel = JsonConvert.DeserializeObject<UnAssignedReportsViewModel>(model);
+                var UnAssignedReportsBindingViewModel = db.Lead_Pool.Select(x => new UnAssignedReportsBindingViewModel()
+                {
+                    Chanel = "Web",
+                    LeadName = x.Lead_Name,
+                    CreatedBy = x.Created_By.ToString(),
+                    LeadNo = x.Id.ToString(),
+                    Manager = x.Assign_To_ID.ToString(),
+                    Operator = x.Assign_By_ID.ToString(),
+                    Source = x.Source,
+                    SourceType = x.Score.ToString()
+                }).ToList();
+                DataSet ds = new DataSet();
+                List<ReportModel> reportModel = new List<ReportModel>();
+                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "UnAssigned Lead Report" });
+                ds.Tables.Add(reportCommon.CreateDataTable(UnAssignedReportsBindingViewModel));
+                ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
+                ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
+                ds.Tables[1].TableName = "reportModel";
+                Session["ds"] = ds;
+                Session["ReportType"] = Enumeration.ReportType.UnAssigned;
+                return Json("Success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("Failure", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult Target()
+        {
+            CommonFunctions cf = new CommonFunctions(db);
+
+            ViewBag.UserType = cf.GetUserType(User.Identity.Name);
+            BindDropDowns(0, 0, 0, 0, 0);
+            return View();
+        }
+        [HttpPost]
+        public JsonResult Target(string str)
+        {
+            try
+            {
+                var model = reportCommon.ConvertInvalidJson(str);
+                UnAssignedReportsViewModel unAssignedReportsViewModel = JsonConvert.DeserializeObject<UnAssignedReportsViewModel>(model);
+                var UnAssignedReportsBindingViewModel = db.Lead_Pool.Select(x => new UnAssignedReportsBindingViewModel()
+                {
+                    Chanel = "Web",
+                    LeadName = x.Lead_Name,
+                    CreatedBy = x.Created_By.ToString(),
+                    LeadNo = x.Id.ToString(),
+                    Manager = x.Assign_To_ID.ToString(),
+                    Operator = x.Assign_By_ID.ToString(),
+                    Source = x.Source,
+                    SourceType = x.Score.ToString()
+                }).ToList();
+                DataSet ds = new DataSet();
+                List<ReportModel> reportModel = new List<ReportModel>();
+                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "UnAssigned Lead Report" });
+                ds.Tables.Add(reportCommon.CreateDataTable(UnAssignedReportsBindingViewModel));
+                ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
+                ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
+                ds.Tables[1].TableName = "reportModel";
+                Session["ds"] = ds;
+                Session["ReportType"] = Enumeration.ReportType.UnAssigned;
+                return Json("Success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("Failure", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public ActionResult GetSalesmen(int ManagerID)
+        {
+            List<User> Users = new List<User>();
+            Users = db.Users.Where(m => m.Manager.Id == ManagerID).ToList();
+            SelectList obgcity = new SelectList(Users, "Id", "Name", 0);
+            return Json(obgcity);
+
+        }
+
+        public ActionResult LeadConversion()
+        {
+            BindDropDowns(0, 0, 0, 0, 0);
+            return View();
+        }
+        [HttpPost]
+        public JsonResult LeadConversion(string str)
+        {
+            try
+            {
+                var model = reportCommon.ConvertInvalidJson(str);
+                UnAssignedReportsViewModel unAssignedReportsViewModel = JsonConvert.DeserializeObject<UnAssignedReportsViewModel>(model);
+                var UnAssignedReportsBindingViewModel = db.Lead_Pool.Select(x => new UnAssignedReportsBindingViewModel()
+                {
+                    Chanel = "Web",
+                    LeadName = x.Lead_Name,
+                    CreatedBy = x.Created_By.ToString(),
+                    LeadNo = x.Id.ToString(),
+                    Manager = x.Assign_To_ID.ToString(),
+                    Operator = x.Assign_By_ID.ToString(),
+                    Source = x.Source,
+                    SourceType = x.Score.ToString()
+                }).ToList();
+                DataSet ds = new DataSet();
+                List<ReportModel> reportModel = new List<ReportModel>();
+                reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "UnAssigned Lead Report" });
+                ds.Tables.Add(reportCommon.CreateDataTable(UnAssignedReportsBindingViewModel));
+                ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
+                ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
+                ds.Tables[1].TableName = "reportModel";
+                Session["ds"] = ds;
+                Session["ReportType"] = Enumeration.ReportType.UnAssigned;
+                return Json("Success", JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e)
+            {
+                return Json("Failure", JsonRequestBehavior.AllowGet);
+            }
+        }
 
         public ActionResult CampaignReports()
         {
@@ -133,7 +272,7 @@ namespace CRM.Controllers
             {
                 var model = reportCommon.ConvertInvalidJson(str);
                 CampaignReportViewModel CampaignReportsViewModel = JsonConvert.DeserializeObject<CampaignReportViewModel>(model);
-                var dfghgfdfgfdf=db.Campaigns.ToList();
+                var dfghgfdfgfdf = db.Campaigns.ToList();
                 var campaignReportsBindingViewModel = db.Campaigns.ToList().Where(x =>
                 x.IsActive == CampaignReportsViewModel.IsActive
                 && x.Name.Contains(CampaignReportsViewModel.Name)
