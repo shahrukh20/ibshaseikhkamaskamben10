@@ -26,7 +26,8 @@ namespace CRM.Controllers
                 {
                     AreaId = x.AreaId,
                     AreaName = x.AreaName,
-                    CityName = x.City.CityName
+                    CityName = x.City.CityName,
+                    CountryName = x.City.Country.CountryName
                 }
                 ).ToList());
             }

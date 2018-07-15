@@ -1,0 +1,162 @@
+﻿@model CustomerManagementSystem.BLL.ViewModels.ReportsViewModel.UnAssignedReportsViewModel
+
+@{
+    /**/
+}
+
+<h1>Lead Conversion</h1>
+<form action="/Reports/LeadConversion" id="leadconversionform" method="post">
+    <div id="content">
+        <div id="content">
+
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ManagerId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select class="form-control select No-Validate" id="ManagerId" name="ManagerId" required>
+                                    @{
+                                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Manager)
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>}
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                                @*@Html.EditorFor(model => model.ManagerId, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.ManagerId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SalemanId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select class="form-control select No-Validate" id="SalemanId" name="SalemanId">
+                                    @{
+                                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Salesman)
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>}
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                                @*@Html.EditorFor(model => model.SalemanId, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.SalemanId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SalemanCategoryId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select class="form-control select No-Validate" id="SalemanCategoryId" name="SalemanCategoryId">
+                                    @{
+                                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.SalesmanCategory)
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>}
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                                @*@Html.EditorFor(model => model.SalemanCategoryId, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.SalemanCategoryId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TargetId, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <select class="form-control select No-Validate" id="TargetId" name="TargetId">
+                                    @{
+                                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Targets)
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>}
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+                                    }
+                                </select>
+                                @*@Html.EditorFor(model => model.LeadId, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.ValidationMessageFor(model => model.TargetId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-6 col-lg-6">
+                                <div class="col-lg-offset-2 col-lg-3"><label>Date From</label></div>
+                                <div class="col-lg-7">
+                                    <input type="date" class="form-control" id="fromdate" name="fromdate" />
+                                </div>
+                                
+
+                            </div>
+                            <div class="col-md-6 col-lg-6">
+                                <div class="col-lg-offset-2 col-lg-3"><label>Date to</label></div>
+                                <div class="col-lg-7">
+                                    <input type="date" class="form-control" id="todate" name="todate" />
+                                </div>
+                              
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="button" value="Generate" onclick="GenerateReport();" class="btn btn-default" />
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+    function GenerateReport() {
+        
+            var str = $("#leadconversionform").serialize();
+            $.ajax({
+                type: "POST",
+                url: "../Reports/LeadConversion",
+                dataType: "JSON",
+                data: { str: str },
+                async: false,
+                success: function (data) {
+                    var base_url = window.location.origin;
+                    window.open(base_url + '/WebForms/ReportViwer.aspx', '_blank');
+                },
+                error: function (dar) { }
+            })
+        }
+    
+</script>
