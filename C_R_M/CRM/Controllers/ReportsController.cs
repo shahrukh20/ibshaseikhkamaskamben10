@@ -1,4 +1,5 @@
 ﻿using CRM.CommonClasses;
+using CRM.Models;
 using CRM.Reports.ReportModels;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
@@ -141,24 +142,42 @@ namespace CRM.Controllers
             {
                 var model = reportCommon.ConvertInvalidJson(str);
                 UnAssignedReportsViewModel unAssignedReportsViewModel = JsonConvert.DeserializeObject<UnAssignedReportsViewModel>(model);
-                var leadpool = db.Database.SqlQuery<LeadPool>(@"select lp.* from LeadPools lp 
+                //                var leadpool = db.Database.SqlQuery<LeadPool>(@"select lp.* from LeadPools lp 
+                //inner join LeadStatusFields lsf on lp.Id=lsf.leadPool_Id	 
+                //where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
+
+
+                var leadpool = db.Database.SqlQuery<OpportunityInHandViewModel>(@"select lp.Id as No,lp.Lead_Name as LeadName,st.Source_Name as SourceType,
+lp.Source,manager.Name as Manager,salesman.Name as Salesman,sts.Status as Status,
+at.Action_Name as ActionName,lsf.NextActionDate,lsf.NextActionTime,lp.Created_DateTime,lp.Channel
+
+from LeadPools lp 
 inner join LeadStatusFields lsf on lp.Id=lsf.leadPool_Id	 
+left join Users manager on manager.Id=lp.Assign_By_ID
+left join Users salesman on salesman.Id=lp.Assign_To_ID
+left join SourceTypes st on st.Source_Type_Id=lp.Source_Type_Id
+left join Status sts on sts.Status_Id=lp.Status
+left join ActionTypes at on at.Action_Id=lsf.ActionType_Action_Id
 where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
-                var UnAssignedReportsBindingViewModel = leadpool.Select(x => new UnAssignedReportsBindingViewModel()
+                var OpportunityInHandViewModel = leadpool.Select(x => new OpportunityInHandViewModel()
                 {
-                    Chanel = "Web",
-                    LeadName = x.Lead_Name,
-                    CreatedBy = x.Created_By.ToString(),
-                    LeadNo = x.Id.ToString(),
-                    Manager = x.Assign_To_ID.ToString(),
-                    Operator = x.Assign_By_ID.ToString(),
+                    No = x.No,
+                    LeadName = x.LeadName,
+                    SourceType = x.SourceType,
                     Source = x.Source,
-                    SourceType = x.Score.ToString()
+                    Manager = x.Manager,
+                    Salesman =x.Salesman,
+                    Status = x.Status,
+                    NextActionDate = x.NextActionDate,
+                    NextActionTime = x.NextActionTime,
+                    CreatedDate = x.CreatedDate,
+                    Channel = "Web",            
+                    
                 }).ToList();
                 DataSet ds = new DataSet();
                 List<ReportModel> reportModel = new List<ReportModel>();
                 reportModel.Add(new ReportModel() { DateField = DateTime.Now.ToString("dd-MMM-yyyy"), Name = "Opportunity In Hand Report" });
-                ds.Tables.Add(reportCommon.CreateDataTable(UnAssignedReportsBindingViewModel));
+                ds.Tables.Add(reportCommon.CreateDataTable(OpportunityInHandViewModel));
                 ds.Tables.Add(reportCommon.CreateDataTable(reportModel));
                 ds.Tables[0].TableName = "UnAssignedReportsBindingViewModel";
                 ds.Tables[1].TableName = "reportModel";

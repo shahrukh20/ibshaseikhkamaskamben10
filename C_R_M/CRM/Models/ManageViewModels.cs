@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -121,6 +122,20 @@ namespace CRM.Models
         public string Quantity { get; set; }
 
     }
-
+    public class OpportunityInHandViewModel
+    {
+        public int No { get; set; }
+        public string LeadName { get; set; }
+        public string SourceType { get; set; }
+        public string Source { get; set; }
+        public string Manager { get; set; }
+        public string Salesman { get; set; }
+        public string Status { get; set; }
+        public string ActionName { get; set; }
+        public string NextActionDate { get; set; }
+        public string NextActionTime { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string Channel { get; set; }
+    }
 
 }

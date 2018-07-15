@@ -58,7 +58,24 @@ namespace CRM.Controllers
         {
             return View();
         }
+        public JsonResult PropertyLoadForDelete(int? id)
+        {
+            List<PropertyViewModel> properties = new List<PropertyViewModel>();
+            if (id.HasValue)
+            {
+                properties = db.PropertyMaster.Where(i =>  i.CampaignId == id).Select(x => new PropertyViewModel()
+                {
+                    id = x.PropertyMasterId,
+                    Name = x.PropertyName,
+                    Description = x.PropertyDetail
+                }).ToList();
 
+            }
+          
+
+
+            return Json(properties, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult PropertyLoad(int? id)
         {
             List<PropertyViewModel> properties = new List<PropertyViewModel>();
@@ -179,6 +196,16 @@ namespace CRM.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ViewBag.CampaignID = id;
+           var PropertyIds = db.PropertyMaster.Where(i => i.CampaignId == id).Select(i => i.PropertyMasterId).ToList();
+            if (PropertyIds.Count > 0)
+            {
+                ViewBag.PropertyIds = string.Join(",", PropertyIds);
+            }
+            else
+            {
+                ViewBag.PropertyIds = "";
             }
             Campaign campaign = db.Campaigns.Find(id);
             if (campaign == null)
