@@ -146,7 +146,7 @@ inner join LeadStatusFields lsf on lp.Id=lsf.leadPool_Id
 where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
                 var UnAssignedReportsBindingViewModel = leadpool.Select(x => new UnAssignedReportsBindingViewModel()
                 {
-                    Chanel = "Web",
+                    Chanel =x.Channel,
                     LeadName = x.Lead_Name,
                     CreatedBy = x.Created_By.ToString(),
                     LeadNo = x.Id.ToString(),

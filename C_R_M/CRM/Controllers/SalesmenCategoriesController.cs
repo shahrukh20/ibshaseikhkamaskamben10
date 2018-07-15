@@ -113,9 +113,17 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SalesmenCategory salesmenCategory = db.SalesmenCategories.Find(id);
-            db.SalesmenCategories.Remove(salesmenCategory);
-            db.SaveChanges();
+            try
+            {
+                SalesmenCategory salesmenCategory = db.SalesmenCategories.Find(id);
+                db.SalesmenCategories.Remove(salesmenCategory);
+                db.SaveChanges(); Session["divMessage"] = new SessionModel() { Message = $"Your item is Deleted successfully.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = $"Delete Failure.", Type = "2" };
+
+            }
             return RedirectToAction("Index");
         }
 

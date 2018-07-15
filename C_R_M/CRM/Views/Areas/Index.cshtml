@@ -5,26 +5,29 @@
 }
 
 
-<div id="content">
-    <h1>Areas Listing</h1>
-    <div class="box box-danger">
-        <div class="box-header with-border">
+<form id="indexForm" action="/Areas/Index" method="post">
+    <h1>Area Listing</h1>
+    <div id="content">
+
+        <div class="box box-danger">
+            <div class="box-header with-border">
+
+                <div id="content">
+                    <div class="addbutton right">
+                        <a href="@Url.Action("Create", "Areas")"> <input type="button" class="btn btn-danger" value="Add Area" /></a>
 
 
-
-            <div id="content">
-                <div class="addbutton right">
-                    <a href="@Url.Action("Create", "Areas")"> <input type="button" class="btn btn-danger" value="Add Area" /></a>
-
-
-                </div>
-                <div class="form-horizontal">
-                    <div id="jsGrid"></div>
+                    </div>
+                    <div class="form-horizontal">
+                        <div id="jsGrid"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+</form>
+
 <script type="text/javascript">
 
 

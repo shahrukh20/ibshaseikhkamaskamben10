@@ -73,8 +73,8 @@
                 var grid = this._grid;
 
                 var now = new Date();
-                this._fromPicker = $("<input>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() - 1) });
-                this._toPicker = $("<input>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() + 1) });
+                this._fromPicker = $("<input style='width:45%'>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() - 1) });
+                this._toPicker = $("<input style='width:45%'>").datepicker({ defaultDate: now.setFullYear(now.getFullYear() + 1) });
 
                 this._fromPicker.on("keypress", function (e) {
                     if (e.which === 13) {
@@ -90,7 +90,7 @@
                     }
                 });
 
-                return $("<div>").append(this._fromPicker).append(this._toPicker);
+                return $("<div>").append(this._fromPicker).append("-").append(this._toPicker);
             },
 
 
@@ -435,7 +435,7 @@
                 fields: [
                     { name: "Id", title: "Id", type: "text", visible: false },
                     { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", editing: false },
-                    { name: "Date", title: "Date", type: "date", width: 50, editing: false },
+                    { name: "Date", title: "Date", type: "date", width: 150, editing: false },
                     { name: "LeadRemarks", title: "Remarks", type: "text", width: 100, validate: "required", editing: false },
                     { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
                     { name: "AssignedBy", title: "Assigned By", type: "text", width: 50, validate: "required", editing: false },

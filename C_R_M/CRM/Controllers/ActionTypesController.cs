@@ -109,14 +109,23 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Action_Id,Action_Name,Score")] ActionType actionType)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(actionType).State = EntityState.Modified;
-                db.SaveChanges();
-                Session["divMessage"] = new SessionModel() { Message = "Operation Successfull.", Type = "1" };
+                if (ModelState.IsValid)
+                {
+                    db.Entry(actionType).State = EntityState.Modified;
+                    db.SaveChanges();
+                    Session["divMessage"] = new SessionModel() { Message = $"Your {actionType.Action_Name} added Successfull.", Type = "1" };
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
+            catch (Exception e )
+            {
+
+                Session["divMessage"] = new SessionModel() { Message = $"Your {actionType.Action_Name} added Failure.", Type = "2" };
+            }
+          
             return View(actionType);
         }
 
@@ -146,11 +155,11 @@ namespace CRM.Controllers
                 ActionType actionType = db.Actions.Find(id);
                 db.Actions.Remove(actionType);
                 db.SaveChanges();
-                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+                Session["divMessage"] = new SessionModel() { Message = $"Your item is Deleted successfully.", Type = "1" };
             }
             catch
             {
-                Session["divMessage"] = new SessionModel() { Message = "Error in deleting Action Type.", Type = "2" };
+                Session["divMessage"] = new SessionModel() { Message = $"Delete Failure.", Type = "2" };
 
             }
 

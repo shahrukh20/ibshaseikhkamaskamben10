@@ -7,9 +7,9 @@
 
 <form action="/PropertyMasters/Create" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
-    <h1>Property</h1>
+   
     <div id="content">
-
+        <h1>Property</h1>
         <div class="box box-danger">
             <div class="box-header with-border">
                 <div class="form-horizontal">
@@ -48,8 +48,8 @@
                         @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-4">
                             @*@{
-                                    var b = new List<SelectListItem> { new SelectListItem() { Text = "Karachi", Value = "Karachi" }, new SelectListItem() { Text = "Lahore", Value = "Lahore" } };
-                                }*@
+                                var b = new List<SelectListItem> { new SelectListItem() { Text = "Karachi", Value = "Karachi" }, new SelectListItem() { Text = "Lahore", Value = "Lahore" } };
+                            }*@
                             @* @Html.DropDownList("City", b, "Select City", new { @class = "form-control", @placeholder = "City" })*@
 
                             @Html.DropDownList("City", (IEnumerable<SelectListItem>)ViewBag.City, "Select City", new { @class = "form-control select", onchange = "GetArea()" })

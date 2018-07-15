@@ -13,6 +13,7 @@ namespace CustomerManagementSystem.BLL.Models
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Name")]
         public string Type_Name { get; set; }
 
         public bool Is_Active { get; set; }

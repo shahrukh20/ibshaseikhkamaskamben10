@@ -3,53 +3,28 @@
 @{
     ViewBag.Title = "Index";
 }
-@*<div style="background-color: white;height:100%">
-        <h1>Cities</h1>
+<form id="indexForm" action="/Cities/Index" method="post">
+    <h1>City Listing</h1>
+    <div id="content">
 
-        <p>
-            <input type="button" onclick="window.location='/Cities/create'" value="Create" class="btn btn-success" />
-        </p><div style="padding:10px" class="box box-danger">
-        <table class="table table table-striped">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.CityName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Country.CountryName)
-                </th>
+        <div class="box box-danger">
+            <div class="box-header with-border">
 
-                <th>Action</th>
-            </tr>
+                <div id="content">
+                    <div class="addbutton right">
+                        <a href="@Url.Action("Create", "Cities")"> <input type="button" class="btn btn-danger" value="Add City" /></a>
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CityName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Country.CountryName)
-                    </td>
 
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.CityId }) |
-
-                        @Html.ActionLink("Delete", "Delete", new { id = item.CityId })
-                    </td>
-                </tr>
-            }
-
-        </table></div>
-    </div>*@
-
-<p>
-    <input type="button" onclick="window.location='/Cities/create'" value="Create City" class="btn btn-danger" />
-</p>
-<div class="box box-danger form-horizontal">
-    <div class="form-horizontal">
-        <div id="jsGrid"></div>
+                    </div>
+                    <div class="form-horizontal">
+                        <div id="jsGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+</form>
 <script type="text/javascript">
 
 
@@ -145,14 +120,13 @@
 
         $("#jsGrid").jsGrid({
             width: "100%",
-            height: "400px",
             filtering: true,
             sorting: true,
             paging: true,
             autoload: true,
             async: false,
 
-            pageSize: 5,
+            pageSize: 10,
             pageButtonCount: 5,
 
             controller: {
@@ -186,15 +160,15 @@
             },
             fields: [
 
-                { name: "CityName", title: "City Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
-                { name: "CountryName", title: "Country Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+                { name: "CityName", title: "City Name", type: "text", width: 50, validate: "required", editing: false },
+                { name: "CountryName", title: "Country Name", type: "text", width: 50, validate: "required",  editing: false },
 
                 {
                     type:'control',
                     name: 'Edit',
                     align: 'center',
                     itemTemplate: function (_, item) {
-                        return "<a onclick =\"ReditectToEditSection('" + item.CityId + "');\" name='Edit'>Edit</a> | <a href=\"/Cities/Delete/" + item.CityId + "\">Delete</a>";
+                        return "<a onclick =\"ReditectToEditSection(" + item.CityId + ");\" name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>&nbsp&nbsp&nbsp<a href=\"/Cities/Delete/" + item.CityId + "\"><span class='elementID'><span class='fa fa-times'></span></span></a>";
                     },width:20
                 }
             ]

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 using Newtonsoft.Json;
 
@@ -74,6 +75,7 @@ namespace CRM.Controllers
             {
                 db.Currencies.Add(currency);
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Currency Successfully Created.", Type = "1" };
                 return RedirectToAction("Index");
             }
 
@@ -106,6 +108,7 @@ namespace CRM.Controllers
             {
                 db.Entry(currency).State = EntityState.Modified;
                 db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Operation Successful.", Type = "1" };
                 return RedirectToAction("Index");
             }
             return View(currency);
@@ -131,9 +134,17 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Currency currency = db.Currencies.Find(id);
-            db.Currencies.Remove(currency);
-            db.SaveChanges();
+            try
+            {
+                Currency currency = db.Currencies.Find(id);
+                db.Currencies.Remove(currency);
+                db.SaveChanges(); Session["divMessage"] = new SessionModel() { Message = "Delete operation was successful.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Error in deleting country.", Type = "2" };
+
+            }
             return RedirectToAction("Index");
         }
 
