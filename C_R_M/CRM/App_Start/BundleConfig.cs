@@ -15,9 +15,9 @@ namespace CRM.App_Start
                 .Include("~/Content/DataTables/datatables.css")
                 .Include("~/Content/jsgrid/jsgrid-theme.css")
                 .Include("~/Content/css/font-awesome.min.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/css/icheck/blue.min.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/css/AdminLTE.css", new CssRewriteUrlTransformAbsolute())
-                .Include("~/Content/css/skins/skin-blue.css")
+                .Include("~/Content/css/icheck/blue1.min.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/AdminLTE1.css", new CssRewriteUrlTransformAbsolute())
+                .Include("~/Content/css/skins/skin-blue1.css")
                  .Include("~/plugins/fullcalendar/fullcalendar.min.css")
                 //.Include("~/plugins/fullcalendar/fullcalendar.print.css")
 

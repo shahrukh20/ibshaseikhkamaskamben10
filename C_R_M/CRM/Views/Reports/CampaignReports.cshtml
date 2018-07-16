@@ -5,55 +5,66 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
-<div style="padding:10px" class="box box-danger">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div id="content">
+        <h1>Unassigned Report</h1>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <div class="form-horizontal">
 
-    <form id="formCampaign" action="/Reports/CampaignReports" method="post">
-        
-        @Html.AntiForgeryToken()
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </div>
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-horizontal">
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DateFrom, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DateFrom, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(model => model.DateTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.DateTo, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                            @Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-offset-10 col-md-2">
+                            <input type="button" value="Report" onclick="GenerateReport();" class="btn btn-primary btn-block btn-flat" />
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.DateFrom, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.DateFrom, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                    @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger" })
-                </div>
-
-                @Html.LabelFor(model => model.DateTo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-4">
-                    @Html.EditorFor(model => model.DateTo, new { htmlAttributes = new { @class = "form-control datepicker" } })
-                    @Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsActive, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.CheckBoxFor(model => model.IsActive, new { htmlAttributes = new { @class = "form-control" } })
-
-                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="button" value="Generate" onclick="GenerateReport();" class="btn btn-default" />
-                </div>
-            </div>
-
         </div>
-        </form>
-</div>
+    </div>
+    }
 
 <script>
     function GenerateReport() {

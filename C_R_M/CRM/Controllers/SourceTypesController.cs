@@ -29,9 +29,9 @@ namespace CRM.Controllers
             {
                 return JsonConvert.SerializeObject(db.Source_Type.ToList());
             }
-            catch (Exception e )
+            catch (Exception e)
             {
-                
+
             }
             return JsonConvert.SerializeObject("");
         }
@@ -128,9 +128,18 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SourceType sourceType = db.Source_Type.Find(id);
-            db.Source_Type.Remove(sourceType);
-            db.SaveChanges();
+            try
+            {
+                SourceType sourceType = db.Source_Type.Find(id);
+                db.Source_Type.Remove(sourceType);
+                db.SaveChanges();
+                db.SaveChanges(); Session["divMessage"] = new SessionModel() { Message = $"Your item is Deleted successfully.", Type = "1" };
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = $"Delete Failure.", Type = "2" };
+
+            }
             return RedirectToAction("Index");
         }
 

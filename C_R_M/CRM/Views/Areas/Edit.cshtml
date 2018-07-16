@@ -4,54 +4,67 @@
     ViewBag.Title = "Edit";
 }
 
-<h1>Edit</h1>
-<div style="padding:10px" class="box box-danger">
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1>Area</h1>
+    <div id="content">
         @Html.HiddenFor(model => model.AreaId)
-        <div class="form-group">
-            @Html.Label("Country", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @* @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country" } })*@
-                @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Country, new { @class = "form-control select", onchange = "GetCity()" })
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <div class="form-horizontal">
+
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                    <div class="form-group"></div>
+                </div>
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        @Html.Label("Country", htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @* @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country" } })*@
+                            @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Country, new { @class = "form-control select", onchange = "GetCity()" })
 
 
-                @*  @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })*@
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.CityId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.AreaName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.AreaName, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                            @*  @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CityId, "City", htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AreaName, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.EditorFor(model => model.AreaName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AreaName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+
+
+                    <div class="form-group">
+                        <div class="col-md-offset-8 col-md-2">
+                            <input type="submit" value="Update" class="btn btn-primary btn-block btn-flat" />
+
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" onclick="window.location='/Areas/Index'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    }
-</div>
-<div>
-    <input type="button" onclick="window.location='/areas/index'" value="Back to list" class="btn btn-primary" />
-</div>
+}
+
 
 <script>
 
