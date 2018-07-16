@@ -21,7 +21,10 @@ namespace CRM.Controllers
         {
             return View(db.SalesmenCategories.ToList());
         }
-
+        public JsonResult getList()
+        {
+            return Json(db.SalesmenCategories.ToList(), JsonRequestBehavior.AllowGet);
+        }
         // GET: SalesmenCategories/Details/5
         public ActionResult Details(int? id)
         {
