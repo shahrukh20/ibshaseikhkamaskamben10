@@ -481,7 +481,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Content\css\AdminLTE1.css" />
-    <Content Include="Content\css\AdminLTE1.min.css" />
+    <Content Include="Content\css\AdminLTE.min1.css" />
     <Content Include="Content\css\bootstrap-datepicker3.min.css" />
     <Content Include="Content\css\bootstrap-select.css" />
     <Content Include="Content\css\bootstrap-select.min.css" />
