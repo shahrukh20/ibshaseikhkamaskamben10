@@ -21,7 +21,10 @@ namespace CustomerManagementSystem.BLL.ViewModels.ReportsViewModel
         public int LeadId { get; set; }
         [Display(Name = "Target")]
         public int TargetId { get; set; }
-        public DateTime? fromdate { get; set; } 
+
+        [Display(Name = "Date To")]
+        public DateTime? fromdate { get; set; }
+        [Display(Name = "Date From")]
         public DateTime? todate { get; set; }
 
         public ReportType ReportType { get; set; }

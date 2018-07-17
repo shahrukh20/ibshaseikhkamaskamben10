@@ -20,7 +20,8 @@ namespace CustomerManagementSystem.BLL.Enum
             OpportunityInHand = 1,
             Target = 2,
             LeadConversion = 3,
-            Campaign = 4
+            Campaign = 4,
+            SalesPipeLine = 5
         }
     }
 }
