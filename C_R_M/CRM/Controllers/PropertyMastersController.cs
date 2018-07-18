@@ -82,10 +82,10 @@ namespace CRM.Controllers
         }
         public JsonResult LoadPropertyMasterData()
         {
-            List<PropertyType> PropertyTypes = new List<PropertyType>();
-            PropertyTypes.Add(new PropertyType() { Id = "", Name = "select" });
-            PropertyTypes.Add(new PropertyType() { Id = "Commercial", Name = "Commercial" });
-            PropertyTypes.Add(new PropertyType() { Id = "Residential", Name = "Residential" });
+            List<PropertyTypeT> PropertyTypes = new List<PropertyTypeT>();
+            PropertyTypes.Add(new PropertyTypeT() { Id = "", Name = "select" });
+            PropertyTypes.Add(new PropertyTypeT() { Id = "Commercial", Name = "Commercial" });
+            PropertyTypes.Add(new PropertyTypeT() { Id = "Residential", Name = "Residential" });
             //List<CityList> CityLists = new List<City>();
             //var CityLists = new  = db.Cities.Select(i => new { i.CityId, i.CityName }).ToList();
             var CityLists = new List<SelectListItem>();
@@ -190,8 +190,9 @@ namespace CRM.Controllers
                         ImageJson.ImageNames.Add(item.FileName);
                     }
                     propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
+                    
                 }
-
+                propertyMaster.Status = "Available";
                 db.PropertyMaster.Add(propertyMaster);
                 db.SaveChanges();
                 Session["divMessage"] = new SessionModel() { Message = "Property Successfully Created.", Type = "1" };
@@ -215,6 +216,7 @@ namespace CRM.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             PropertyMaster propertyMaster = db.PropertyMaster.Find(id);
+            ViewBag.Status = propertyMaster.Status == "Available" ? true : false;
             ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
 
             //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
@@ -276,6 +278,7 @@ namespace CRM.Controllers
                         ImageJson.ImageNames.Add(item.FileName);
                     }
                 }
+                propertyMaster.Status = propertyMaster.Status == "on" ? "Available" : "NotAvailable";
                 propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
                 db.Entry(propertyMaster).State = EntityState.Modified;
                 db.SaveChanges();

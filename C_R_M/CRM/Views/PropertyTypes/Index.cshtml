@@ -1,0 +1,110 @@
+﻿@model IEnumerable<CustomerManagementSystem.BLL.Models.PropertyType>
+
+@{
+    ViewBag.Title = "Index";
+}
+<form id="indexForm" action="/PropertyTypes/Index" method="post">
+    
+    <div id="content">
+        <h1>Property Type Listing</h1>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+
+                <div id="content">
+                    <div class="addbutton right">
+                        <a href="@Url.Action("Create", "PropertyTypes")"> <input type="button" class="btn btn-danger" value="Add Property Type" /></a>
+
+
+                    </div>
+                    <div class="form-horizontal">
+                        <div id="jsGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript">
+
+
+
+    $(document).ready(function () {
+   
+        var originalFilterTemplate = jsGrid.fields.text.prototype.filterTemplate;
+        jsGrid.fields.text.prototype.filterTemplate = function () {
+            var grid = this._grid;
+            var $result = originalFilterTemplate.call(this);
+            $result.on("keyup", function (e) {
+                // TODO: add proper condition and optionally throttling to avoid too much requests
+                grid.search();
+            });
+            return $result;
+        }
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            filtering: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            async: false,
+
+            pageSize: 10,
+            pageButtonCount: 5,
+
+            controller: {
+
+                loadData: function (filter) {
+                    var d = $.Deferred();
+                    $.ajax({
+                        type: "GET",
+                        async: false,
+                        url: "../PropertyTypes/PropertyTypeAjax",
+                        dataType: "JSON"
+                    }).done(function (result) {
+                        for (var prop in filter) {
+                            debugger;
+                            if (filter[prop].length > 0) {
+                                result = $.grep(result, function (item) {
+                                    var regexp = new RegExp(filter[prop], 'gi');
+                                    if (item[prop].match(regexp)) {
+                                        return item;
+                                    }
+                                });
+                                break;
+                            }
+
+                        }
+                        d.resolve(result);
+                    });
+                    return d.promise();
+                }
+            },
+            fields: [
+
+                { name: "Name", title: "Name", type: "text", width: 50, validate: "required", align: 'center', editing: false },
+
+                {
+                    type:'control',
+                    name: 'Edit',
+                    align: 'center',
+                    itemTemplate: function (_, item) {
+                        return "<a onclick =\"ReditectToEditSection(" + item.PropertyId + ");\" name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>&nbsp&nbsp&nbsp<a href=\"/PropertyTypes/Delete/" + item.PropertyId+ "\"><span class='elementID'><span class='fa fa-times'></span></span></a>";
+                    },width:20
+                }
+            ]
+
+        });
+
+    });
+
+</script>
+<script>
+
+    function ReditectToEditSection(ID)
+    {
+        var base_url = window.location.origin;
+        window.location = base_url + "/PropertyTypes/Edit?Id=" + ID;
+    }
+</script>

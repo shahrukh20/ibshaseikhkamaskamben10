@@ -383,6 +383,11 @@
     <Content Include="Views\Reports\OpportunityInHand.cshtml" />
     <Content Include="Views\Reports\Target.cshtml" />
     <Content Include="Views\Reports\SalesPipeLine.cshtml" />
+    <Content Include="Views\PropertyTypes\Create.cshtml" />
+    <Content Include="Views\PropertyTypes\Delete.cshtml" />
+    <Content Include="Views\PropertyTypes\Details.cshtml" />
+    <Content Include="Views\PropertyTypes\Edit.cshtml" />
+    <Content Include="Views\PropertyTypes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -410,6 +415,7 @@
     <Compile Include="Controllers\InquiryController.cs" />
     <Compile Include="Controllers\LeadPoolsController.cs" />
     <Compile Include="Controllers\PropertyMastersController.cs" />
+    <Compile Include="Controllers\PropertyTypesController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SalemenController.cs" />
     <Compile Include="Controllers\SalesmenCategoriesController.cs" />

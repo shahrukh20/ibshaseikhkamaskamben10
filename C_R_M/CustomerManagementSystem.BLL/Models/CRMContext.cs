@@ -32,6 +32,7 @@ namespace CustomerManagementSystem.BLL.Models
         public virtual DbSet<SalesmanType> Salesman_Type { get; set; }
         public virtual DbSet<SourceType> Source_Type { get; set; }
         public virtual DbSet<Status> Status { get; set; }
+        public virtual DbSet<PropertyType> PropertyTypes { get; set; }
 
 
         public virtual DbSet<SalesmenCategory> SalesmenCategories { get; set; }

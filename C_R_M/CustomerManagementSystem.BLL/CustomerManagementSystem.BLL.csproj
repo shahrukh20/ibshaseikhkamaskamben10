@@ -299,6 +299,14 @@
     <Compile Include="Migrations\201807080707375_as.Designer.cs">
       <DependentUpon>201807080707375_as.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807171910467_Propertytyype1.cs" />
+    <Compile Include="Migrations\201807171910467_Propertytyype1.Designer.cs">
+      <DependentUpon>201807171910467_Propertytyype1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807171911472_Propertytyype14.cs" />
+    <Compile Include="Migrations\201807171911472_Propertytyype14.Designer.cs">
+      <DependentUpon>201807171911472_Propertytyype14.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Campaign.cs" />
@@ -313,6 +321,7 @@
     <Compile Include="Models\CRMContext.cs" />
     <Compile Include="Models\LeadStatusFields.cs" />
     <Compile Include="Models\PropertyMaster.cs" />
+    <Compile Include="Models\PropertyType.cs" />
     <Compile Include="Models\Salesman.cs" />
     <Compile Include="Models\SalesmanType.cs" />
     <Compile Include="Models\SalesmenCategory.cs" />
@@ -508,6 +517,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807080707375_as.resx">
       <DependentUpon>201807080707375_as.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171910467_Propertytyype1.resx">
+      <DependentUpon>201807171910467_Propertytyype1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807171911472_Propertytyype14.resx">
+      <DependentUpon>201807171911472_Propertytyype14.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
