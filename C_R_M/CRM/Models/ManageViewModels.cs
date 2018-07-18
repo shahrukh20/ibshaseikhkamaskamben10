@@ -38,7 +38,9 @@ namespace CRM.Models
         public int UserType_Id { get; set; }
         public string Password { get; set; }
         public bool? IsActive { get; set; }
-
+        public int? CountryId { get; set; }
+        public int? CityId { get; set; }
+        public string CountryCode { get; set; }
     }
     public class UserListingViewModel
     {

@@ -16,7 +16,7 @@
                     <div class="addbutton right">
                         <a href="@Url.Action("Register", "Account")"> <input type="button" class="btn btn-danger" value="Add User" /></a>
 
-
+                        
                     </div>
                     <div class="form-horizontal">
                         <div id="jsGrid"></div>
@@ -172,7 +172,7 @@
                     name: 'Edit',
                     align: 'center',
                     itemTemplate: function (_, item) {
-                        return "<a onclick =\"ReditectToEditSection('" + item.UserName + "');\" name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>";
+                        return "<a onclick =\"ReditectToEditSection('" + item.UserName + "');\" name='Edit'><span class='elementID'><span class='fa fa-pencil'></span></span></a>&nbsp;&nbsp<a href=\"/Account/Delete?Name=" + item.UserName + "\"><span class='elementID'><span class='fa fa-times'></span></span></a>";
                     }, width: 20
                 }
             ]
