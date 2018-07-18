@@ -40,6 +40,10 @@ namespace CustomerManagementSystem.BLL.Models
 
         public int ApplicationUser { get; set; }
 
+        public string CountryCode { get; set; }
+
+        public int CountryId { get; set; }
+        public int CityId { get; set; }
         public virtual User Manager { get; set; }
         public virtual UserType UserType { get; set; }
     }

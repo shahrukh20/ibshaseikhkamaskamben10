@@ -55,7 +55,31 @@
                         </div>
 
                     </div>
+                    <div class="form-group">
+                        @Html.Label("Country", htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("CountryId", null, htmlAttributes: new { @class = "form-control", @required = "required", @onchange = "GetCity()" })
+                            @Html.ValidationMessage("CountryId", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("City", htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @Html.DropDownList("CityId", null, "Select City", htmlAttributes: new { @class = "form-control", @required = "required" })
+                            @Html.ValidationMessage("CityId", "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2">
+                            Country Code:
+                        </label>
+                        <div class="col-md-4">
+                            @Html.TextBox("CountryCode", null, new { placeholder = "Country Code", @class = "form-control", @required = "required",@value= ViewBag.CountryCode })
+                            <b class="tooltip tooltip-bottom-right">Country Code</b>
+                            @Html.ValidationMessage("CountryCode", "", new { Style = "color:red;" })
+                        </div>
 
+                    </div>
                     <div class="form-group">
                         <label class="col-md-2">
                             Address:
@@ -120,7 +144,7 @@
                             Password:
                         </label>
                         <div class="col-md-4">
-                            @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control" })
+                            @Html.PasswordFor(model => model.Password, new { placeholder = "Password", @class = "form-control",@value= "SS123456" })
                             <b class="tooltip tooltip-bottom-right">Password</b>
                             @Html.ValidationMessageFor(model => model.Password, "", new { Style = "color:red;" })
                         </div>
@@ -133,7 +157,7 @@
                             Confirm Password:
                         </label>
                         <div class="col-md-4">
-                            @Html.PasswordFor(model => model.PasswordConfirm, new { placeholder = "Confirm Password", @class = "form-control" })
+                            @Html.PasswordFor(model => model.PasswordConfirm, new { placeholder = "Confirm Password", @class = "form-control", @value = "SS123456" })
                             <b class="tooltip tooltip-bottom-right">Re-enter your password</b>
                             @Html.ValidationMessageFor(model => model.PasswordConfirm, "", new { Style = "color:red;" })
 
@@ -153,10 +177,10 @@
                                     <input type="checkbox" id="IsActive" value="true" name="IsActive" checked />
                                 }
                                 else
-                                { <input type="checkbox" id="IsActive" value="true" name="IsActive"  />}
-                                                }
+                                { <input type="checkbox" id="IsActive" value="true" name="IsActive" />}
+                            }
 
-                                            </div>
+                        </div>
 
                     </div>
 
@@ -200,6 +224,10 @@
 
     });
     $(document).ready(function () {
+        if ($("#CityId").val() == "")
+        {
+            GetCity()
+        }
         $('input:not(.No-Validate), textarea:not(.No-Validate), select:not(.No-Validate)').on('focusout keyup', function () {
             if ($(this).val() == "") {
                 $(this).closest(".input").addClass("state-error")
@@ -210,3 +238,30 @@
 
 </script>
 
+<script language="javascript" type="text/javascript">
+    function GetCity() {
+        var procemessage = "<option value='0'> Please wait...</option>";
+        $("#CityId").html(procemessage).show();
+        var url = "/PropertyMasters/GetCityByCountryId";
+
+        $.ajax({
+            url: url,
+            data: { CountryId: $('#CountryId').val() },
+            cache: false,
+            type: "POST",
+            success: function (data) {
+                var markup = "<option value='0'>Select City</option>";
+                for (var x = 0; x < data.length; x++) {
+                    markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                }
+                $("#CityId").html(markup).show();
+            },
+            error: function (reponse) {
+                alert("error : " + reponse);
+            }
+        });
+
+    }
+
+
+</script>

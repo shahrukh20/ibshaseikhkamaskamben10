@@ -39,6 +39,7 @@ namespace CustomerManagementSystem.BLL.Models
 
         public virtual DbSet<TargetPeriod> TargetPeriods { get; set; }
         public virtual DbSet<TargetType> TargetTypes { get; set; }
+        public virtual DbSet<MyCompanyInfo> MyCompanyInfo { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ActionType>()

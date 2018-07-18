@@ -12,6 +12,8 @@ using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 using Newtonsoft.Json;
 using CRM.Models;
+using System.Net;
+using System.Collections.Generic;
 //using CRM.BLL.Models;
 
 namespace CRM.Controllers
@@ -108,7 +110,7 @@ namespace CRM.Controllers
         //
         // GET: /Account/Login
         [AllowAnonymous]
-       
+
         public ActionResult Login(string returnUrl)
         {
             if (!User.Identity.IsAuthenticated)
@@ -242,7 +244,7 @@ namespace CRM.Controllers
         public ActionResult Edit(string UserName)
         {
 
-            var User = db.Database.SqlQuery<EditUserViewModel>(@"select usr.IsActive,usr.Id,usr.Name as UserName,usr.Manager_Id,usr.Address,usr.FirstName,usr.LastName,aspusr.PhoneNumber,aspusr.Email,usr.UserType_Id from [dbo].[users] usr
+            var User = db.Database.SqlQuery<EditUserViewModel>(@"select usr.CountryId,usr.CityId,usr.CountryCode,usr.IsActive,usr.Id,usr.Name as UserName,usr.Manager_Id,usr.Address,usr.FirstName,usr.LastName,aspusr.PhoneNumber,aspusr.Email,usr.UserType_Id from [dbo].[users] usr
 
     inner join[dbo].AspNetUsers aspusr on usr.LoginId = aspusr.Email
 
@@ -262,12 +264,15 @@ namespace CRM.Controllers
             accountRegistrationModel.PasswordConfirm = "SS123456";
             BindDropdowns(User.UserType_Id, User.Manager_Id);
             ViewBag.IsActive = User.IsActive;
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", User.CountryId);
+            ViewBag.CountryCode = User.CountryCode;
+            ViewBag.CityId = new SelectList(db.Cities.Where(i => i.CountryId == User.CountryId), "CityId", "CityName", User.CityId);
             return View(accountRegistrationModel);
         }
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Edit(AccountRegistrationModel model, bool? IsActive, string UserID, string ddManagers, string ddUserType, string UserName)
+        public async Task<ActionResult> Edit(AccountRegistrationModel model, bool? IsActive, string UserID, string ddManagers, string ddUserType, string UserName, int CountryId, int CityId, string CountryCode)
         {
             int userid = int.Parse(UserID);
             var u = db.Users.FirstOrDefault(i => i.Id == userid);
@@ -276,6 +281,9 @@ namespace CRM.Controllers
                 mangerId = int.Parse(ddManagers);
             int userTypeId = int.Parse(ddUserType);
             BindDropdowns(userTypeId, mangerId);
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName", u.CountryId);
+            ViewBag.CountryCode = u.CountryCode;
+            ViewBag.CityId = new SelectList(db.Cities.Where(i => i.CountryId == u.CountryId), "CityId", "CityName", u.CityId);
             var userType1 = db.UserTypes.FirstOrDefault(x => x.Id == userTypeId);
             var manager = db.Users.FirstOrDefault(x => x.Id == mangerId);
             ViewBag.UserID = u.Id;
@@ -301,7 +309,9 @@ namespace CRM.Controllers
             u.LoginId = model.Email;
             u.UserType = userType1;
             u.Manager = manager;
-            
+            u.CountryId = CountryId;
+            u.CityId = CityId;
+            u.CountryCode = CountryCode;
             u.IsActive = IsActive.HasValue ? true : false;
             db.Entry(u).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
@@ -333,6 +343,7 @@ namespace CRM.Controllers
             }
             return true;
         }
+
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -383,6 +394,9 @@ namespace CRM.Controllers
         {
             ViewBag.UserName = "";
             BindDropdowns(null, null);
+            ViewBag.CountryId = new SelectList(db.Countries, "CountryId", "CountryName");
+            var list = new List<City>();
+            ViewBag.CityId = new SelectList(list, "CityId", "CityName");
             return View();
         }
 
@@ -461,7 +475,7 @@ namespace CRM.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult> Register(AccountRegistrationModel model, bool? IsActive, string ddManagers, string ddUserType, string UserName)
+        public async Task<ActionResult> Register(AccountRegistrationModel model, bool? IsActive, string ddManagers, string ddUserType, string UserName, int CountryId, int CityId, string CountryCode)
         {
             BindDropdowns(null, null);
             ViewBag.UserName = UserName;
@@ -509,10 +523,12 @@ namespace CRM.Controllers
                                 ApplicationUser = (int)user.Id,
                                 Name = UserName,
                                 UserType = userType1,
-                                
+                                CountryId = CountryId,
+                                CityId = CityId,
                                 FirstName = model.FirstName,
                                 LastName = model.LastName,
-                                Address = model.Address
+                                Address = model.Address,
+                                CountryCode = CountryCode
 
                             });
                             db.SaveChanges();
@@ -532,9 +548,12 @@ namespace CRM.Controllers
                                 Name = UserName,
                                 UserType = userType1,
                                 Manager = manager,
+                                CountryId = CountryId,
+                                CityId = CityId,
                                 FirstName = model.FirstName,
                                 LastName = model.LastName,
-                                Address = model.Address
+                                Address = model.Address,
+                                CountryCode = CountryCode
 
                             });
                             db.SaveChanges();
@@ -571,7 +590,7 @@ namespace CRM.Controllers
                     //    default:
                     //        return RedirectToAction("LeadListing", "LeadPools");
                     //}
-                    Session["divMessage"] =  new SessionModel() { Message = $"User { user.UserName} Has been Created", Type = "1" };
+                    Session["divMessage"] = new SessionModel() { Message = $"User { user.UserName} Has been Created", Type = "1" };
                     return RedirectToAction("UserListing", "Account");
                 }
                 AddErrors(result);
@@ -634,7 +653,61 @@ namespace CRM.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        public ActionResult Delete(string Name)
+        {
+            var user = db.Users.FirstOrDefault(i => i.Name == Name);
+            if (user != null)
+            {
+                return View(user);
+            }
+            if (user == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Delete(int Id)
+        {
+            try
+            {
+                User usr = db.Users.Find(Id);
+                if (usr.UserType.Name.ToLower() == "manager")
+                {
+                    if (db.Lead_Pool.Any(i => i.Assign_By_ID == usr.Id))
+                    {
+                        Session["divMessage"] = new SessionModel() { Message = "Can not delete User.", Type = "2" };
+                        return RedirectToAction("UserListing");
+                    }
+                }
+                else if (usr.UserType.Name.ToLower() == "salesman")
+                {
+                    if (db.Lead_Pool.Any(i => i.Assign_To_ID == usr.Id) || db.Salesmen.Any(i => i.user.Id == usr.Id))
+                    {
+                        Session["divMessage"] = new SessionModel() { Message = "Can not delete User.", Type = "2" };
+                        return RedirectToAction("UserListing");
+                    }
+                }
+                else if (usr.UserType.Name.ToLower() == "operator")
+                {
+                    if (db.Lead_Pool.Any(i => i.Created_By == usr.Id))
+                    {
+                        Session["divMessage"] = new SessionModel() { Message = "Can not delete User.", Type = "2" };
+                        return RedirectToAction("UserListing");
+                    }
+                }
+                db.Users.Remove(usr);
+                db.SaveChanges();
+                Session["divMessage"] = new SessionModel() { Message = "Delete operation was successfull.", Type = "1" };
 
+            }
+            catch
+            {
+                Session["divMessage"] = new SessionModel() { Message = "Can not delete User.", Type = "2" };
+            }
+
+            return RedirectToAction("UserListing");
+        }
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]
@@ -817,6 +890,50 @@ namespace CRM.Controllers
             return View();
         }
 
+
+
+
+
+
+        public ActionResult CompanyInfo()
+        {
+
+            string serverpath = Request.Url.Authority;
+            ViewBag.path = "http://" + serverpath + "//uploadedfiles//";
+            var companyinfo = db.MyCompanyInfo.FirstOrDefault();
+            if (companyinfo == null)
+            {
+                companyinfo = new MyCompanyInfo();
+                companyinfo.CurrencyId = 1;
+                db.MyCompanyInfo.Add(companyinfo);
+                db.SaveChanges();
+            }
+            ViewBag.CurrencyId = new SelectList(db.Currencies, "Id", "Name", companyinfo.CurrencyId);
+
+            return View(companyinfo);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CompanyInfo(MyCompanyInfo myCompanyInfo, HttpPostedFileBase MyCompanyLogo1, HttpPostedFileBase MyCompanyMiniatureLogo1)
+        {
+            var path = AppDomain.CurrentDomain.BaseDirectory + "\\uploadedfiles\\";
+            if(MyCompanyLogo1 != null)
+            {
+                MyCompanyLogo1.SaveAs(path + MyCompanyLogo1.FileName);
+                myCompanyInfo.MyCompanyLogo = MyCompanyLogo1.FileName;
+            }
+            if (MyCompanyMiniatureLogo1 != null)
+            {
+                MyCompanyMiniatureLogo1.SaveAs(path + MyCompanyMiniatureLogo1.FileName);
+                myCompanyInfo.MyCompanyMiniatureLogo = MyCompanyMiniatureLogo1.FileName;
+            }
+           
+            db.Entry(myCompanyInfo).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            Session["divMessage"] = new SessionModel() { Message = "Info successfully updated.", Type = "1" };
+            return RedirectToAction("UserListing");
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -865,6 +982,9 @@ namespace CRM.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+
+
 
         internal class ChallengeResult : HttpUnauthorizedResult
         {

@@ -381,6 +381,8 @@
     <Content Include="Views\Reports\CampaignReports.cshtml" />
     <Content Include="Views\Reports\LeadConversion.cshtml" />
     <Content Include="Views\Reports\OpportunityInHand.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\CompanyInfo.cshtml" />
     <Content Include="Views\Reports\Target.cshtml" />
     <Content Include="Views\Reports\SalesPipeLine.cshtml" />
     <Content Include="Views\PropertyTypes\Create.cshtml" />
