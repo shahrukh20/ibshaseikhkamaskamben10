@@ -13,12 +13,15 @@ namespace CustomerManagementSystem.BLL.Models
         public virtual LeadPool leadPool { get; set; }
         public decimal TotalLeadScore { get; set; }
         public virtual string StatusField { get; set; }
-        
+
         public virtual Status StatusType { get; set; }
         public virtual ActionType ActionType { get; set; }
-        
+
         public virtual string NextActionDate { get; set; }
         public virtual string NextActionTime { get; set; }
+        public virtual string ExpectedClosureDate { get; set; }
+        public virtual string ExpectedValue { get; set; }
+        public int? CurrencyId { get; set; }
         public virtual string Contact1 { get; set; }
         public virtual string Contact2 { get; set; }
         public virtual string Remarks { get; set; }

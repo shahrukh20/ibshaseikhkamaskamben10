@@ -43,7 +43,7 @@
 
 <form id="leadForm" action="/LeadPools/ViewLead" method="post">
     @Html.EditorFor(model => model.id, new { htmlAttributes = new { @class = "form-control", @style = "display:none" } })
-    <h1>Lead</h1>
+    <h1>Deal</h1>
     <div id="content">
 
         <div class="box box-danger">
@@ -55,7 +55,7 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            <h3>Lead Information</h3>
+                            <h3>Deal Information</h3>
                             <h5></h5>
                         </div>
 
@@ -143,7 +143,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2">
-                            Source Of Lead:
+                            Source Of Deal:
                         </label>
                         <div class="col-md-4">
                             @Html.EditorFor(model => model.ddlSourceOfLead, new { htmlAttributes = new { @class = "form-control", @disabled = "disabled" } })
@@ -178,7 +178,7 @@
                     <div class="form-group">
 
                         <div class="col-md-10">
-                            <h3>Lead Attachments</h3>
+                            <h3>Deal Attachments</h3>
                             <h5></h5>
                         </div>
 

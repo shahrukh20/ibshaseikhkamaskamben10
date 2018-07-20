@@ -34,7 +34,7 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.CityId, "City", htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-4">
-                            @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.CityId, null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -50,8 +50,12 @@
 
 
                     <div class="form-group">
-                        <div class="col-md-offset-8 col-md-2">
+                        <div class="col-md-offset-6 col-md-2">
                             <input type="submit" value="Add" class="btn btn-primary btn-block btn-flat" />
+
+                        </div>
+                        <div class=" col-md-2">
+                            <input type="button" id="SavenAddNew" value="Save and Add New" class="btn btn-primary btn-block btn-flat" />
 
                         </div>
                         <div class="col-md-2">
@@ -71,7 +75,7 @@
         GetCity();
     })
     function GetCity() {
-        var procemessage = "<option value='0'> Please wait...</option>";
+        var procemessage = "<option value=''> Please wait...</option>";
         $("#CityId").html(procemessage).show();
         var url = "/PropertyMasters/GetCityByCountryId";
 
@@ -81,7 +85,7 @@
             cache: false,
             type: "POST",
             success: function (data) {
-                var markup = "<option value='0'>Select City</option>";
+                var markup = "<option value=''>Select City</option>";
                 for (var x = 0; x < data.length; x++) {
                     markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
                 }

@@ -9,7 +9,7 @@
 <h2></h2>
 
 <form id="LeadListingForm" action="/LeadPools/LeadListing" method="post">
-    <h1>Lead Listing</h1>
+    <h1>Deal Listing</h1>
     <div id="content">
 
         <div class="box box-danger">
@@ -187,7 +187,7 @@
                         success: function (data) {
                             $("#jsGrid").jsGrid("option", "fields", [
                                 { name: "id", title: "id", type: "text", visible: false },
-                                { name: "LeadName", title: "Lead Name", type: "text", width: 100, validate: "required", editing: false },
+                                { name: "LeadName", title: "Deal Name", type: "text", width: 100, validate: "required", editing: false },
                                 { name: "Date", title: "Date", type: "date", width: 60, editing: false },
                                 { name: "LeadRemarks", title: "Remarks", type: "text", width: 150, validate: "required", editing: false },
                                 { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
@@ -315,7 +315,7 @@
                 },
                 fields: [
                     { name: "Id", title: "Id", type: "text", visible: false },
-                    { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", editing: false },
+                    { name: "LeadName", title: "Deal Name", type: "text", width: 50, validate: "required", editing: false },
                     { name: "Date", title: "Date", type: "date", width: 50, editing: false },
                     { name: "LeadRemarks", title: "Remarks", type: "text", width: 120, validate: "required", editing: false },
                     { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
@@ -378,7 +378,7 @@
                 },
                 fields: [
                     { name: "Id", title: "Id", type: "text", visible: false },
-                    { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required" },
+                    { name: "LeadName", title: "Deal Name", type: "text", width: 50, validate: "required" },
                     { name: "Date", title: "Lead Date", type: "date", width: 50 },
                     { name: "LeadRemarks", title: "Remarks", type: "text", width: 150, validate: "required" },
                     {
@@ -434,7 +434,7 @@
                 },
                 fields: [
                     { name: "Id", title: "Id", type: "text", visible: false },
-                    { name: "LeadName", title: "Lead Name", type: "text", width: 50, validate: "required", editing: false },
+                    { name: "LeadName", title: "Deal Name", type: "text", width: 50, validate: "required", editing: false },
                     { name: "Date", title: "Date", type: "date", width: 150, editing: false },
                     { name: "LeadRemarks", title: "Remarks", type: "text", width: 100, validate: "required", editing: false },
                     { name: "CreatedBy", title: "Created By", type: "text", width: 50, validate: "required", editing: false },
@@ -472,16 +472,16 @@
     }
     function ReditectToUpdateSection(id) {
         var base_url = window.location.origin;
-        window.location = base_url + "/LeadPools/StatusUpdate?id=" + id;
+        window.location = base_url + "/Deal/StatusUpdate?id=" + id;
     }
     function ReditectToViewSection(id) {
         var base_url = window.location.origin;
-        window.location = base_url + "/LeadPools/ViewLead?id=" + id;
+        window.location = base_url + "/Deal/ViewDeal?id=" + id;
     }
 
     function ReditectToEditSection(id) {
         var base_url = window.location.origin;
-        window.location = base_url + "/LeadPools/LeadUpdate?id=" + id;
+        window.location = base_url + "/Deal/DealUpdate?id=" + id;
     }
 
     $(function () {

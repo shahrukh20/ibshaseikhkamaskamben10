@@ -114,9 +114,39 @@
             $('#imagepreview').attr('src', this.src); // here asign the image to the modal when the user click the enlarge link
             $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
         });
-        //$('#NextImage').click(function () {
-        //    $(".pop")
-        //})
+
+        $('#SavenAddNew').click(function () {
+            debugger;
+            var lc = window.location.href;
+            var form = this.closest('form')
+            if($(form).valid())
+            {
+                debugger;
+                //var str = $("#leadForm").serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: form.action,
+                    data: $(form).serialize(),
+               
+                    success: function (data) {
+                        
+                        window.location = lc;
+                    },
+                    Error: function (data) {
+                        //error msg
+                    }
+                });
+            }
+            //window.location.reload();
+//           $('<input>').attr({
+//    type: 'hidden',
+//    id: 'foo',
+//    name: 'bar',
+//    value: lc,
+//}).appendTo('form');
+
+ })
+
     })
 </script>
 <script type="text/javascript">

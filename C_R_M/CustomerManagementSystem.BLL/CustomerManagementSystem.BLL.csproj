@@ -299,15 +299,14 @@
     <Compile Include="Migrations\201807080707375_as.Designer.cs">
       <DependentUpon>201807080707375_as.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807171910467_Propertytyype1.cs" />
-    <Compile Include="Migrations\201807171910467_Propertytyype1.Designer.cs">
     <Compile Include="Migrations\201807171910325_chages.cs" />
-    <Compile Include="Migrations\201807171910325_chages.Designer.cs">
-      <DependentUpon>201807171910467_Propertytyype1.cs</DependentUpon>
+    <Compile Include="Migrations\201807202011421_kjhgxash.cs" />
+    <Compile Include="Migrations\201807202011421_kjhgxash.Designer.cs">
+      <DependentUpon>201807202011421_kjhgxash.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807171911472_Propertytyype14.cs" />
-    <Compile Include="Migrations\201807171911472_Propertytyype14.Designer.cs">
-      <DependentUpon>201807171911472_Propertytyype14.cs</DependentUpon>
+    <Compile Include="Migrations\201807202059125_new.cs" />
+    <Compile Include="Migrations\201807202059125_new.Designer.cs">
+      <DependentUpon>201807202059125_new.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
@@ -524,8 +523,11 @@
     <EmbeddedResource Include="Migrations\201807171910325_chages.resx">
       <DependentUpon>201807171910325_chages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807171911472_Propertytyype14.resx">
-      <DependentUpon>201807171911472_Propertytyype14.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807202011421_kjhgxash.resx">
+      <DependentUpon>201807202011421_kjhgxash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807202059125_new.resx">
+      <DependentUpon>201807202059125_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

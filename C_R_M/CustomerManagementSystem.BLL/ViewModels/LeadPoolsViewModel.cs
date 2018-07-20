@@ -33,6 +33,9 @@ namespace CustomerManagementSystem.BLL.ViewModels
         public string txtRemarks { get; set; }
         public string txtNextActionTime { get; set; }
         public string txtNextActionDate { get; set; }
+        public string ExpectedValue { get; set; }
+        public int? CurrencyId { get; set; }
+        public string ExpectedClosureDate { get; set; }
         public int ddstatus { get; set; }
         public int ddnextaction { get; set; }
 
@@ -87,6 +90,9 @@ namespace CustomerManagementSystem.BLL.ViewModels
         public string txtNextActionTime { get; set; }
         public string txtNextActionDate { get; set; }
         public string txtStatusRemarks { get; set; }
+        public string ExpectedValue { get; set; }
+        public int? CurrencyId { get; set; }
+        public string ExpectedClosureDate { get; set; }
     }
 
     //public class LeadContactUpdateViewModel

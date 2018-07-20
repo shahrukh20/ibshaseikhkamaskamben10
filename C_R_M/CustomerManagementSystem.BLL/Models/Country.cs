@@ -39,6 +39,7 @@ namespace CustomerManagementSystem.BLL.Models
         [Required]
         public string AreaName { get; set; }
         [Display(Name = "City Name")]
+        [Required(ErrorMessage = "City is required.")]
         public int CityId { get; set; }
         public virtual City City { get; set; }
 

@@ -298,13 +298,13 @@
     <Content Include="Views\LeadPools\Details.cshtml" />
     <Content Include="Views\LeadPools\Edit.cshtml" />
     <Content Include="Views\LeadPools\Index.cshtml" />
-    <Content Include="Views\LeadPools\LeadAddition.cshtml" />
-    <Content Include="Views\LeadPools\LeadListing.cshtml" />
-    <Content Include="Views\LeadPools\LeadListingUpdate.cshtml" />
-    <Content Include="Views\LeadPools\LeadUpdate.cshtml" />
+    <Content Include="Views\LeadPools\DealAddition.cshtml" />
+    <Content Include="Views\LeadPools\DealListing.cshtml" />
+    <Content Include="Views\LeadPools\DealListingUpdate.cshtml" />
+    <Content Include="Views\LeadPools\DealUpdate.cshtml" />
     <Content Include="Views\LeadPools\StatusUpdate.cshtml" />
     <Content Include="Views\LeadPools\UploadFiles.cshtml" />
-    <Content Include="Views\LeadPools\ViewLead.cshtml" />
+    <Content Include="Views\LeadPools\ViewDeal.cshtml" />
     <Content Include="Views\LeadPools\_UploadFiles.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
@@ -379,7 +379,7 @@
     <Content Include="Views\Currencies\Edit.cshtml" />
     <Content Include="Views\Currencies\Index.cshtml" />
     <Content Include="Views\Reports\CampaignReports.cshtml" />
-    <Content Include="Views\Reports\LeadConversion.cshtml" />
+    <Content Include="Views\Reports\DealConversion.cshtml" />
     <Content Include="Views\Reports\OpportunityInHand.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\CompanyInfo.cshtml" />
@@ -453,24 +453,6 @@
     <Compile Include="Reports\ReportModels\CampaignReportsBindingViewModel.cs" />
     <Compile Include="Reports\ReportModels\ReportModel.cs" />
     <Compile Include="Reports\ReportModels\UnAssignedReportsBindingViewModel.cs" />
-    <Compile Include="Reports\ReportsTemplate\Campaign.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportsTemplate\OpportunityInHand.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OpportunityInHand.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportsTemplate\SalesPipeLine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SalesPipeLine.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reports\ReportsTemplate\UnAssignedLead.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -615,18 +597,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Campaign.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\OpportunityInHand.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>OpportunityInHand.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\SalesPipeLine.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SalesPipeLine.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>UnAssignedLead.cs</LastGenOutput>
