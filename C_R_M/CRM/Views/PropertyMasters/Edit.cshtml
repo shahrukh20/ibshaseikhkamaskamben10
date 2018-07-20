@@ -85,9 +85,6 @@
 
     }
 </script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
     function rtrim(str) {
         return str.replace(/\,$/, '');
@@ -150,8 +147,22 @@
                         @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-4">
                             @* @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Country" } })*@
-                            @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Country, "Select Country ", new { @class = "form-control select", onchange = "GetCity()" })
+                            @*@Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Country, "Select Country ", new { @class = "form-control select", onchange = "GetCity()" })*@
+                            <select class="form-control select No-Validate" id="Country" name="Country" onchange="GetCity()">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Country)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
 
+                                }
+                            </select>
 
                             @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
                         </div>
@@ -161,12 +172,26 @@
                         @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-4">
                             @*@{
-                                var b = new List<SelectListItem> { new SelectListItem() { Text = "Karachi", Value = "Karachi" }, new SelectListItem() { Text = "Lahore", Value = "Lahore" } };
-                            }*@
+                    var b = new List<SelectListItem> { new SelectListItem() { Text = "Karachi", Value = "Karachi" }, new SelectListItem() { Text = "Lahore", Value = "Lahore" } };
+                }*@
                             @* @Html.DropDownList("City", b, "Select City", new { @class = "form-control", @placeholder = "City" })*@
 
-                            @Html.DropDownList("City", (IEnumerable<SelectListItem>)ViewBag.City, "Select City", new { @class = "form-control select", onchange = "GetArea()" })
+                            @*@Html.DropDownList("City", (IEnumerable<SelectListItem>)ViewBag.City, "Select City", new { @class = "form-control select", onchange = "GetArea()" })*@
+                            <select class="form-control select No-Validate" id="City" name="City" onchange="GetArea()">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.City)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
 
+                                }
+                            </select>
 
                             @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
                         </div>
@@ -175,7 +200,22 @@
                     <div class="">
                         @Html.LabelFor(model => model.Area, htmlAttributes: new { @class = "col-md-2" })
                         <div class="col-md-4">
-                            @Html.DropDownList("Area", (IEnumerable<SelectListItem>)ViewBag.Area1, "Select Area", new { @class = "form-control select" })
+                            @*@Html.DropDownList("Area", (IEnumerable<SelectListItem>)ViewBag.Area1, "Select Area", new { @class = "form-control select" })*@
+                            <select class="form-control select No-Validate" id="Area" name="Area">
+                                @{
+                                    foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Area)
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            <option value="@item.Value" selected>@item.Text</option>}
+                                        else
+                                        {
+                                            <option value="@item.Value">@item.Text</option>
+                                        }
+                                    }
+
+                                }
+                            </select>
                             @Html.ValidationMessageFor(model => model.Area, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -277,33 +317,65 @@
                         <div class="">
                             @Html.LabelFor(model => model.CurrencyId, htmlAttributes: new { @class = "col-md-2" })
                             <div class="col-md-4">
-                                @Html.DropDownList("CurrencyId", (IEnumerable<SelectListItem>)ViewBag.CurrencyId, "Select Currency ", new { @class = "form-control select" })
+                                @*@Html.DropDownList("CurrencyId", (IEnumerable<SelectListItem>)ViewBag.CurrencyId, "Select Currency ", new { @class = "form-control select" })*@
+                                <select class="form-control select No-Validate" id="CurrencyId" name="CurrencyId">
+                                    @{
+                                        foreach (var item in (IEnumerable<SelectListItem>)ViewBag.CurrencyId)
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                <option value="@item.Value" selected>@item.Text</option>}
+                                            else
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        }
+
+                                    }
+                                </select>
                                 @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
                             </div>
                         </div>
-                        <div class="">
+                        <div class="clearfix">
+                    </div><br />
+                    <div class="">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "col-md-2" })
+                        <div class="col-md-4">
+                            @{
+                                if ((bool)ViewBag.Status)
+                                { <input id="Status" name="Status" type="checkbox" checked />}
+                                else
+                                { <input id="Status" name="Status" type="checkbox" />}
+                            }
 
-
+                            @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group"></div><div class="form-group"></div>
-                        <div class="form-group">
+                    </div>
+                    <div class="">
 
-                            <input type="file" style="display:none" id="images" name="images" multiple>
-                            <div style="margin-left:-10px" class="col-lg-12">
-                                <div class="col-lg-10">
-                                    <div onclick="$('#images').trigger('click')" class="btn btn-primary btn-sm float-left">
-                                        <span>Choose files</span>
-                                    </div>
-                                    <input class="form-control" type="text" id="text" disabled placeholder="Upload one or images">
+
+                    </div>
+                    <div class="form-group"></div><div class="form-group"></div>
+                    <div class="form-group">
+
+                        <input type="file" style="display:none" id="images" name="images" multiple>
+                        <div style="margin-left:-10px" class="col-lg-12">
+                            <div class="col-lg-10">
+                                <div onclick="$('#images').trigger('click')" class="btn btn-primary btn-sm float-left">
+                                    <span>Choose files</span>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-
+                                <input class="form-control" type="text" id="text" disabled placeholder="Upload one or images">
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+
+                        </div>
+                    </div>
+                </div>
+
+                    
 
                     <div class="form-horizontal">
                         <div style="overflow-x:scroll;background: #ccc5c5;height: 163px;">

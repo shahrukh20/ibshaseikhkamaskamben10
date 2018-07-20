@@ -10,4 +10,10 @@ namespace CRM.Reports.ReportModels
         public string Name { get; set; }
         public string DateField { get; set; }
     }
+
+    public class SalePipeLineViewModel
+    {
+        public string Status { get; set; }
+        public int Count { get; set; }
+    }
 }

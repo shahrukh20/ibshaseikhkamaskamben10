@@ -21,6 +21,9 @@ namespace CRM.WebForms
 
             switch ((Enumeration.ReportType)Session["ReportType"])
             {
+                case Enumeration.ReportType.SalesPipeLine:
+                    path = Server.MapPath(@"\Reports\ReportsTemplate\SalesPipeLine.rpt");
+                    break;
                 case Enumeration.ReportType.UnAssigned:
                     path = Server.MapPath(@"\Reports\ReportsTemplate\UnAssignedLead.rpt");
                     break;
@@ -41,10 +44,19 @@ namespace CRM.WebForms
                 default:
                     break;
             }
+
             rd.Load(path);
+            //rd.DataSourceConnections[0].SetConnection(@"DESKTOP-R4OEROM\SQLEXPRESS", "CRM_DB", false);
             //rd. = null;
             rd.SetDataSource(ds);
+
+            //foreach (ReportDocument item in rd.Subreports)
+            //{
+            //    item.DataSourceConnections[0].SetConnection(@"DESKTOP-R4OEROM\SQLEXPRESS", "CRM_DB", false);
+            //}
+
             CrystalReportViewer1.EnableDatabaseLogonPrompt = false;
+
             CrystalReportViewer1.ReportSource = rd;
             //CrystalReportViewer1.RefreshReport();
             CrystalReportViewer1.DataBind();

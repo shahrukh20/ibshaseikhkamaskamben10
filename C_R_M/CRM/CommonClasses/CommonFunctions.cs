@@ -285,7 +285,7 @@ where usr.Name='{0}'";
         public string Name { get; set; }
         public string Id { get; set; }
     }
-    public class PropertyType
+    public class PropertyTypeT
     {
         public string Name { get; set; }
         public string Id { get; set; }

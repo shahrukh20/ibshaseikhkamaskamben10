@@ -230,6 +230,7 @@
     <Content Include="Content\jsgrid\jsgrid.min.js" />
     <Content Include="Content\js\d3-funnel.min.js" />
     <Content Include="Global.asax" />
+    <Content Include="WebForms\ReportViwer.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Reports\ReportDataSet\CampaignDataSet.xsc">
       <DependentUpon>CampaignDataSet.xsd</DependentUpon>
@@ -241,6 +242,17 @@
     </None>
     <Content Include="Reports\ReportDataSet\CampaignDataSet.xss">
       <DependentUpon>CampaignDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Reports\ReportDataSet\SalePipeLineDataSet.xsc">
+      <DependentUpon>SalePipeLineDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\ReportDataSet\SalePipeLineDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SalePipeLineDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reports\ReportDataSet\SalePipeLineDataSet.xss">
+      <DependentUpon>SalePipeLineDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -351,7 +363,6 @@
     <Content Include="Reports\ReportDataSet\UnAssignedLeadDataSet.xsc">
       <DependentUpon>UnAssignedLeadDataSet.xsd</DependentUpon>
     </Content>
-    <Content Include="WebForms\ReportViwer.aspx" />
     <None Include="Reports\ReportDataSet\UnAssignedLeadDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -368,8 +379,17 @@
     <Content Include="Views\Currencies\Edit.cshtml" />
     <Content Include="Views\Currencies\Index.cshtml" />
     <Content Include="Views\Reports\CampaignReports.cshtml" />
+    <Content Include="Views\Reports\LeadConversion.cshtml" />
+    <Content Include="Views\Reports\OpportunityInHand.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Account\CompanyInfo.cshtml" />
+    <Content Include="Views\Reports\Target.cshtml" />
+    <Content Include="Views\Reports\SalesPipeLine.cshtml" />
+    <Content Include="Views\PropertyTypes\Create.cshtml" />
+    <Content Include="Views\PropertyTypes\Delete.cshtml" />
+    <Content Include="Views\PropertyTypes\Details.cshtml" />
+    <Content Include="Views\PropertyTypes\Edit.cshtml" />
+    <Content Include="Views\PropertyTypes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -397,6 +417,7 @@
     <Compile Include="Controllers\InquiryController.cs" />
     <Compile Include="Controllers\LeadPoolsController.cs" />
     <Compile Include="Controllers\PropertyMastersController.cs" />
+    <Compile Include="Controllers\PropertyTypesController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\SalemenController.cs" />
     <Compile Include="Controllers\SalesmenCategoriesController.cs" />
@@ -419,6 +440,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CampaignDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ReportDataSet\SalePipeLineDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalePipeLineDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\ReportDataSet\UnAssignedLeadDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -427,6 +453,24 @@
     <Compile Include="Reports\ReportModels\CampaignReportsBindingViewModel.cs" />
     <Compile Include="Reports\ReportModels\ReportModel.cs" />
     <Compile Include="Reports\ReportModels\UnAssignedReportsBindingViewModel.cs" />
+    <Compile Include="Reports\ReportsTemplate\Campaign.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Campaign.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportsTemplate\OpportunityInHand.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OpportunityInHand.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportsTemplate\SalesPipeLine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesPipeLine.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\ReportsTemplate\UnAssignedLead.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -571,6 +615,18 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Campaign.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportsTemplate\OpportunityInHand.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OpportunityInHand.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportsTemplate\SalesPipeLine.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesPipeLine.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>UnAssignedLead.cs</LastGenOutput>
