@@ -72,18 +72,20 @@ namespace CRM.Controllers
                 ViewBag.TopScoreLeads = new List<LeadPool>();
                 ViewBag.AssignedLeads = 0;
                 ViewBag.TodaysAppointmentCount = 0;
-                ViewBag.TodaysAppointment = new List<LeadStatusFields>();
+
 
 
 
                 ViewBag.TopScoreLeads = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id).OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
                 ViewBag.AssignedLeads = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign" && x.Assign_To_ID == user.Id).ToList().Count;
 
-                var test = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id
-                && string.IsNullOrEmpty(x.NextActionDate) ? string.Equals(DateTime.Parse(x.NextActionDate).ToString("ddMMyyyy"), DateTime.Now.ToString("ddMMyyyy")) : x.NextActionDate == DateTime.Now.ToString())
-                .ToList();
-                ViewBag.TodaysAppointmentCount = test.Count;
+                var test = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == userId).OrderByDescending(i => i.Id)
+       .ToList();
+
+                //List<LeadStatusFields> LeadStatusData = db.Database.SqlQuery<LeadStatusFields>(query).ToList();
                 ViewBag.TodaysAppointment = test.Take(10).ToList();
+                ViewBag.TodaysAppointmentCount = test.Count;
+
 
             }
             catch (Exception e)
@@ -92,7 +94,9 @@ namespace CRM.Controllers
             }
         }
         public ActionResult DashboardSalesman()
-        {
+        {// && string.IsNullOrEmpty(x.NextActionDate) ? string.Equals(DateTime.Parse(x.NextActionDate).ToString("ddMMyyyy"), DateTime.Now.ToString("ddMMyyyy")) : x.NextActionDate == DateTime.Now.ToString()
+            int userId = int.Parse(User.Identity.GetUserId());
+
             getSalemanDashboardData();
 
             return View();
@@ -165,6 +169,7 @@ namespace CRM.Controllers
 
             try
             {
+                var actions = db.Actions.Where(x => x.ShowInFunnel == true).ToList();
                 int userId = int.Parse(User.Identity.GetUserId());
                 var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
                 var values = new List<LeadStatusFields>();
@@ -176,32 +181,43 @@ namespace CRM.Controllers
                     var junioirsID = juniors.Select(y => y.Id).ToList();
                     values = db.LeadStatusFields.Where(x => junioirsID.Contains(x.leadPool.Created_By)).ToList();
                 }
-                foreach (var item in values)
-                {
-                    switch (item.ActionType?.Action_Name.ToLower())
-                    {
-                        case "meeting":
-                            Meeting += 1;
-                            break;
-                        case "demo":
-                            Demo += 1;
-                            break;
-                        case "quotation":
-                            Quotation += 1;
-                            break;
-                        case "negotiate":
-                            Negotiate += 1;
-                            break;
 
-                        default:
-                            break;
-                    }
+                List<ArrayList> items = new List<ArrayList>();
+                foreach (var item in actions)
+                {
+                    var updatedValues = values
+                        .Where(x => string.Equals(x.ActionType?.Action_Name.ToLower(), item.Action_Name.ToLower()))
+                        .ToList();
+                    items.Add(new ArrayList { item.Action_Name, updatedValues.Count, item.HexColor });
                 }
-                ArrayList header = new ArrayList { "Meeting", Meeting, "#008080" };
-                ArrayList data1 = new ArrayList { "Quotation", Quotation, "#228B22" };
-                ArrayList data2 = new ArrayList { "Negotiate", Negotiate, "#800000" };
-                ArrayList data3 = new ArrayList { "Demo", Demo, "#808080" };
-                ArrayList data = new ArrayList { header, data1, data2, data3 };
+                //foreach (var item in values)
+                //{
+                //    switch (item.ActionType?.Action_Name.ToLower())
+                //    {
+                //        case "meeting":
+                //            Meeting += 1;
+                //            break;
+                //        case "demo":
+                //            Demo += 1;
+                //            break;
+                //        case "quotation":
+                //            Quotation += 1;
+                //            break;
+                //        case "negotiate":
+                //            Negotiate += 1;
+                //            break;
+
+                //        default:
+                //            break;
+                //    }
+                //}
+                //ArrayList header = new ArrayList { "Meeting", Meeting, "#008080" };
+                //ArrayList data1 = new ArrayList { "Quotation", Quotation, "#228B22" };
+                //ArrayList data2 = new ArrayList { "Negotiate", Negotiate, "#800000" };
+                //ArrayList data3 = new ArrayList { "Demo", Demo, "#808080" };
+                //ArrayList data = new ArrayList { header, data1, data2, data3 };
+
+                var data = items.ToArray();
                 // convert it in json
                 string dataStr = JsonConvert.SerializeObject(data, Formatting.None);
                 return dataStr;
@@ -219,6 +235,7 @@ namespace CRM.Controllers
     }
     public class LeadStatusData
     {
+        public int LeadId { get; set; }
         public string LeadName { get; set; }
         public string ActionName { get; set; }
         public string Month { get; set; }

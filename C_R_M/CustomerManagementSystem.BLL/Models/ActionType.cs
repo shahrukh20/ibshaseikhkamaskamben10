@@ -19,6 +19,10 @@ namespace CustomerManagementSystem.BLL.Models
         [Required(ErrorMessage = "Numbers are required")]
 
         public decimal Score { get; set; }
+        public bool ShowInFunnel { get; set; }
+        public int OrderNo { get; set; }
+        public string Alias { get; set; }
+        public string HexColor { get; set; }
 
         public DateTime? CreatedOn { get; set; }
         public virtual User CreatedBy { get; set; }

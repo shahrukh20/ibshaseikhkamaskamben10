@@ -140,4 +140,30 @@ namespace CRM.Models
         public string Channel { get; set; }
     }
 
+
+    public class DealReportViewModel
+    {
+        public int? ManagerId { get; set; }
+        public string DealAge { get; set; }
+        public int? Employee { get; set; }
+        public int? ActionType { get; set; }
+        public int? Status { get; set; }
+        public DateTime? fromdate { get; set; }
+        public DateTime? todate { get; set; }
+    }
+
+    public class DealReportTableViewModel
+    {
+        public int LeadNo { get; set; }
+        public string OpenedBy { get; set; }
+        public string OpenedDate { get; set; }
+        public string AssignedDate { get; set; }
+        public string ExpectedClosureDate { get; set; }
+        public string Source_Name { get; set; }
+        public string Status { get; set; }
+        public string ExpectedValue { get; set; }
+        public string PropertyName { get; set; }
+
+    }
+
 }

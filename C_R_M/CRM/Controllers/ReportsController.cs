@@ -41,7 +41,8 @@ namespace CRM.Controllers
             ViewBag.SalesmanCategory = reportCommon.BindCategory(salesmancategoryId);
             ViewBag.Leads = reportCommon.BindLeads(leadsId);
             ViewBag.Targets = reportCommon.BindTarget(TargetId);
-
+            ViewBag.Operator = reportCommon.BindOperator();
+            ViewBag.ActionType = reportCommon.BindActionTypes(0);
         }
         public ActionResult UnAssignedReports()
         {
@@ -50,9 +51,99 @@ namespace CRM.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult DealReport()
+        {
+            ViewBag.data = "";
+            BindDropDowns(0, 0, 0, 0, 0);
+            ViewBag.Status = reportCommon.BindStatusHC(0);
+            return View();
+        }
+        public JsonResult getList()
+        {
+            var data = new List<DealReportTableViewModel>();
+            if (Session["query"] != null)
+            {
+                string query = Session["query"].ToString();
+                data = db.Database.SqlQuery<DealReportTableViewModel>(query).ToList();
+                Session["query"] = null;
+
+            }
+
+            //var cities = db.Database.SqlQuery<CityViewModel>("Select C.CityId,C.CityName,Cc.CountryName from Cities C inner join Countries Cc on Cc.CountryId = C.CountryId").ToList();
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult DealReport(DealReportViewModel dealReportViewModel)
+        {
+            //BindDropDowns(0, 0, 0, 0, 0);
+            //ViewBag.Status = reportCommon.BindStatusHC(0);
+            string query = @"select lp.Id as LeadNo,openedby.Name as OpenedBy,
 
 
+CONVERT(varchar(10), lp.Created_DateTime, 20) as OpenedDate,
 
+CONVERT(varchar(10), lp.Created_DateTime, 20)
+
+ as AssignedDate,st.Source_Name ,
+
+
+ 
+sts.Status,lsf.ExpectedValue + cn.Name as ExpectedValue,lsf.ExpectedClosureDate ,
+pm.PropertyName
+
+,DATEDIFF(day,CONVERT(varchar(10), lp.Created_DateTime, 20), cast (GETDATE() as DATE)) AS Age
+from LeadPools lp
+left join Users openedby on openedby.Id=lp.Created_By
+left join Users assignedto on assignedto.Id=lp.Assign_To_ID
+left join SourceTypes st on st.Source_Type_Id=lp.Source_Type_Id
+left join LeadStatusFields lsf on lsf.leadPool_Id=lp.Id
+left join Status sts on sts.Status_Id=lsf.StatusType_Status_Id
+left join Currencies cn on cn.Id=lsf.CurrencyId
+left join PropertyMasters pm on pm.PropertyMasterId=lp.PropertyMaster_PropertyMasterId
+where 1=1 
+";
+            if (dealReportViewModel.ManagerId.HasValue)
+            {
+                query += "and lp.Assign_By_ID=" + dealReportViewModel.ManagerId;
+            }
+            if (dealReportViewModel.Employee.HasValue)
+            {
+                query += "and lp.Assign_To_ID=" + dealReportViewModel.Employee;
+            }
+            if (dealReportViewModel.ActionType.HasValue)
+            {
+                query += "and lsf.ActionType_Action_Id=" + dealReportViewModel.ActionType;
+            }
+            if (!string.IsNullOrEmpty(dealReportViewModel.DealAge))
+            {
+                query += " and DATEDIFF(day,CONVERT(varchar(10), lp.Created_DateTime, 20), cast (GETDATE() as DATE))>" + dealReportViewModel.DealAge;
+            }
+            if (dealReportViewModel.Status.HasValue)
+            {
+                query += " and sts.Status_Id=" + dealReportViewModel.Status;
+            }
+            if (dealReportViewModel.fromdate.HasValue)
+            {
+                query += " and  cast (lp.Updated_Datetime as DATE)  BETWEEN '" + dealReportViewModel.fromdate + "'";
+            }
+            else
+            {
+                query += " and  cast (lp.Updated_Datetime as DATE)  BETWEEN '1/1/1990 12:00:00 AM'";
+            }
+            if (dealReportViewModel.todate.HasValue)
+            {
+                query += " and '" + dealReportViewModel.todate + "'";
+            }
+            else
+            {
+                query += " and cast (GETDATE() as DATE)";
+            }
+            Session["query"] = query;
+
+
+            return RedirectToAction("DealReport");
+        }
 
         //        [HttpPost]
         //        public ActionResult UnAssignedReports(UnAssignedReportsViewModel unAssignedReportsViewModel)
@@ -166,13 +257,13 @@ where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
                     SourceType = x.SourceType,
                     Source = x.Source,
                     Manager = x.Manager,
-                    Salesman =x.Salesman,
+                    Salesman = x.Salesman,
                     Status = x.Status,
                     NextActionDate = x.NextActionDate,
                     NextActionTime = x.NextActionTime,
                     CreatedDate = x.CreatedDate,
-                    Channel = "Web",            
-                    
+                    Channel = "Web",
+
                 }).ToList();
                 DataSet ds = new DataSet();
                 List<ReportModel> reportModel = new List<ReportModel>();

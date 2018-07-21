@@ -102,7 +102,23 @@ where usr.Name='{0}'";
             }
             return CurrenciesItems;
         }
+        public List<SelectListItem> BindOperator()
+        {
+            var Salesmens = db.Users.Where(x => x.UserType.Id == 3).ToList();
+            List<SelectListItem> SalesmenItems = new List<SelectListItem>();
+            foreach (var item in Salesmens)
+            {
+             
+                    SalesmenItems.Add(new SelectListItem()
+                    {
+                        Text = item.Name,
+                        Value = item.Id.ToString()
+                    });
 
+            }
+            return SalesmenItems;
+
+        }
         public List<SelectListItem> BindSalemen(int id)
         {
             var Salesmens = db.Users.Where(x => x.UserType.Id == 2).ToList();
@@ -204,6 +220,89 @@ where usr.Name='{0}'";
             return TargetPeriodsItems;
 
         }
+
+
+
+        internal List<SelectListItem> BindStatusHC(int statusId)
+        {
+
+            try
+            {
+                var Statuss = db.Status.ToList();
+                List<SelectListItem> StatusItems = new List<SelectListItem>();
+                foreach (var item in Statuss)
+                {
+                    if (item.Status_Id == statusId)
+                        StatusItems.Add(new SelectListItem()
+                        {
+                            Text = item.Status1,
+                            Value = item.Status_Id.ToString(),
+                            Selected = true
+                        });
+                    else
+                        StatusItems.Add(new SelectListItem()
+                        {
+                            Text = item.Status1,
+                            Value = item.Status_Id.ToString()
+                        });
+
+                }
+                return StatusItems;
+
+                //return db.Status.Select(x => new SelectListItem()
+                //{
+                //    Text = x.Status1,
+                //    Value = x.Status_Id.ToString()
+                //}).ToList();
+            }
+            catch (Exception e)
+            {
+
+            }
+
+            //List<SelectListItem> items = new List<SelectListItem>()
+            //{
+            //    new SelectListItem() { Text = "Meeting", Value = "Meeting" },
+            //    new SelectListItem() { Text = "Demo", Value = "Demo" },
+            //    new SelectListItem() { Text = "Quotation", Value = "Quotation" },
+
+            //};
+            return null;
+        }
+
+
+
+        public List<SelectListItem> BindActionTypes(int id)
+        {
+            var TargetTypes = db.Actions.ToList();
+            List<SelectListItem> TargetTypesItems = new List<SelectListItem>();
+            foreach (var item in TargetTypes)
+            {
+                if (item.Action_Id == id)
+                    TargetTypesItems.Add(new SelectListItem()
+                    {
+                        Text = item.Action_Name,
+                        Value = item.Action_Id.ToString(),
+                        Selected = true
+                    });
+                else
+                    TargetTypesItems.Add(new SelectListItem()
+                    {
+                        Text = item.Action_Name,
+                        Value = item.Action_Id.ToString()
+                    });
+
+            }
+            return TargetTypesItems;
+
+        }
+
+
+
+
+
+
+
 
         public List<SelectListItem> BindTargetTypes(int id)
         {

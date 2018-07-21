@@ -293,19 +293,6 @@
     <Content Include="Views\Dashboard\DashboardSalesman.cshtml" />
     <Content Include="Views\Dashboard\DashboardSalesManager.cshtml" />
     <Content Include="Views\Inquiry\Index.cshtml" />
-    <Content Include="Views\LeadPools\Create.cshtml" />
-    <Content Include="Views\LeadPools\Delete.cshtml" />
-    <Content Include="Views\LeadPools\Details.cshtml" />
-    <Content Include="Views\LeadPools\Edit.cshtml" />
-    <Content Include="Views\LeadPools\Index.cshtml" />
-    <Content Include="Views\LeadPools\LeadAddition.cshtml" />
-    <Content Include="Views\LeadPools\LeadListing.cshtml" />
-    <Content Include="Views\LeadPools\LeadListingUpdate.cshtml" />
-    <Content Include="Views\LeadPools\LeadUpdate.cshtml" />
-    <Content Include="Views\LeadPools\StatusUpdate.cshtml" />
-    <Content Include="Views\LeadPools\UploadFiles.cshtml" />
-    <Content Include="Views\LeadPools\ViewLead.cshtml" />
-    <Content Include="Views\LeadPools\_UploadFiles.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -390,6 +377,21 @@
     <Content Include="Views\PropertyTypes\Details.cshtml" />
     <Content Include="Views\PropertyTypes\Edit.cshtml" />
     <Content Include="Views\PropertyTypes\Index.cshtml" />
+    <Content Include="Views\Reports\DealReport.cshtml" />
+    <Content Include="Views\LeadPools\Create.cshtml" />
+    <Content Include="Views\LeadPools\DealAddition.cshtml" />
+    <Content Include="Views\LeadPools\DealListing.cshtml" />
+    <Content Include="Views\LeadPools\DealListingUpdate.cshtml" />
+    <Content Include="Views\LeadPools\DealUpdate.cshtml" />
+    <Content Include="Views\LeadPools\Delete.cshtml" />
+    <Content Include="Views\LeadPools\Details.cshtml" />
+    <Content Include="Views\LeadPools\Edit.cshtml" />
+    <Content Include="Views\LeadPools\Index.cshtml" />
+    <Content Include="Views\LeadPools\LeadAddition--.cshtml" />
+    <Content Include="Views\LeadPools\StatusUpdate.cshtml" />
+    <Content Include="Views\LeadPools\UploadFiles.cshtml" />
+    <Content Include="Views\LeadPools\ViewDeal.cshtml" />
+    <Content Include="Views\LeadPools\_UploadFiles.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
