@@ -424,6 +424,11 @@
     <Compile Include="Controllers\SourceTypesController.cs" />
     <Compile Include="Controllers\TargetPeriodsController.cs" />
     <Compile Include="Controllers\TargetTypesController.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Migrations\201807180731045_testingd.cs" />
+    <Compile Include="Migrations\201807180731045_testingd.Designer.cs">
+      <DependentUpon>201807180731045_testingd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CalendarViewModel.cs" />
@@ -615,6 +620,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807180731045_testingd.resx">
+      <DependentUpon>201807180731045_testingd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Campaign.cs</LastGenOutput>
