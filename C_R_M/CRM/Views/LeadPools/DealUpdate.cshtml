@@ -291,7 +291,7 @@
 
                         </div>
                         <div class="col-md-2">
-                            <input type="button" onclick="window.location='/LeadPools/LeadListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                            <input type="button" onclick="window.location='/Deal/Deallisting'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
                         </div>
 
                     </div>
@@ -529,7 +529,7 @@
                 dataType: "JSON",
                 success: function () {
                     var base_url = window.location.origin;
-                    window.location = base_url + "/LeadPools/LeadListing";
+                    window.location = base_url + "/Deal/Deallisting";
                 },
                 error: function () {
                     var base_url = window.location.origin;

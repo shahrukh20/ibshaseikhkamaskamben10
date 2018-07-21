@@ -70,12 +70,13 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Action_Id,Action_Name,Score")] ActionType actionType)
+        public ActionResult Create([Bind(Include = "Action_Id,Action_Name,Score,ShowInFunnel,OrderNo,HexColor")] ActionType actionType)
         {
             if (ModelState.IsValid)
             {
                 actionType.CreatedOn = DateTime.Now;
                 actionType.UpdatedOn = null;
+               
                 //actionType .CreatedBy=db.Users.FirstOrDefault(x=>x.ApplicationUser==us)
                 db.Actions.Add(actionType);
                 db.SaveChanges();

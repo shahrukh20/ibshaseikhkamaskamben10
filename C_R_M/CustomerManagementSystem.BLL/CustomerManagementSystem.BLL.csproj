@@ -303,6 +303,14 @@
     <Compile Include="Migrations\201807180731494_testingds.Designer.cs">
       <DependentUpon>201807180731494_testingds.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807210904021_ActionTypes.cs" />
+    <Compile Include="Migrations\201807210904021_ActionTypes.Designer.cs">
+      <DependentUpon>201807210904021_ActionTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807210906171_Alias.cs" />
+    <Compile Include="Migrations\201807210906171_Alias.Designer.cs">
+      <DependentUpon>201807210906171_Alias.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Campaign.cs" />
@@ -517,6 +525,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807180731494_testingds.resx">
       <DependentUpon>201807180731494_testingds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807210904021_ActionTypes.resx">
+      <DependentUpon>201807210904021_ActionTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807210906171_Alias.resx">
+      <DependentUpon>201807210906171_Alias.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -165,6 +165,7 @@ namespace CRM.Controllers
 
             try
             {
+                var actions = db.Actions.Where(x => x.ShowInFunnel == true).ToList();
                 int userId = int.Parse(User.Identity.GetUserId());
                 var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
                 var values = new List<LeadStatusFields>();
@@ -176,32 +177,43 @@ namespace CRM.Controllers
                     var junioirsID = juniors.Select(y => y.Id).ToList();
                     values = db.LeadStatusFields.Where(x => junioirsID.Contains(x.leadPool.Created_By)).ToList();
                 }
-                foreach (var item in values)
-                {
-                    switch (item.ActionType?.Action_Name.ToLower())
-                    {
-                        case "meeting":
-                            Meeting += 1;
-                            break;
-                        case "demo":
-                            Demo += 1;
-                            break;
-                        case "quotation":
-                            Quotation += 1;
-                            break;
-                        case "negotiate":
-                            Negotiate += 1;
-                            break;
 
-                        default:
-                            break;
-                    }
+                List<ArrayList> items = new List<ArrayList>();
+                foreach (var item in actions)
+                {
+                    var updatedValues = values
+                        .Where(x => string.Equals(x.ActionType?.Action_Name.ToLower(), item.Action_Name.ToLower()))
+                        .ToList();
+                    items.Add(new ArrayList { item.Action_Name, updatedValues.Count, item.HexColor });
                 }
-                ArrayList header = new ArrayList { "Meeting", Meeting, "#008080" };
-                ArrayList data1 = new ArrayList { "Quotation", Quotation, "#228B22" };
-                ArrayList data2 = new ArrayList { "Negotiate", Negotiate, "#800000" };
-                ArrayList data3 = new ArrayList { "Demo", Demo, "#808080" };
-                ArrayList data = new ArrayList { header, data1, data2, data3 };
+                //foreach (var item in values)
+                //{
+                //    switch (item.ActionType?.Action_Name.ToLower())
+                //    {
+                //        case "meeting":
+                //            Meeting += 1;
+                //            break;
+                //        case "demo":
+                //            Demo += 1;
+                //            break;
+                //        case "quotation":
+                //            Quotation += 1;
+                //            break;
+                //        case "negotiate":
+                //            Negotiate += 1;
+                //            break;
+
+                //        default:
+                //            break;
+                //    }
+                //}
+                //ArrayList header = new ArrayList { "Meeting", Meeting, "#008080" };
+                //ArrayList data1 = new ArrayList { "Quotation", Quotation, "#228B22" };
+                //ArrayList data2 = new ArrayList { "Negotiate", Negotiate, "#800000" };
+                //ArrayList data3 = new ArrayList { "Demo", Demo, "#808080" };
+                //ArrayList data = new ArrayList { header, data1, data2, data3 };
+
+                var data = items.ToArray();
                 // convert it in json
                 string dataStr = JsonConvert.SerializeObject(data, Formatting.None);
                 return dataStr;
