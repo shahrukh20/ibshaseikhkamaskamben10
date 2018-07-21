@@ -424,11 +424,6 @@
     <Compile Include="Controllers\SourceTypesController.cs" />
     <Compile Include="Controllers\TargetPeriodsController.cs" />
     <Compile Include="Controllers\TargetTypesController.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Migrations\201807180731045_testingd.cs" />
-    <Compile Include="Migrations\201807180731045_testingd.Designer.cs">
-      <DependentUpon>201807180731045_testingd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CalendarViewModel.cs" />
@@ -458,24 +453,6 @@
     <Compile Include="Reports\ReportModels\CampaignReportsBindingViewModel.cs" />
     <Compile Include="Reports\ReportModels\ReportModel.cs" />
     <Compile Include="Reports\ReportModels\UnAssignedReportsBindingViewModel.cs" />
-    <Compile Include="Reports\ReportsTemplate\Campaign.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Campaign.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportsTemplate\OpportunityInHand.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>OpportunityInHand.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\ReportsTemplate\SalesPipeLine.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SalesPipeLine.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reports\ReportsTemplate\UnAssignedLead.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -620,21 +597,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807180731045_testingd.resx">
-      <DependentUpon>201807180731045_testingd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\Campaign.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Campaign.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\OpportunityInHand.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>OpportunityInHand.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReportsTemplate\SalesPipeLine.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>SalesPipeLine.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportsTemplate\UnAssignedLead.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>UnAssignedLead.cs</LastGenOutput>
