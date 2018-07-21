@@ -37,11 +37,11 @@
 
 <div class="tab-content">
     <form id="leadForm" action="/LeadPools/StatusUpdate" method="post">
-        <h1>Lead Status Update</h1>
+        <h1>Deal Status Update</h1>
         <div id="content">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#menu0">Lead Update</a></li>
-                <li><a data-toggle="tab" href="#menu1">Lead History</a></li>
+                <li class="active"><a data-toggle="tab" href="#menu0">Deal Update</a></li>
+                <li><a data-toggle="tab" href="#menu1">Deal History</a></li>
 
             </ul>
             <div class="tab-content">
@@ -52,7 +52,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        <h3>Lead Information</h3>
+                                        <h3>Deal Information</h3>
                                         <h5></h5>
                                     </div>
 
@@ -180,7 +180,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2">
-                                            Source Of Lead:
+                                            Source Of Deal:
                                         </label>
                                         <div class="col-md-4">
 
@@ -267,7 +267,7 @@
                         <div class="form-group">
 
                             <div class="col-md-10">
-                                <h3>Lead Attachments</h3>
+                                <h3>Deal Attachments</h3>
                                 <h5></h5>
                             </div>
 
@@ -362,6 +362,42 @@
                                             @Html.EditorFor(model => model.txtNextActionTime, new { htmlAttributes = new { @class = "form-control timepicker", @type = "time" } })
                                         </div>
                                     </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">
+                                                Expected Value:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.ExpectedValue, new { htmlAttributes = new { @class = "form-control" } })
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="control-label">
+                                                Currency:
+                                            </label>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            @Html.DropDownList("CurrencyId", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CurrencyId, "", new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-2">
+                                            <label class="control-label">
+                                                Expected Closure Date:
+                                            </label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            @Html.EditorFor(model => model.ExpectedClosureDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                        </div>
+                                        
+
+                                    </div>
                                 </div>
                                 <div class="form-horizontal">
                                     <div class="form-group">
@@ -418,7 +454,7 @@
                     <div id="menu1" class="tab-pane fade">
 
                         <div class="form-group">
-                            
+
                         </div>
                         <table id="datatable" class="table table-bordered box box-danger">
                             <thead>
@@ -660,7 +696,7 @@
                 async: false,
                 success: function () {
                     var base_url = window.location.origin;
-                    window.location = base_url + "/LeadPools/LeadListing";
+                    window.location = base_url + "/Deal/DealListing";
                 },
                 error: function () {
                     var base_url = window.location.origin;

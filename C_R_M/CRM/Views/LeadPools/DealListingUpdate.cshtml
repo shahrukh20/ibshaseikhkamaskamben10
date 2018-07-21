@@ -9,7 +9,7 @@
 <script src="~/Content/jsgrid/jsgrid.min.js"></script>
 
 
-<h2>Attaching Lead To Salesmen</h2>
+<h2>Attaching Deal To Salesmen</h2>
 
 <form id="LeadListingForm" action="/LeadPools/LeadListing" method="post">
 
@@ -113,7 +113,7 @@
     function ReditectToUpdateSection(id)
     {
         var base_url = window.location.origin;
-        window.location = base_url + "/LeadPools/StatusUpdate?id=" + id;
+        window.location = base_url + "/Deal/StatusUpdate?id=" + id;
     }
     $(function () {
         $(".datepicker").datepicker();

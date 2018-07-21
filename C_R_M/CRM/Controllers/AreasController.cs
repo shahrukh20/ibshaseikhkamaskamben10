@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 using CRM.Models;
 using CustomerManagementSystem.BLL.Models;
 using Newtonsoft.Json;
@@ -59,6 +60,7 @@ namespace CRM.Controllers
             return View(area);
         }
 
+
         // GET: Areas/Create
         public ActionResult Create()
         {
@@ -74,7 +76,10 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "AreaId,AreaName,CityId")] Area area)
         {
+            
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "CityName");
+            ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
+
             if (db.Areas.Any(i => i.AreaName.ToLower() == area.AreaName.ToLower() && area.CityId == i.CityId))
             {
                 ModelState.AddModelError("", "Area already exist for this city");
@@ -87,7 +92,7 @@ namespace CRM.Controllers
 
                 return RedirectToAction("Index");
             }
-
+            
             return View(area);
         }
 

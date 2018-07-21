@@ -182,7 +182,7 @@ namespace CRM.Controllers
             ViewBag.Properties = leadPoolsCommon.BindProperties(PropertyId);
             ViewBag.Currency = leadPoolsCommon.BindCurrencies(CurrencyId);
         }
-        public ActionResult LeadAddition()
+        public ActionResult DealAddition()
         {
             BindDropowns(0, 0, 0, 0, 0);
             return View();
@@ -297,14 +297,14 @@ namespace CRM.Controllers
                 }
             }
             Session["divMessage"] = new SessionModel() { Message = $"Your Lead {leadId } Has been added Succesfully. ", Type = "1" };
-            return RedirectToAction("LeadListing");
+            return RedirectToAction("DealListing");
         }
         //public string PostForm(string LeadVMJson)
         //{
 
         //}
 
-        public ActionResult LeadUpdate(int id)
+        public ActionResult DealUpdate(int id)
         {
 
             var _leadPool = db.Lead_Pool.FirstOrDefault(x => x.Id == id);
@@ -439,7 +439,7 @@ namespace CRM.Controllers
 
             }
             Session["divMessage"] = new SessionModel() { Message = $"Your Lead {LeadVM.id} has been updated Successfully.", Type = "1" };
-            return RedirectToAction("LeadListing");
+            return RedirectToAction("Deallisting");
         }
 
 
@@ -497,7 +497,7 @@ namespace CRM.Controllers
 
         //manager working screen 
         //attaching a lead to a salesman
-        public ActionResult LeadListing()
+        public ActionResult Deallisting()
         {
             // Session["divMessage"] = "sjhahrukhsd ashd hasd sa";
             int userId = int.Parse(User.Identity.GetUserId());
@@ -657,7 +657,7 @@ namespace CRM.Controllers
             return Json("", JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ViewLead(int id)
+        public ActionResult ViewDeal(int id)
         {
 
 
@@ -695,11 +695,12 @@ namespace CRM.Controllers
         [HttpPost]
         public ActionResult ViewLead()
         {
-            return RedirectToAction("LeadListing");
+            return RedirectToAction("Deallisting");
         }
 
         public ActionResult StatusUpdate(int id)
         {
+
             List<string> images = new List<string>();
             string serverpath = Request.Url.Authority;
             List<History> leadhistories = new List<History>();
@@ -748,6 +749,12 @@ namespace CRM.Controllers
             leadPoolsViewModel.txtNextActionDate = _leadStatus.NextActionDate;
             leadPoolsViewModel.txtNextActionTime = _leadStatus.NextActionTime;
             leadPoolsViewModel.txtStatusRemarks = _leadStatus.Remarks;
+            leadPoolsViewModel.ExpectedValue = _leadStatus.ExpectedValue;            
+            leadPoolsViewModel.ExpectedClosureDate = _leadStatus.ExpectedClosureDate;
+            if (_leadStatus.CurrencyId.HasValue)
+                ViewBag.CurrencyId = new SelectList(db.Currencies, "Id", "Name", _leadStatus.CurrencyId);
+            else
+                ViewBag.CurrencyId = new SelectList(db.Currencies, "Id", "Name");
             //leadPoolsViewModel.ddstatus = _leadStatus.StatusField;
 
 
@@ -802,7 +809,7 @@ namespace CRM.Controllers
             //{
 
             //}
-            return View("LeadListing", db.Lead_Pool.ToList());
+            return View("Deallisting", db.Lead_Pool.ToList());
         }
 
         public JsonResult PostForm(List<LeadContactViewModel> LeadContactVM, string LeadStatusVMJson)
@@ -824,7 +831,11 @@ namespace CRM.Controllers
                 leadStatusFields.StatusType = status;
                 leadStatusFields.NextActionDate = LeadStatusVM.txtNextActionDate;
                 leadStatusFields.NextActionTime = LeadStatusVM.txtNextActionTime;
-
+                leadStatusFields.ExpectedValue = LeadStatusVM.ExpectedValue;
+                if (LeadStatusVM.CurrencyId.HasValue)
+                    leadStatusFields.CurrencyId = LeadStatusVM.CurrencyId;
+                leadStatusFields.ExpectedClosureDate = LeadStatusVM.ExpectedClosureDate;
+                leadStatusFields.ExpectedValue = LeadStatusVM.ExpectedValue;
                 leadStatusFields.Remarks = LeadStatusVM.txtStatusRemarks;
                 leadStatusFields.StatusEnum = Enumeration.StatusEnum.Assign;
                 leadStatusFields.StatusField = LeadStatusVM.ddstatus;
@@ -930,7 +941,7 @@ namespace CRM.Controllers
             return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, item.Saved_Name);
         }
 
-        public ActionResult LeadListingUpdate()
+        public ActionResult DealListingUpdate()
         {
             return View();
         }

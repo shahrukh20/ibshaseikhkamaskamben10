@@ -21,7 +21,7 @@
     })
 </script>
 <form id="leadForm" action="/LeadPools/LeadAddition" method="post"  enctype="multipart/form-data" novalidate="novalidate">
-    <h1>Log New Lead</h1>
+    <h1>Log New Deal</h1>
     <div id="content">
         
         <div class="box box-danger">
@@ -30,7 +30,7 @@
 
                     <div class="form-group">
                         <div class="col-md-10">
-                            <h3>Lead Information</h3>
+                            <h3>Deal Information</h3>
                             <h5></h5>
                         </div>
 
@@ -45,7 +45,7 @@
                             Name:
                         </label>
                         <div class="col-md-4">
-                            <input type="text" id="txtLeadName" name="txtLeadName" class="form-control" data-val="true" data-val-required="The Lead Name is required." required />
+                            <input type="text" id="txtLeadName" name="txtLeadName" class="form-control" data-val="true" data-val-required="The Deal Name is required." required />
                             <span class="field-validation-error text-danger" data-valmsg-for="txtLeadName" data-valmsg-replace="true"></span>
                         </div>
 
@@ -69,7 +69,7 @@
                             Contact Person:
                         </label>
                         <div class="col-md-4">
-                            <input type="text" id="txtContactPerson" name="txtContactPerson" class="form-control" data-val="true" data-val-required="The Lead Name is required." required />
+                            <input type="text" id="txtContactPerson" name="txtContactPerson" class="form-control" data-val="true" data-val-required="The Deal Name is required." required />
                             <span class="field-validation-error text-danger" data-valmsg-for="txtContactPerson" data-valmsg-replace="true"></span>
                         </div>
                         <label class="col-md-2">
@@ -124,7 +124,7 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2">
-                            Source Of Lead:
+                            Source Of Deal:
                         </label>
                         <div class="col-md-4">
                             @Html.DropDownList("ddlSourceOfLead", (IEnumerable<SelectListItem>)ViewBag.SourceOfLead, new { @class = "form-control select" })
@@ -177,7 +177,7 @@
                     <div class="form-group">
 
                         <div class="col-md-10">
-                            <h3>Lead Attachments</h3>
+                            <h3>Deal Attachments</h3>
                             <h5></h5>
                         </div>
 
@@ -217,7 +217,7 @@
 
                         </div>
                         <div class="col-md-2">
-                            <input type="button" onclick="window.location='/LeadPools/LeadListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
+                            <input type="button" onclick="window.location = '/Deal/DealListing'" value="Back to list" class="btn btn-danger btn-block btn-flat" />
                         </div>
 
                     </div>

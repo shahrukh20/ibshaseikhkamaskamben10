@@ -12,7 +12,7 @@
                 <div class="inner">
                     <h3>@((int)ViewBag.UnassignedLeadsleadsCounts)</h3>
 
-                    <p>Un-Assign Leads</p>
+                    <p>Un-Assign Deals</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-tasks"></i>
@@ -67,12 +67,12 @@
         <section class="col-md-6">
             <div class="box box-success">
                 <div class="card card-primary">
-                    <h3 class="box-title dashboardtitle">Top 10 Highest Score Leads</h3>
+                    <h3 class="box-title dashboardtitle">Top 10 Highest Score Deals</h3>
                     <div class="card-body p-0">
                         <table id="todayAppt" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr role="row">
-                                    <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 217.8px;">Lead#</th>
+                                    <th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 217.8px;">Deal#</th>
                                     @*<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 266.6px;">Lead Desc</th>*@
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 237px;">Status(s)</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 187.4px;">Score</th>
@@ -85,7 +85,7 @@
                                     foreach (var item in (ViewBag.TopScoreLeads as List<LeadStatusFields>))
                                     {
                                         <tr>
-                                            <td>Lead# @item.leadPool.Id</td>
+                                            <td>Deal# @item.leadPool.Id</td>
                                             @*<td>@item.leadPool.Lead_Remarks</td>*@
                                             <td>@(item.StatusType == null ? "New" : item.StatusType.Status1)</td>
                                             <td>@(item.ActionType == null ? 0 : item.TotalLeadScore)</td>

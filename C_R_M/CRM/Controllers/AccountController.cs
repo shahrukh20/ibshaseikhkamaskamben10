@@ -199,9 +199,9 @@ namespace CRM.Controllers
                             case 2:
                                 return RedirectToAction("DashboardSalesman", "Dashboard");
                             case 3:
-                                return RedirectToAction("LeadListing", "LeadPools");
+                                return RedirectToAction("DealListing", "Deal");
                             default:
-                                return RedirectToAction("LeadListing", "LeadPools");
+                                return RedirectToAction("DealListing", "Deal");
                         }
                         //return RedirectToAction("DashboardSalesManager", "Dashboard");
                     }

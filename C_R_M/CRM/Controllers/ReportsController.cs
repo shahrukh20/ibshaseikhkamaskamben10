@@ -243,7 +243,7 @@ where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
 
         }
 
-        public ActionResult LeadConversion()
+        public ActionResult DealConversion()
         {
             BindDropDowns(0, 0, 0, 0, 0);
             return View();
