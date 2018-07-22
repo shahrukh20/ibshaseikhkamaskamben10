@@ -233,17 +233,21 @@ namespace CRM.Controllers
                     db.Lead_Pool.Add(_leadPool);
                     db.SaveChanges();
                     leadId = _leadPool.Id;
-                    db.LeadStatusFields.Add(new LeadStatusFields()
+                    var statusLead = new LeadStatusFields()
                     {
                         CreatedBy = user.Id,
                         CreatedOn = DateTime.Now,
                         StatusEnum = Enumeration.StatusEnum.New,
                         leadPool = _leadPool,
-                        TotalLeadScore = 0
+                        TotalLeadScore = 0,
+                        ActionType = db.Actions.Find(1)
 
-                    }
-                    );
+                    };
+                    db.LeadStatusFields.Add(statusLead);
                     db.SaveChanges();
+
+                    //hisstory 
+                    leadPoolsCommon.GenerateHistory(_leadPool.Id);
                     //fileUpload Section
 
                     if (HttpContext.Request.Files.AllKeys.Any())

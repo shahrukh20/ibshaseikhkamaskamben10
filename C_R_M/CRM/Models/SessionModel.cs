@@ -10,4 +10,9 @@ namespace CRM.Models
         public string Message { get; set; }
         public string Type { get; set; }
     }
+    public class ModelReport
+    {
+        public string Name { get; set; }
+        public int Count { get; set; }
+    }
 }

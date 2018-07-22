@@ -379,11 +379,116 @@ where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
             }
         }
         [HttpPost]
-        public string RevenueBy()
+        public JsonResult RevenueBy(string datefrom, string dateto)
         {
-            return @" data1: [30, 20, 50, 40, 60, 50],
-            data2: [200, 130, 90, 240, 130, 220],
-            data3: [300, 200, 160, 400, 250, 250]";
+
+            List<List<string>> ab = new List<List<string>>();
+            List<string> test = new List<string>();
+            try
+            {
+                if (!string.IsNullOrEmpty(datefrom) && !string.IsNullOrEmpty(dateto))
+                {
+                    DateTime dateFrom = DateTime.Parse(datefrom);
+                    DateTime dateTo = DateTime.Parse(dateto);
+                    var items = db.LeadStatusFields.Where(x => x.CreatedOn >= dateFrom && x.CreatedOn <= dateTo).ToList();
+                    foreach (var item in items)
+                    {
+                        if (item.ExpectedValue == null)
+                            test.Add("0");
+                        else
+                            test.Add(item.ExpectedValue);
+
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+            }
+            //test.Add("10");
+            //test.Add("20");
+            //test.Add("30");
+            //test.Add("40");
+            //test.Add("50");
+            List<string> test2 = new List<string>();
+            //test2.Add("200");
+            //test2.Add("130");
+            //test2.Add("90");
+            //test2.Add("220");
+            //test2.Add("50");
+            ab.Add(test);
+            ab.Add(test2);
+            return Json(ab, JsonRequestBehavior.AllowGet);
+            //return @" data1: [30, 20, 50, 40, 60, 50],
+            //data2: [200, 130, 90, 240, 130, 220],
+            //data3: [300, 200, 160, 400, 250, 250]";
+        }
+
+        public ActionResult DealStatus()
+        {
+            var items = new List<SelectListItem>() { new SelectListItem() { Text = "All", Value = "0" } };
+            items.AddRange(db.Actions.ToList().Select(x => new SelectListItem() { Text = x.Action_Name, Value = x.Action_Id.ToString() }).ToList());
+            ViewBag.ActionTypes = items;
+            return View();
+        }
+        [HttpPost]
+        public JsonResult DealStatus(string datefrom, string dateto, string ActionType)
+        {
+            List<ModelReport> modelReport = new List<ModelReport>();
+            if (ActionType == "0")
+            {
+                foreach (var item in db.Actions.ToList())
+                {
+                    modelReport.Add(new ModelReport() { Name = item.Action_Name, Count = 0 });
+                }
+                if (!string.IsNullOrEmpty(datefrom) && !string.IsNullOrEmpty(dateto))
+                {
+                    DateTime dateFrom = DateTime.Parse(datefrom);
+                    DateTime dateTo = DateTime.Parse(dateto);
+                    var items = db.LeadStatusFields.Where(x => x.CreatedOn >= dateFrom && x.CreatedOn <= dateTo).ToList();
+                    foreach (var item in items)
+                    {
+                        var historyOfLead = db.LeadHistories.Where(x => x.LeadId == item.leadPool.Id).ToList();
+                        foreach (var history in historyOfLead)
+                        {
+                            var leadPoolSta = JsonConvert.DeserializeObject<LeadStatusFields>(history.LeadStatusFields);
+                            modelReport.FirstOrDefault(x => x.Name.ToLower() == leadPoolSta.ActionType.Action_Name.ToLower()).Count++;
+                            //..modelReport.Where(x=>x.Name.ToLower()==history.)
+                        }
+                    }
+                }
+            }
+            else
+            {
+                modelReport.Add(new ModelReport() { Name = db.Actions.FirstOrDefault(x=>x.Action_Id==int.Parse(ActionType)).Action_Name, Count = 0 });
+                if (!string.IsNullOrEmpty(datefrom) && !string.IsNullOrEmpty(dateto))
+                {
+                    DateTime dateFrom = DateTime.Parse(datefrom);
+                    DateTime dateTo = DateTime.Parse(dateto);
+                    var items = db.LeadStatusFields.Where(x => x.CreatedOn >= dateFrom && x.CreatedOn <= dateTo && x.ActionType.Action_Id == int.Parse(ActionType)).ToList();
+                    foreach (var item in items)
+                    {
+                        var historyOfLead = db.LeadHistories.Where(x => x.LeadId == item.leadPool.Id).ToList();
+                        foreach (var history in historyOfLead)
+                        {
+                            var leadPoolSta = JsonConvert.DeserializeObject<LeadStatusFields>(history.LeadStatusFields);
+                            modelReport.FirstOrDefault(x => x.Name.ToLower() == leadPoolSta.ActionType.Action_Name.ToLower()).Count++;
+                            //..modelReport.Where(x=>x.Name.ToLower()==history.)
+                        }
+                    }
+                }
+
+            }
+
+
+
+            //modelReport.Add(new ModelReport() { Name = "Shah", Count = 3 });
+            //modelReport.Add(new ModelReport() { Name = "Shah1", Count = 31 });
+            //modelReport.Add(new ModelReport() { Name = "Shah2", Count = 23 });
+            //modelReport.Add(new ModelReport() { Name = "Shah3", Count = 50 });
+            return Json(modelReport, JsonRequestBehavior.AllowGet);
+            //return @" data1: [30, 20, 50, 40, 60, 50],
+            //data2: [200, 130, 90, 240, 130, 220],
+            //data3: [300, 200, 160, 400, 250, 250]";
         }
 
         public ActionResult CampaignReports()
