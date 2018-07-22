@@ -71,7 +71,7 @@
                         </div>
                     </div>
 
-                    <div>
+                    <div id="hideshow" style="display:none">
                         <div class="form-group">
                             <label class="col-md-2">
                                 Order No:
@@ -111,3 +111,18 @@
 
 }
     <script src="~/Content/jsColor/jscolor.js"></script>    
+    <script>
+        function Funnel() {
+            debugger;
+            if ($('#ShowInFunnel')[0].checked) {
+                $('#hideshow').show();
+            }
+            else {
+                $('#hideshow').hide();
+            }
+        }
+        $(document).ready(function () {
+            $('#ShowInFunnel').on('ifChanged', function (event) { Funnel(); });
+            Funnel();
+        });
+    </script>
