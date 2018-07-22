@@ -145,6 +145,11 @@ where 1=1
             return RedirectToAction("DealReport");
         }
 
+        public ActionResult RevenueBySourceType()
+        {
+            return View();
+        }
+
         //        [HttpPost]
         //        public ActionResult UnAssignedReports(UnAssignedReportsViewModel unAssignedReportsViewModel)
         //        {
@@ -372,6 +377,13 @@ where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
             {
                 return Json("Failure", JsonRequestBehavior.AllowGet);
             }
+        }
+        [HttpPost]
+        public string RevenueBy()
+        {
+            return @" data1: [30, 20, 50, 40, 60, 50],
+            data2: [200, 130, 90, 240, 130, 220],
+            data3: [300, 200, 160, 400, 250, 250]";
         }
 
         public ActionResult CampaignReports()
