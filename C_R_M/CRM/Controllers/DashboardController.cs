@@ -79,12 +79,22 @@ namespace CRM.Controllers
                 ViewBag.TopScoreLeads = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == user.Id).OrderByDescending(x => x.TotalLeadScore).Take(10).ToList();
                 ViewBag.AssignedLeads = db.Lead_Pool.Where(x => x.Status.ToString().ToLower() == "assign" && x.Assign_To_ID == user.Id).ToList().Count;
 
-                var test = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == userId).OrderByDescending(i => i.Id)
-       .ToList();
+                var test = db.LeadStatusFields.Where(x => x.leadPool.Assign_To_ID == userId)
+                .OrderByDescending(i => i.Id).ToList();
+                var test1 = new List<LeadStatusFields>();
+                foreach (var item in test)
+                {
+                    if (!string.IsNullOrEmpty(item.NextActionDate) && 
+                        DateTime.Parse( item.NextActionDate).ToString("ddMMyyyy") == DateTime.Now.ToString("ddMMyyyy")
+                        )
+                    {
+                        test1.Add(JsonConvert.DeserializeObject<LeadStatusFields>(JsonConvert.SerializeObject(item)));
+                    }
+                }
 
                 //List<LeadStatusFields> LeadStatusData = db.Database.SqlQuery<LeadStatusFields>(query).ToList();
-                ViewBag.TodaysAppointment = test.Take(10).ToList();
-                ViewBag.TodaysAppointmentCount = test.Count;
+                ViewBag.TodaysAppointment = test1.Take(10).ToList();
+                ViewBag.TodaysAppointmentCount = test1.Count;
 
 
             }

@@ -82,7 +82,8 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">UnAssigned Deals</a></li>
+                                    @*<li><a href="@Url.Action("UnAssignedReports", "Reports")">UnAssigned Deals</a></li>*@
+                                    <li><a href="@Url.Action("DealReport", "Reports")">Deals</a></li>
                                 </ul>
                             </li>
 
@@ -129,7 +130,8 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">UnAssigned Deals</a></li>
+                                    @*<li><a href="@Url.Action("UnAssignedReports", "Reports")">UnAssigned Deals</a></li>*@
+                                    <li><a href="@Url.Action("DealReport", "Reports")">Deals</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -264,12 +266,13 @@
                                     </span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("UnAssignedReports", "Reports")">Deals</a></li>
-                                    <li><a href="@Url.Action("CampaignReports", "Reports")">Campaign</a></li>
-                                    <li><a href="@Url.Action("OpportunityInHand", "Reports")">OpportunityInHand</a></li>
-                                    <li><a href="@Url.Action("Target", "Reports")">Target</a></li>
-                                    <li><a href="@Url.Action("DealConversion", "Reports")">Deal Conversion</a></li>
-                                  
+                                    @*<li><a href="@Url.Action("UnAssignedReports", "Reports")">Deals</a></li>
+        <li><a href="@Url.Action("CampaignReports", "Reports")">Campaign</a></li>
+        <li><a href="@Url.Action("OpportunityInHand", "Reports")">OpportunityInHand</a></li>
+        <li><a href="@Url.Action("Target", "Reports")">Target</a></li>
+        <li><a href="@Url.Action("DealConversion", "Reports")">Deal Conversion</a></li>*@
+                                    <li><a href="@Url.Action("DealReport", "Reports")">Deals</a></li>
+
                                 </ul>
                             </li>
                         </ul>

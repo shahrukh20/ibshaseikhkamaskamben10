@@ -4,19 +4,19 @@
     /**/
 }
 
-<h1>Deal Report</h1>
+
 <form action="/Reports/DealReport" id="leadconversionform" method="post">
     <div id="content">
         <div id="content">
-
+            <h1>Deal Report</h1>
             <div class="box box-danger">
                 <div class="box-header with-border">
                     <div class="form-horizontal">
                         <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.ManagerId, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.LabelFor(model => model.ManagerId, htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-4">
                                 <select class="form-control select No-Validate" id="ManagerId" name="ManagerId">
                                     <option value="">Select Manager</option>
                                     @{
@@ -39,8 +39,8 @@
 
 
                         <div class="form-group">
-                            @Html.Label("Deal Age", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.Label("Deal Age", htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-4">
                                 <select class="form-control select No-Validate" id="DealAge" name="DealAge">
                                     <option value="">Select Deal Age</option>
                                     <option value="30">> 30</option>
@@ -55,8 +55,8 @@
 
 
                         <div class="form-group">
-                            @Html.Label("Employee", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.Label("Employee", htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-4">
                                 <select class="form-control select No-Validate" id="Employee" name="Employee">
                                     <option value="">Select Employee</option>
                                     @{
@@ -77,8 +77,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.Label("Action Type", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.Label("Action Type", htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-4">
 
                                 <select class="form-control select No-Validate" id="ActionType" name="ActionType">
                                     <option value="">Select Action Type</option>
@@ -100,12 +100,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            @Html.Label("Status", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
+                            @Html.Label("Status", htmlAttributes: new { @class = "col-md-2" })
+                            <div class="col-md-4">
 
                                 <select class="form-control select No-Validate" id="Status" name="Status">
                                     <option value="">Select Status</option>
-                                    
+
                                     @{
                                         foreach (var item in (IEnumerable<SelectListItem>)ViewBag.Status)
                                         {
@@ -124,51 +124,50 @@
                             </div>
                         </div>
                         @*<div class="form-group">
-                            @Html.Label("Status", htmlAttributes: new { @class = "control-label col-md-2" })
-                            <div class="col-md-10">
-                                @Html.DropDownList("Status", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control select", @required = "required" })
+                        @Html.Label("Status", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownList("Status", (IEnumerable<SelectListItem>)ViewBag.Status, new { @class = "form-control select", @required = "required" })
 
 
-                            </div>
-                        </div>*@
+                        </div>
+                    </div>*@
                         <div class="form-group">
 
-                            <div class="col-md-6 col-lg-6">
-                                <div class="col-lg-offset-2 col-lg-3"><label>Date From</label></div>
-                                <div class="col-lg-7">
-                                    <input type="date" class="form-control" id="fromdate" name="fromdate" />
-                                </div>
 
-
+                            <div class="col-md-2"><label>Date From</label></div>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="fromdate" name="fromdate" />
                             </div>
-                            <div class="col-md-6 col-lg-6">
-                                <div class="col-lg-offset-2 col-lg-3"><label>Date to</label></div>
-                                <div class="col-lg-7">
-                                    <input type="date" class="form-control" id="todate" name="todate" />
-                                </div>
 
+
+                            <div class=" col-md-2"><label>Date to</label></div>
+                            <div class="col-md-4">
+                                <input type="date" class="form-control" id="todate" name="todate" />
                             </div>
 
                         </div>
 
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Generate" class="btn btn-default" />
-                            </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-10 col-md-2">
+                            <input type="submit" value="Generate" class="btn btn-primary btn-block btn-flat" />
+
                         </div>
-
-
-
-
                     </div>
-                </div>
-                <div class="box-header with-border">
-                    <div class="">
-                        <div id="jsGrid"></div>
-                    </div>
+
+
+
+
                 </div>
             </div>
+            <div class="box-header with-border">
+                <div class="">
+                    <div id="jsGrid"></div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </form>
