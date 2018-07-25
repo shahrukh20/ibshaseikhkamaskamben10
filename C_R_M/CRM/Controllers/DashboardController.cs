@@ -84,8 +84,8 @@ namespace CRM.Controllers
                 var test1 = new List<LeadStatusFields>();
                 foreach (var item in test)
                 {
-                    if (!string.IsNullOrEmpty(item.NextActionDate) && 
-                        DateTime.Parse( item.NextActionDate).ToString("ddMMyyyy") == DateTime.Now.ToString("ddMMyyyy")
+                    if (!string.IsNullOrEmpty(item.NextActionDate) &&
+                        DateTime.Parse(item.NextActionDate).ToString("ddMMyyyy") == DateTime.Now.ToString("ddMMyyyy")
                         )
                     {
                         test1.Add(JsonConvert.DeserializeObject<LeadStatusFields>(JsonConvert.SerializeObject(item)));
@@ -179,7 +179,7 @@ namespace CRM.Controllers
 
             try
             {
-                var actions = db.Actions.Where(x => x.ShowInFunnel == true).ToList();
+                var actions = db.Actions.Where(x => x.ShowInFunnel == true).OrderBy(x => x.OrderNo).ToList();
                 int userId = int.Parse(User.Identity.GetUserId());
                 var user = db.Users.FirstOrDefault(x => x.ApplicationUser == userId);
                 var values = new List<LeadStatusFields>();
@@ -198,7 +198,7 @@ namespace CRM.Controllers
                     var updatedValues = values
                         .Where(x => string.Equals(x.ActionType?.Action_Name.ToLower(), item.Action_Name.ToLower()))
                         .ToList();
-                    items.Add(new ArrayList { item.Action_Name, updatedValues.Count, item.HexColor });
+                    items.Add(new ArrayList { string.IsNullOrEmpty(item.Alias) ? item.Action_Name : item.Alias, updatedValues.Count, "#" + item.HexColor });
                 }
                 //foreach (var item in values)
                 //{

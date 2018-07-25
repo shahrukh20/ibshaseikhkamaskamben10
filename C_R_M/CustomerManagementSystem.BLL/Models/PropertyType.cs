@@ -11,7 +11,7 @@ namespace CustomerManagementSystem.BLL.Models
     {
         [Key]
         public virtual int Id { get; set; }
-        [Display(Name = "PropertyType")]
+        [Display(Name = "Property Type")]
         public virtual string Name{ get; set; }
     }
 }

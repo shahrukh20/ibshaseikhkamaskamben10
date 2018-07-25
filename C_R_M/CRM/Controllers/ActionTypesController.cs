@@ -108,7 +108,7 @@ namespace CRM.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Action_Id,Action_Name,Score")] ActionType actionType)
+        public ActionResult Edit([Bind(Include = "Action_Id,Action_Name,Score,ShowInFunnel,OrderNo,HexColor")] ActionType actionType)
         {
             try
             {

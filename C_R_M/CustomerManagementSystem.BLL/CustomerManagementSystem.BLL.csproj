@@ -279,25 +279,9 @@
     <Compile Include="Migrations\201807052145030_sddfghbvcxccccccc.Designer.cs">
       <DependentUpon>201807052145030_sddfghbvcxccccccc.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807070759158_lead dinhitr.cs" />
-    <Compile Include="Migrations\201807070759158_lead dinhitr.Designer.cs">
-      <DependentUpon>201807070759158_lead dinhitr.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807071212276_vgggc.cs" />
-    <Compile Include="Migrations\201807071212276_vgggc.Designer.cs">
-      <DependentUpon>201807071212276_vgggc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807071235504_vgggcss.cs" />
-    <Compile Include="Migrations\201807071235504_vgggcss.Designer.cs">
-      <DependentUpon>201807071235504_vgggcss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807071241530_vgggcsss.cs" />
-    <Compile Include="Migrations\201807071241530_vgggcsss.Designer.cs">
-      <DependentUpon>201807071241530_vgggcsss.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807080707375_as.cs" />
-    <Compile Include="Migrations\201807080707375_as.Designer.cs">
-      <DependentUpon>201807080707375_as.cs</DependentUpon>
+    <Compile Include="Migrations\201807241329104_sasda.cs" />
+    <Compile Include="Migrations\201807241329104_sasda.Designer.cs">
+      <DependentUpon>201807241329104_sasda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ActionType.cs" />
@@ -496,20 +480,8 @@
     <EmbeddedResource Include="Migrations\201807052145030_sddfghbvcxccccccc.resx">
       <DependentUpon>201807052145030_sddfghbvcxccccccc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807070759158_lead dinhitr.resx">
-      <DependentUpon>201807070759158_lead dinhitr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807071212276_vgggc.resx">
-      <DependentUpon>201807071212276_vgggc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807071235504_vgggcss.resx">
-      <DependentUpon>201807071235504_vgggcss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807071241530_vgggcsss.resx">
-      <DependentUpon>201807071241530_vgggcsss.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807080707375_as.resx">
-      <DependentUpon>201807080707375_as.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807241329104_sasda.resx">
+      <DependentUpon>201807241329104_sasda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
