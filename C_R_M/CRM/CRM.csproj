@@ -944,6 +944,7 @@
     <Content Include="Views\LeadPools\_UploadFiles.cshtml" />
     <Content Include="Views\Reports\DealConversion.cshtml" />
     <Content Include="Views\Reports\RevenueBySourceType.cshtml" />
+    <Content Include="Views\Reports\DealStatus.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

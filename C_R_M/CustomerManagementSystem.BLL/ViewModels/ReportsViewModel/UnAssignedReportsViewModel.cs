@@ -28,5 +28,7 @@ namespace CustomerManagementSystem.BLL.ViewModels.ReportsViewModel
         public DateTime? todate { get; set; }
 
         public ReportType ReportType { get; set; }
+
+        public string ActionTypes { get; set; }
     }
 }
