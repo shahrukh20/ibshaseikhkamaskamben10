@@ -125,11 +125,11 @@ where 1=1
             }
             if (dealReportViewModel.fromdate.HasValue)
             {
-                query += " and  cast (lp.Updated_Datetime as DATE)  BETWEEN '" + dealReportViewModel.fromdate + "'";
+                query += " and  cast (isnull(lp.Updated_Datetime,cast (GETDATE() as DATE)) as DATE)  BETWEEN '" + dealReportViewModel.fromdate + "'";
             }
             else
             {
-                query += " and  cast (lp.Updated_Datetime as DATE)  BETWEEN '1/1/1990 12:00:00 AM'";
+                query += " and  cast (isnull(lp.Updated_Datetime,cast (GETDATE() as DATE)) as DATE)  BETWEEN '1/1/1990 12:00:00 AM'";
             }
             if (dealReportViewModel.todate.HasValue)
             {

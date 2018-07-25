@@ -82,12 +82,23 @@ namespace CRM.Controllers
         }
         public JsonResult LoadPropertyMasterData()
         {
-            List<PropertyTypeT> PropertyTypes = new List<PropertyTypeT>();
-            PropertyTypes.Add(new PropertyTypeT() { Id = "", Name = "select" });
-            PropertyTypes.Add(new PropertyTypeT() { Id = "Commercial", Name = "Commercial" });
-            PropertyTypes.Add(new PropertyTypeT() { Id = "Residential", Name = "Residential" });
+            //List<PropertyTypeT> PropertyTypes = new List<PropertyTypeT>();
+            //var PropertyType = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from propertytypes").ToList();
+            //PropertyTypes.Add(new PropertyTypeT() { Id = "", Name = "select" });
+            //foreach (var item in PropertyType)
+            //{
+            //    PropertyTypes.Add(new PropertyTypeT() { Id = item.Text, Name = item.Text });
+            //}
+
+
+
             //List<CityList> CityLists = new List<City>();
             //var CityLists = new  = db.Cities.Select(i => new { i.CityId, i.CityName }).ToList();
+            var PropertyType = new List<SelectListItem>();
+            PropertyType.Add(new SelectListItem() { Text = "Select", Value = "" });
+            PropertyType.AddRange(db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from propertytypes").ToList());
+
+
             var CityLists = new List<SelectListItem>();
             CityLists.Add(new SelectListItem() { Text = "Select", Value = "" });
             CityLists.AddRange(db.Database.SqlQuery<SelectListItem>("select convert(varchar,CityId) as Value, CityName as Text from Cities").ToList());
@@ -106,7 +117,7 @@ namespace CRM.Controllers
             //        Id = item.Id
             //    });
             //}
-            return Json(new { PropertyTypes, CityLists, AreaList }, JsonRequestBehavior.AllowGet);
+            return Json(new {  CityLists, AreaList, PropertyType }, JsonRequestBehavior.AllowGet);
 
         }
         public JsonResult LoadPropertyMasterList()
@@ -159,6 +170,8 @@ namespace CRM.Controllers
         // GET: PropertyMasters/Create
         public ActionResult Create()
         {
+            ViewBag.PropertyType = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from propertytypes").ToList();
+
             // bindProperMasterDropDowns();
             ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
             ViewBag.City = new List<SelectListItem>();
@@ -190,7 +203,7 @@ namespace CRM.Controllers
                         ImageJson.ImageNames.Add(item.FileName);
                     }
                     propertyMaster.ImageJson = JsonConvert.SerializeObject(ImageJson);
-                    
+
                 }
                 propertyMaster.Status = "Available";
                 db.PropertyMaster.Add(propertyMaster);
@@ -217,14 +230,29 @@ namespace CRM.Controllers
             }
             PropertyMaster propertyMaster = db.PropertyMaster.Find(id);
             ViewBag.Status = propertyMaster.Status == "Available" ? true : false;
-            ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
+            try
+            {
+                ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries where countryid=" + propertyMaster.Country).ToList();
+                ViewBag.PropertyType = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from propertytypes").ToList();
 
-            //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
+                //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
 
-            ViewBag.City = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CityId) as Value, CityName as Text from Cities where countryid=" + propertyMaster.Country).ToList();
+                ViewBag.City = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CityId) as Value, CityName as Text from Cities where countryid=" + propertyMaster.Country).ToList();
 
-            ViewBag.Area = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,AreaId) as Value, AreaName as Text from Areas where cityid=" + propertyMaster.City).ToList();
+                ViewBag.Area = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,AreaId) as Value, AreaName as Text from Areas where cityid=" + propertyMaster.City).ToList();
+            }
+            catch
+            {
+                ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
 
+                //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
+
+                ViewBag.City = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CityId) as Value, CityName as Text from Cities").ToList();
+
+                ViewBag.Area = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,AreaId) as Value, AreaName as Text from Areas").ToList();
+
+
+            }
 
             ImageJson img = new ImageJson();
             if (propertyMaster.ImageJson == null || propertyMaster.ImageJson == "1")
@@ -250,7 +278,18 @@ namespace CRM.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "PropertyMasterId,PropertyName,Country,City,Area,PropertyType,PropertyDetail,PlotNo,PlotArea,BuiltUpArea,CommercialArea,ResidentialArea,NoOfFloors,PropertyOwnerName,ContactNumber,SellingPrice,ImageJson,CurrencyId,Status")] PropertyMaster propertyMaster, IEnumerable<HttpPostedFileBase> images, string dltimg)
         {
-            bindProperMasterDropDowns();
+            ViewBag.CurrencyId = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from Currencies").ToList();
+            ViewBag.Status = propertyMaster.Status == "Available" ? true : false;
+            ViewBag.Country = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CountryId) as Value, CountryName as Text from Countries").ToList();
+
+            //db.Countries.Select(i => new { i.CountryId, i.CountryName }).ToList();
+
+            ViewBag.City = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,CityId) as Value, CityName as Text from Cities where countryid=" + propertyMaster.Country).ToList();
+
+            ViewBag.Area = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,AreaId) as Value, AreaName as Text from Areas where cityid=" + propertyMaster.City).ToList();
+            ViewBag.PropertyType = db.Database.SqlQuery<SelectListItem>("select convert(nvarchar,Id) as Value, Name as Text from propertytypes").ToList();
+
+            //            bindProperMasterDropDowns();
             if (ModelState.IsValid)
             {
                 ImageJson ImageJson = new ImageJson();

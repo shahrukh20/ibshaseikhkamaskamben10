@@ -87,7 +87,7 @@
                                             <td>Deal# @item.leadPool.Id</td>
                                             @*<td>@item.leadPool.Lead_Remarks</td>*@
                                             <td>@(item.NextActionDate == null ? "New" : item.StatusType.Status1)</td>
-                                            <td>@(item.NextActionTime == null ? 0 : item.TotalLeadScore)</td>
+                                            <td>@(item.NextActionTime == null ? "0:00" : item.NextActionTime)</td>
                                         </tr>
                                     }
                                 }
