@@ -379,11 +379,27 @@ where lsf.StatusField not in (4,5) and lsf.statusEnum in (1,2,3,4)").ToList();
             }
         }
         [HttpPost]
-        public string RevenueBy()
+        public JsonResult RevenueBy()
         {
-            return @" data1: [30, 20, 50, 40, 60, 50],
-            data2: [200, 130, 90, 240, 130, 220],
-            data3: [300, 200, 160, 400, 250, 250]";
+            List<List<string>> ab = new List<List<string>>();
+            List<string> test = new List<string>();
+            test.Add("10");
+            test.Add("20");
+            test.Add("30");
+            test.Add("40");
+            test.Add("50");
+            List<string> test2 = new List<string>();
+            test2.Add("200");
+            test2.Add("130");
+            test2.Add("90");
+            test2.Add("220");
+            test2.Add("50");
+            ab.Add(test);
+            ab.Add(test2);
+            return Json(ab, JsonRequestBehavior.AllowGet);
+            //return @" data1: [30, 20, 50, 40, 60, 50],
+            //data2: [200, 130, 90, 240, 130, 220],
+            //data3: [300, 200, 160, 400, 250, 250]";
         }
 
         public ActionResult CampaignReports()

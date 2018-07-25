@@ -63,13 +63,13 @@
                         <div class="col-md-4">
                             @*@Html.CheckBox("ShowInFunnel", false )*@
                             @*<input type="checkbox" id="ShowInFunnel" name="ShowInFunnel" />*@
-                            @Html.CheckBoxFor(model => model.ShowInFunnel,  new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.CheckBoxFor(model => model.ShowInFunnel ,  new { @class = "" ,@onchange= "Funnel()"  })
                             @*@Html.EditorFor(model => model.ShowInFunnel, new { htmlAttributes = new { @class = "form-control", @type = "number" } })*@
                             @Html.ValidationMessageFor(model => model.ShowInFunnel, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div>
+                    <div id="hideshow" style="display:none">
                         <div class="form-group">
                             <label class="col-md-2">
                                 Order No:
@@ -113,13 +113,17 @@
 }
 <script src="~/Content/jsColor/jscolor.js"></script>
 <script>
-    
+    function Funnel() {
+        debugger;
+        if ($('#ShowInFunnel')[0].checked) {
+            $('#hideshow').show();
+        }
+        else {
+            $('#hideshow').hide();
+        }
+    }
     $(document).ready(function () {
-        $("#ShowInFunnel").change(function () {
-            if (this.checked) {
-                //Do stuff
-            }
-        });
+        $('#ShowInFunnel').on('ifChanged', function (event) { Funnel(); });
     });
 </script>
 
