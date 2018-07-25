@@ -61,11 +61,11 @@
 
 <script>
 
-    //$(document).ready(function () {
+    $(document).ready(function () {
 
-    //    Generate();
+        Generate();
 
-    //})
+    })
     //var chart = c3.generate({
     //    data: {
     //        url: "../Reports/RevenueBy",
@@ -103,7 +103,8 @@
     //        });
     //    }
 
-    function Generate() {
+    function Generate()
+    {
         var chart = c3.generate({
             data: {
                 json: {
@@ -113,11 +114,9 @@
                 }
             }
         });
-        
         $.ajax({
             type: "POST",
             url: "../Reports/RevenueBy",
-            data: { datefrom: $('#fromdate').val(), dateto: $('#todate').val() }, 
             dataType: "text",
             async: false,
             success: function (data1) {
@@ -125,8 +124,9 @@
                 c3.generate({
                     data: {
                         json: {
-
-                            Revenue: JSON.parse(data1)[0]
+                        
+                            data1: JSON.parse(data1)[0],
+                            data2: JSON.parse(data1)[1],
                         }
                     }
                 });
@@ -134,12 +134,13 @@
                 //chart.load({
                 //    columns: [
                 //       JSON.parse(data1),
-
+                            
                 //    ]
                 //});
 
             },
-            error: function (data1) {
+            error: function (data1)
+            {
                 c3.generate({
                     data: {
                         json: {
